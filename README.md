@@ -1,11 +1,10 @@
 # daily-voiding
+
 O TCC aborda o desenvolvimento de um Diário Miccional, destinado a indivíduos com bexiga imperativa. Essa solução oferece um registro prático e eficaz dos padrões urinários, auxiliando tanto pacientes quanto médicos a entender e gerenciar melhor a condição. Um passo importante em direção ao bem-estar e qualidade de vida.
-
-
 
 Aqui estão os requisitos divididos em duas seções: "Usuário" e "Médico", de acordo com a descrição do seu TCC sobre um diário miccional:
 
-### Requisitos para o Usuário:
+### Requisitos para o Usuário
 
 1. **Registro e Autenticação:**
    - O sistema deve permitir que o usuário crie uma conta com um login e senha.
@@ -32,7 +31,7 @@ Aqui estão os requisitos divididos em duas seções: "Usuário" e "Médico", de
    - Os usuários devem poder visualizar todos os episódios miccionais registrados.
    - Eles devem ter a opção de ordenar os episódios por data ou urgência.
 
-### Requisitos para o Médico:
+### Requisitos para o Médico
 
 1. **Acesso de Médico:**
    - O sistema deve oferecer um login de administrador para os médicos.
@@ -44,3 +43,4 @@ Aqui estão os requisitos divididos em duas seções: "Usuário" e "Médico", de
 3. **Visualização Gráfica Comparativa:**
    - Deve haver uma visualização gráfica comparativa que mostre a quantidade de água ingerida (linha azul) em relação à quantidade de urina por micção (linha amarela), com o eixo X representando a data em ordem crescente.
 
+'
