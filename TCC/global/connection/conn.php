@@ -2,8 +2,8 @@
 
 $localhost = "localhost";
 $host = "root";
-$database = "information";
-$pass = "";
+$database = "dados";
+$pass = "mysql321";
 $pdo;
 
 try {

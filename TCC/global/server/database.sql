@@ -1,6 +1,6 @@
-CREATE DATABASE information;
+CREATE DATABASE dados;
 
-USE information;
+USE dados;
 
 CREATE TABLE
     login_in(
@@ -24,14 +24,13 @@ CREATE TABLE
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
         name_medico VARCHAR (30) NOT NULL,
         CMR VARCHAR(15),
-        password_medico VARCHAR(225),
         id_paciente INT NOT NULL,
         id_usuario INT NOT NULL,
         FOREIGN KEY fk_usuario(id_usuario) REFERENCES usuario(id)
     );
 
 CREATE TABLE
-    paciente(
+    pacientes(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
         name_Paciente VARCHAR(30) NOT NULL,
         idade INT NOT NULL,

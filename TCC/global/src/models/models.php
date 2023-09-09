@@ -24,6 +24,18 @@ class Login
     {
         return $this->confirmation;
     }
+    public function setEmail($newEmail)
+    {
+        $this->email = $newEmail;
+    }
+    public function setSenha($newSenha)
+    {
+        $this->senha = ($newSenha);
+    }
+    public function setConfirmation($newConfirmation)
+    {
+        $this->confirmation = $newConfirmation;
+    }
 }
 
 class Usuario extends Login
@@ -48,29 +60,44 @@ class Usuario extends Login
     {
         return $this->phone;
     }
+    public function setPhone($newPhone)
+    {
+        $this->phone = $newPhone;
+    }
+    public function setName($newName)
+    {
+        $this->name_usuario = $newName;
+    }
 }
-
 
 class Medico extends Usuario
 {
     public $name_medico;
     private $cmr;
-    private $senha;
     public $idPaciente;
 
 
 
-    public function __construct($name_medico, $name_usuario, $phone, $cmr, $senha, $confirmation, $idPaciente)
+    public function __construct($name_medico, $phone, $email, $cmr, $idPaciente, $name_usuario, $senha, $confirmation)
     {
         $this->name_medico = $name_medico;
         $this->cmr->$cmr;
-        $this->senha->$senha;
         $this->idPaciente->$idPaciente;
 
-        parent::__construct($name_usuario, $phone, $name_usuario, $senha, $confirmation);
+        parent::__construct($name_usuario, $phone, $email, $senha, $confirmation);
     }
 
-    public function getName()
+    // public static function __construct2($name_medico, $cmr, $idPaciente, $name_usuario, $phone, $senha, $confirmation,)
+    // {
+    //     $instance = new self($name_medico, $cmr, $idPaciente);
+
+    //     $instance->$name_usuario = $name_usuario;
+    //     $instance->$phone =  $phone;
+    //     $instance->$senha = $senha;
+    //     $instance->$confirmation = $confirmation;
+    // }
+
+    public function getName_medico()
     {
         return $this->name_medico;
     }
@@ -78,9 +105,21 @@ class Medico extends Usuario
     {
         return $this->cmr;
     }
-    public function getidPaciente()
+    public function getId_Paciente()
     {
         return $this->idPaciente;
+    }
+    public function setName_medico($new_name_medico)
+    {
+        $this->name_medico = $new_name_medico;
+    }
+    public function setcmr($new_cmr)
+    {
+        $this->cmr = $new_cmr;
+    }
+    public function setIdPaciente($new_id_paciente)
+    {
+        $this->idPaciente = $new_id_paciente;
     }
 }
 class Paciente extends Usuario
@@ -91,7 +130,7 @@ class Paciente extends Usuario
     private $CPF;
     public $idMedico;
 
-    function __construc($name_Paciente, $name_usuario, $phone, $email, $senha, $confirmation, $idade, $sexo, $CPF, $idMedico)
+    function __construct($name_Paciente, $name_usuario, $phone, $senha, $confirmation, $email, $idMedico, $idade, $sexo, $CPF,)
     {
 
         $this->$name_Paciente = $name_Paciente;
@@ -136,7 +175,7 @@ class Miccao extends Paciente
     public $data;
     public $volume_Urinado;
 
-    function __construct($normal, $urgencia, $desconfortavel, $horário, $data, $volume_Urinado, $name_Paciente, $idade, $sexo, $CPF, $idMedico)
+    function __construct($name_Paciente, $id_usuario, $phone, $idade, $sexo, $idMedico, $CPF, $normal, $urgencia, $desconfortavel, $horário, $data, $volume_Urinado, $senha, $confirmation)
     {
         $this->normal = $normal;
         $this->urgencia = $urgencia;
@@ -145,8 +184,9 @@ class Miccao extends Paciente
         $this->data = $data;
         $this->volume_Urinado = $volume_Urinado;
 
-        parent::__construct($name_Paciente, $idade, $sexo, $CPF, $idMedico);
+        parent::__construct($name_Paciente, $id_usuario, $phone, $idade, $sexo, $idMedico, $CPF, $senha, $confirmation, $idade,);
     }
+
 
     public function getNormal()
     {
@@ -173,7 +213,6 @@ class Miccao extends Paciente
         return $this->volume_Urinado;
     }
 }
-
 
 // $joao = new Usuario("marcio", "11993940869", "marciocaldasvieira@outlook.com", "1234");
 
