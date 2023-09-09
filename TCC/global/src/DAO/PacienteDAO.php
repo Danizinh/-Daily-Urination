@@ -25,6 +25,7 @@ class PacienteDAO
         $stmt->bindParam(':name_paciente', $paciente['name_paciente']);
         $stmt->bindParam(':idade', $paciente['idade']);
         $stmt->bindParam(':sexo', $paciente['sexo']);
+        $stmt->bindParam(':CPF', $paciente['CPF']);
         $stmt->bindParam(':id_medico', $paciente['id_medico']);
         $stmt->bindParam(':id_usuario', $paciente['id_usuario']);
 
@@ -35,13 +36,15 @@ class PacienteDAO
 
     public function atulizarPacientes($paciente)
     {
-        $sql = "UPDATE pacientes SET name_paciente= :name_paciente,idade=:idade,sexo=:sexo,id_usuario=:id_usuario WHERE id =:id";
+        $sql = "UPDATE pacientes SET name_paciente= :name_paciente,idade=:idade,sexo=:sexo,CPF=:CPF,id_medico=:id_medico id_usuario =:id_usuario WHERE id =:id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':name_paciente', $paciente['name_pacientes']);
+        $stmt->bindParam(':id', $paciente['id']);
+        $stmt->bindParam(':name_paciente', $paciente['name_paciente']);
         $stmt->bindParam(':idade', $paciente['idade']);
         $stmt->bindParam(':sexo', $paciente['sexo']);
+        $stmt->bindParam(':CPF', $paciente['CPF']);
+        $stmt->bindParam(':id_medico', $paciente['id_medico']);
         $stmt->bindParam(':id_usuario', $paciente['id_usuario']);
-        $stmt->bindParam(':id', $paciente['id']);
         if ($stmt->execute()) {
             return "200 OK";
         }

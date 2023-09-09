@@ -32,7 +32,7 @@ CREATE TABLE
 CREATE TABLE
     pacientes(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        name_Paciente VARCHAR(30) NOT NULL,
+        name_paciente VARCHAR(30) NOT NULL,
         idade INT NOT NULL,
         sexo VARCHAR(1),
         CPF VARCHAR (11) NOT NULL,
@@ -49,7 +49,9 @@ CREATE TABLE
         desconfortavel VARCHAR(1),
         horario HOUR,
         data DATE,
-        volume_Urinado INT NOT NULL,
+        volumeUrinado INT NOT NULL,
         id_paciente INT NOT NULL,
         FOREIGN KEY fk_paciente(id_paciente) REFERENCES paciente(id)
     );
+
+DROP TABLE login_in;

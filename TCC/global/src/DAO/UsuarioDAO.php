@@ -20,6 +20,7 @@ class UsuarioDAO
         VALUE(:id,:name_usuario,:phone,:id_login)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $usuario['id']);
+        $stmt->bindParam(':name_usuario', $usuario['name_usuario']);
         $stmt->bindParam(':phone', $usuario['phone']);
         $stmt->bindParam(':id_login', $usuario['id_login']);
         if ($stmt->execute()) {

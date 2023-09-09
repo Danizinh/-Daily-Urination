@@ -3,7 +3,6 @@
 class MiccaoDAO
 {
     private $pdo;
-
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -22,7 +21,7 @@ class MiccaoDAO
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(":id", $miccao['id']);
         $stmt->bindParam(":normal", $miccao['normal']);
-        $stmt->bindParam(":urgente", $miccao['urgente']);
+        $stmt->bindParam(":urgencia", $miccao['urgencia']);
         $stmt->bindParam(":desconfortavel", $miccao['desconfortavel']);
         $stmt->bindParam(":horario", $miccao['horario']);
         $stmt->bindParam(":data", $miccao['data']);
@@ -35,7 +34,7 @@ class MiccaoDAO
 
     public function atualizarMiccao($miccao)
     {
-        $sql = "UPDATE miccao SET normal = :normal, urgente =:urgente,desconfortavel =:desconfortavel,horario = :horario, data = :data, volumeUrinado= :volumeUrinado, id_paciente= :id_paciente WHERE id=:id";
+        $sql = "UPDATE miccao SET normal = :normal, urgencia =:urgencia,desconfortavel =:desconfortavel,horario = :horario, data = :data, volumeUrinado= :volumeUrinado, id_paciente= :id_paciente WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(":id", $miccao['id']);
         $stmt->bindParam(":normal", $miccao['normal']);

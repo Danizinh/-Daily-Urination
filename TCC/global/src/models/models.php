@@ -164,8 +164,6 @@ class Paciente extends Usuario
     }
 }
 
-
-
 class Miccao extends Paciente
 {
     public $normal;

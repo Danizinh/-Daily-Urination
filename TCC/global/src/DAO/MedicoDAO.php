@@ -16,7 +16,7 @@ class MedicoDAO
     }
     public function inserirMedico($medico)
     {
-        $sql = "INSERT INTO medico(id,name_medico,CRM,password_medico,id_paciente,id_usuario)
+        $sql = "INSERT INTO medico(id,name_medico,CRM,id_paciente,id_usuario)
         VALUES (:id,:name_medico,:CRM,:id_paciente,:id_usuario)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $medico['id']);
