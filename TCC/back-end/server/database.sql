@@ -3,19 +3,54 @@ CREATE DATABASE information;
 USE information;
 
 CREATE TABLE
-    paciente(
+    login_in(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        nome VARCHAR (50) UNIQUE NOT NULL,
-        email VARCHAR (128),
-        phone VARCHAR(100),
-        CPF VARCHAR(11) UNIQUE,
-        address VARCHAR(50)
+        email VARCHAR(50) UNIQUE,
+        password VARCHAR(225),
+        confirmation VARCHAR(255)
+    );
+
+CREATE TABLE
+    usuario(
+        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        name_usuario VARCHAR (30) NOT NULL,
+        phone VARCHAR(16),
+        id_login INT NOT NULL,
+        FOREIGN KEY fk_login(id_login) REFERENCES login_in(id)
     );
 
 CREATE TABLE
     medico(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        nome VARCHAR (30) UNIQUE NOT NULL,
-        paciente_id INT NOT NULL,
-        FOREIGN KEY fk_pacientes(paciente_id) REFERENCES paciente(id)
+        name_medico VARCHAR (30) NOT NULL,
+        CMR VARCHAR(15),
+        password_medico VARCHAR(225),
+        id_paciente INT NOT NULL,
+        id_usuario INT NOT NULL,
+        FOREIGN KEY fk_usuario(id_usuario) REFERENCES usuario(id)
+    );
+
+CREATE TABLE
+    paciente(
+        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        name_Paciente VARCHAR(30) NOT NULL,
+        idade INT NOT NULL,
+        sexo VARCHAR(1),
+        CPF VARCHAR (11) NOT NULL,
+        id_medico INT NOT NULL,
+        id_usuario INT NOT NULL,
+        FOREIGN KEY fk_usuario(id_usuario) REFERENCES usuario(id)
+    );
+
+CREATE TABLE
+    miccao(
+        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        normal VARCHAR(30) NOT NULL,
+        urgencia INT NOT NULL,
+        desconfortavel VARCHAR(1),
+        horario HOUR,
+        data DATE,
+        volume_Urinado INT NOT NULL,
+        id_paciente INT NOT NULL,
+        FOREIGN KEY fk_paciente(id_paciente) REFERENCES paciente(id)
     );
