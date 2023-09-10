@@ -3,7 +3,7 @@
 $localhost = "localhost";
 $host = "root";
 $database = "dados";
-$pass = "mysql321";
+$pass = "";
 $pdo;
 
 try {
