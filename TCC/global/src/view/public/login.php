@@ -30,9 +30,9 @@
                     <input type="password" placeholder="**********" id="passwordForm" autocomplete="off" required>
                 </div>
                 <div class="form-item-other">
-                    <a href="#">Esqueci a minha senha!</a>
+                    <a href="../public/forgot-password.php">Esqueci a minha senha!</a>
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit" name="submit">Sign In</button>
             </form>
             <div class="card-footer">
                 Não tem uma conta?<a href="../public/cadastro.php">Criar uma conta gratuita.</a>

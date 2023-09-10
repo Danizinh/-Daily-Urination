@@ -18,30 +18,16 @@
     <div class="card-container">
         <div class="card">
             <div class="card-header">
-                <h1>Cadastro</h1>
+                <h1>Recuperacao de Senha</h1>
             </div>
             <form class="card-form" action="" method="POST">
-                <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="text" name="name" placeholder="Gabriela" id="emailForm" autocomplete="off" required>
-                </div>
+
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
-                <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="date" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
-                </div>
-                <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="password" placeholder="**********" id="passwordForm" autocomplete="off" required>
-                </div>
-                <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="confimation" placeholder="**********" id="passwordForm" autocomplete="off" required>
-                </div>
-                <button type="submit" name="submit">Sign In</button>
+
+                <button type="submit" name="submit">Enviar</button>
             </form>
             <div class="card-footer">
                 Não tem uma conta?<a href="../public/login.php"> Faça seu login.</a>
