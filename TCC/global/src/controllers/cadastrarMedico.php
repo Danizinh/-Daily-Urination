@@ -1,12 +1,10 @@
 <?php
 require "../models/models.php";
 require "../DAO/MedicoDAO.php";
+require "../../connection/conn.php";
 
-function cadastrarMedico($name_medico, $cmr, $idPaciente)
-{
-    $medico = new Medico($name_medico, $cmr, $idPaciente);
 
-    $result = inserirMedico($medico);
-
-    return $result;
-}
+$medico = new Medico($_POST['name_medico'], $_POST['cmr'], $_POST['idPaciente']);
+$medicoDAO = new MedicoDAO($pdo);
+$result = $medicoDAO->inserirMedico($medico);
+return $result;
