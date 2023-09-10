@@ -78,24 +78,23 @@ class Medico extends Usuario
 
 
 
-    public function __construct($name_medico, $phone, $email, $cmr, $idPaciente, $name_usuario, $senha, $confirmation)
+    public function __construct($name_medico, $cmr, $idPaciente)
     {
         $this->name_medico = $name_medico;
         $this->cmr->$cmr;
         $this->idPaciente->$idPaciente;
-
-        parent::__construct($name_usuario, $phone, $email, $senha, $confirmation);
     }
 
-    // public static function __construct2($name_medico, $cmr, $idPaciente, $name_usuario, $phone, $senha, $confirmation,)
-    // {
-    //     $instance = new self($name_medico, $cmr, $idPaciente);
+    public static function __construct2($name_medico, $cmr, $idPaciente, $name_usuario, $phone, $senha, $confirmation, $email)
+    {
+        $instance = new self($name_medico, $cmr, $idPaciente);
 
-    //     $instance->$name_usuario = $name_usuario;
-    //     $instance->$phone =  $phone;
-    //     $instance->$senha = $senha;
-    //     $instance->$confirmation = $confirmation;
-    // }
+        $instance->$name_usuario = $name_usuario;
+        $instance->$phone =  $phone;
+        $instance->$senha = $senha;
+        $instance->$email = $email;
+        $instance->$confirmation = $confirmation;
+    }
 
     public function getName_medico()
     {
