@@ -2,21 +2,14 @@ CREATE DATABASE dados;
 
 USE dados;
 
-CREATE TABLE
-    login_in(
-        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        email VARCHAR(50) UNIQUE,
-        password VARCHAR(225),
-        confirmation VARCHAR(255)
-    );
+CREATE TABLE 
 
 CREATE TABLE
     usuario(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
         name_usuario VARCHAR (30) NOT NULL,
-        phone VARCHAR(16),
-        id_login INT NOT NULL,
-        FOREIGN KEY fk_login(id_login) REFERENCES login_in(id)
+        email VARCHAR (50) UNIQUE,
+        senha VARCHAR(255)
     );
 
 CREATE TABLE

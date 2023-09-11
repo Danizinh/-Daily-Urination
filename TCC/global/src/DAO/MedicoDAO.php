@@ -31,7 +31,7 @@ class MedicoDAO
     }
     public function atulizarMedico($medico)
     {
-        $sql = "UPDATE pacientes SET name_medico = :name_medico, CRM = :CRM,id_paciente = :id_paciente,id_usuario =:id_usuario WHERE id = :id";
+        $sql = "UPDATE medico SET name_medico = :name_medico, CRM = :CRM,id_paciente = :id_paciente,id_usuario =:id_usuario WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $medico['id']);
         $stmt->bindParam(':name_medico', $medico['name_medico']);

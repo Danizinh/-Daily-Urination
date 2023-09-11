@@ -11,7 +11,7 @@ class PacienteDAO
 
     public function listarPacientes()
     {
-        $sql = "SELECT * FROM medico";
+        $sql = "SELECT * FROM pacientes";
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -51,7 +51,7 @@ class PacienteDAO
     }
     public function execluirPaciente($id)
     {
-        $sql = "DELETE FROM paciente WHERE id :id";
+        $sql = "DELETE FROM pacientes WHERE id :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         if ($stmt->execluir()) {
