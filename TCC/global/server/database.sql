@@ -1,50 +1,46 @@
-CREATE DATABASE dados;
+CREATE DATABASE IF NOT EXISTS dados;
 
 USE dados;
 
-CREATE TABLE 
-
 CREATE TABLE
-    usuario(
-        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        name_usuario VARCHAR (30) NOT NULL,
-        email VARCHAR (50) UNIQUE,
+    IF NOT EXISTS usuario (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name_usuario VARCHAR(30) NOT NULL,
+        email VARCHAR(50) UNIQUE,
         senha VARCHAR(255)
     );
 
 CREATE TABLE
-    medico(
-        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        name_medico VARCHAR (30) NOT NULL,
+    IF NOT EXISTS medico (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name_medico VARCHAR(30) NOT NULL,
         CMR VARCHAR(15),
         id_paciente INT NOT NULL,
         id_usuario INT NOT NULL,
-        FOREIGN KEY fk_usuario(id_usuario) REFERENCES usuario(id)
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id)
     );
 
 CREATE TABLE
-    pacientes(
-        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    IF NOT EXISTS pacientes (
+        id INT AUTO_INCREMENT PRIMARY KEY,
         name_paciente VARCHAR(30) NOT NULL,
         idade INT NOT NULL,
         sexo VARCHAR(1),
-        CPF VARCHAR (11) NOT NULL,
+        CPF VARCHAR(11) NOT NULL,
         id_medico INT NOT NULL,
         id_usuario INT NOT NULL,
-        FOREIGN KEY fk_usuario(id_usuario) REFERENCES usuario(id)
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id)
     );
 
 CREATE TABLE
-    miccao(
-        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    IF NOT EXISTS miccao (
+        id INT AUTO_INCREMENT PRIMARY KEY,
         normal VARCHAR(30) NOT NULL,
-        urgencia INT NOT NULL,
-        desconfortavel VARCHAR(1),
-        horario HOUR,
+        urgencia VARCHAR(30) NOT NULL,
+        desconfortavel VARCHAR(30) NOT NULL,
+        horario TIME,
         data DATE,
         volumeUrinado INT NOT NULL,
         id_paciente INT NOT NULL,
-        FOREIGN KEY fk_paciente(id_paciente) REFERENCES paciente(id)
+        FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
     );
-
-DROP TABLE login_in;
