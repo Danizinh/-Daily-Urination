@@ -1,5 +1,5 @@
 <?php
-
+require("../models/Paciente.php");
 class Miccao extends Paciente
 {
     private $normal;
@@ -18,19 +18,17 @@ class Miccao extends Paciente
         $this->data = $data;
         $this->volume_Urinado = $volume_Urinado;
     }
-    public static function __construct3($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado, $name_Paciente, $id_usuario, $phone, $idade, $sexo, $idMedico, $CPF, $senha)
+    public static function __construct3($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado, $id, $idade, $sexo, $idMedico, $CPF, $senha_crypt)
     {
 
         $instance = new self($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado);
 
-        $instance->$name_Paciente = $name_Paciente;
-        $instance->$id_usuario = $id_usuario;
-        $instance->$phone = $phone;
+        $instance->$id = $id;
         $instance->$sexo = $sexo;
         $instance->$idade = $idade;
         $instance->$idMedico = $idMedico;
         $instance->$CPF = $CPF;
-        $instance->$senha = $senha;
+        $instance->$senha_crypt = $senha_crypt;
     }
 
 

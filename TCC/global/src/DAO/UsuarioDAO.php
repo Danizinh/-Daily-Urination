@@ -1,7 +1,7 @@
 <?php
 class UsuarioDAO
 {
-    private $pdo;
+    public $pdo;
 
     public function __construct($pdo)
     {
@@ -16,26 +16,25 @@ class UsuarioDAO
     }
     public function inserirUsuario($usuario)
     {
-        $sql = "INSERT INTO usuario(id,name_usuario,phone,id_login)
+        $sql = "INSERT INTO usuarios(id,name,email,senha_crypt)
         VALUE(:id,:name_usuario,:phone,:id_login)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $usuario['id']);
         $stmt->bindParam(':name_usuario', $usuario['name_usuario']);
-        $stmt->bindParam(':phone', $usuario['phone']);
-        $stmt->bindParam(':id_login', $usuario['id_login']);
+        $stmt->bindParam(':email', $usuario['email']);
+        $stmt->bindParam(':senha_crypt', $usuario['senha_crypt']);
         if ($stmt->execute()) {
             return "200 OK";
         }
     }
     public function atualizarUsuario($usuario)
     {
-        $sql = "UPDATE usuario SET name_usuario = :name_usuario,phone = :phone, id_login= :id_login WHERE id = id";
+        $sql = "UPDATE usuario SET id = :id name_usuario = :name_usuario, email= :email WHERE id = id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':name_usuario', $usuario['name_usuario']);
-        $stmt->bindParam(':phone', $usuario['phone']);
-        $stmt->bindParam(':id_login', $usuario['id_login']);
         $stmt->bindParam(':id', $usuario['id']);
-        return $stmt->execute();
+        $stmt->bindParam(':name_usuario', $usuario['name_usuario']);
+        $stmt->bindParam(':email', $usuario['email']);
+        $stmt->execute();
     }
 
     public function excluirUsuario($id)
@@ -43,6 +42,48 @@ class UsuarioDAO
         $sql = "DELETE FROM usuario WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+        $stmt->execute();
+    }
+    public function efetuarLogin($email, $senha_crypt)
+    {
+        $sql = "SELECT * FROM usuario WHERE email =:email and senha_crypt =:senha_crypt";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':senha_crypt', $senha_crypt);
+        if ($stmt->execute()) {
+
+            if ($stmt->rowCount() > 0) {
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                return new Usuario(
+                    $user['id'],
+                    $user['name_usuario'],
+                    $user['email'],
+                    $user['senha_crypt'],
+                );
+            } else {
+                return "Usuário nao encontrado";
+            }
+        }
+    }
+    public function efetuarRegistro($name, $email, $senha_crypt)
+    {
+        $sql = ("SELECT * FROM usuarios WHERE email = :email");
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() <= 0) {
+                $sql = "INSERT INTO usuarios (name,email,senha_crypt)
+                VALUES(:name,:email,:senha_crypt)";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindValue(':name', $name);
+                $stmt->bindValue(':email', $email);
+                $stmt->bindValue(':senha_crypt', $senha_crypt);
+                if ($stmt->execute()) {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        }
     }
 }

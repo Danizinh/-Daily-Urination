@@ -1,5 +1,4 @@
 <?php
-
 class MedicoDAO
 {
     private $pdo;
@@ -16,35 +15,31 @@ class MedicoDAO
     }
     public function inserirMedico($medico)
     {
-        $sql = "INSERT INTO medico(id,name_medico,CRM,id_paciente,id_usuario)
-        VALUES (:id,:name_medico,:CRM,:id_paciente,:id_usuario)";
+        $sql = "INSERT INTO medico(id,CRM,id_usuario)
+        VALUES (:id,:name_medico,:CRM,:id_usuario)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $medico['id']);
-        $stmt->bindParam(':name_medico', $medico['name_medico']);
         $stmt->bindParam(':CRM', $medico['CRM']);
-        $stmt->bindParam(':id_paciente', $medico['id_paciente']);
         $stmt->bindParam(':id_usuario', $medico['id_usuario']);
 
         if ($stmt->execute()) {
             return "200 OK";
         }
     }
-    public function atulizarMedico($medico)
+    public function atualizarMedico($medico)
     {
-        $sql = "UPDATE medico SET name_medico = :name_medico, CRM = :CRM,id_paciente = :id_paciente,id_usuario =:id_usuario WHERE id = :id";
+        $sql = "UPDATE medico SET  CRM = :CRM,id_usuario =:id_usuario WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $medico['id']);
-        $stmt->bindParam(':name_medico', $medico['name_medico']);
         $stmt->bindParam(':CRM', $medico['CRM']);
-        $stmt->bindParam(':id_paciente', $medico['id_paciente']);
         $stmt->bindParam(':id_usuario', $medico['id_usuario']);
-        return $stmt->execute();
+        $stmt->execute();
     }
     public function excluirMedico($id)
     {
         $sql = "DELETE FROM medico WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+        $stmt->execute();
     }
 }

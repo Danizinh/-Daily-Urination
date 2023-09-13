@@ -4,7 +4,7 @@ require "../DAO/MedicoDAO.php";
 require "../../connection/conn.php";
 
 
-$medico = new Medico($_POST['name_medico'], $_POST['cmr'], $_POST['idPaciente']);
+$medico = new Medico($_POST['cmr']);
 $medicoDAO = new MedicoDAO($pdo);
 $result = $medicoDAO->inserirMedico($medico);
 return $result;

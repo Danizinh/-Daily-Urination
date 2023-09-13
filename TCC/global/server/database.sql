@@ -3,33 +3,30 @@ CREATE DATABASE IF NOT EXISTS dados;
 USE dados;
 
 CREATE TABLE
-    IF NOT EXISTS usuario (
+    IF NOT EXISTS usuarios (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        name_usuario VARCHAR(30) NOT NULL,
+        name VARCHAR(30) NOT NULL,
         email VARCHAR(50) UNIQUE,
-        senha VARCHAR(255)
+        senha_crypt VARCHAR(255)
     );
 
 CREATE TABLE
     IF NOT EXISTS medico (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        name_medico VARCHAR(30) NOT NULL,
         CMR VARCHAR(15),
-        id_paciente INT NOT NULL,
         id_usuario INT NOT NULL,
-        FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+        FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
     );
 
 CREATE TABLE
     IF NOT EXISTS pacientes (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        name_paciente VARCHAR(30) NOT NULL,
         idade INT NOT NULL,
         sexo VARCHAR(1),
         CPF VARCHAR(11) NOT NULL,
         id_medico INT NOT NULL,
         id_usuario INT NOT NULL,
-        FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+        FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
     );
 
 CREATE TABLE
@@ -44,3 +41,5 @@ CREATE TABLE
         id_paciente INT NOT NULL,
         FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
     );
+
+SELECT * FROM usuarios;

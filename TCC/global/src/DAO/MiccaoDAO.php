@@ -1,5 +1,4 @@
 <?php
-
 class MiccaoDAO
 {
     private $pdo;
@@ -48,9 +47,9 @@ class MiccaoDAO
 
     public function excluirMiccao($miccao)
     {
-        $sql = "DELETE miccao WHERE= id=id";
+        $sql = "DELETE miccao WHERE= id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(":id", $miccao['id']);
-        return $stmt->execute();
+        $stmt->execute();
     }
 }

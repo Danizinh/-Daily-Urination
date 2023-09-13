@@ -2,16 +2,16 @@
 class Usuario
 {
     private $id;
-    private $name_usuario;
+    private $name;
     private $email;
-    private $senha;
+    private $senha_crypt;
 
-    function __construct($id, $name_usuario, $email, $senha)
+    function __construct($id, $name, $email, $senha_crypt)
     {
         $this->id = $id;
-        $this->name_usuario = $name_usuario;
+        $this->name = $name;
         $this->email = $email;
-        $this->senha = $senha;
+        $this->senha_crypt = $senha_crypt;
     }
 
     public function getId()
@@ -24,19 +24,19 @@ class Usuario
     }
     public function getName()
     {
-        return $this->name_usuario;
+        return $this->name;
     }
     public function setName($newNome)
     {
-        $this->name_usuario = $newNome;
+        $this->name = $newNome;
     }
     public function getSenha()
     {
-        return $this->senha;
+        return $this->senha_crypt;
     }
     public function setSenha($newSenha)
     {
-        $this->senha = $newSenha;
+        $this->senha_crypt = $newSenha;
     }
 
     public function getEmail()

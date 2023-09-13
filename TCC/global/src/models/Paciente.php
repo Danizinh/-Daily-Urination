@@ -1,42 +1,30 @@
 <?php
 require("../models/Usuario.php");
-require("../models/Medico.php");
-require("../models/Miccao.php.php");
 class Paciente extends Usuario
 {
-    private $name_paciente;
     private $idade;
     private $sexo;
     private $CPF;
     private $idMedico;
 
-    function __construct($name_paciente, $idMedico, $idade, $sexo, $CPF)
+    function __construct($idMedico, $idade, $sexo, $CPF)
     {
 
-        $this->$name_paciente = $name_paciente;
         $this->$idade = $idade;
         $this->$sexo = $sexo;
         $this->$CPF = $CPF;
         $this->$idMedico = $idMedico;
     }
-    public static  function __construct1($name_usuario, $phone, $email, $senha, $name_paciente, $idade, $sexo, $CPF, $idMedico)
+    public static  function __construct1($name, $email, $senha_crypt, $idade, $sexo, $CPF, $idMedico)
     {
-        $instance = new self($name_paciente, $idade, $sexo, $CPF, $idMedico);
+        $instance = new self($idMedico, $idade, $sexo, $CPF);
 
-        $instance->$name_usuario = $name_usuario;
-        $instance->$phone = $phone;
+        $instance->$name = $name;
         $instance->$email = $email;
-        $instance->$senha = $senha;
+        $instance->$senha_crypt = $senha_crypt;
     }
 
-    public function getNome_Paciente()
-    {
-        return $this->name_paciente;
-    }
-    public function setNome_Paciente($new_nome_paciente)
-    {
-        $this->name_paciente = $new_nome_paciente;
-    }
+
     public function getIdade()
     {
         return $this->idade;

@@ -21,12 +21,10 @@
                 <h1>Recuperacao de Senha</h1>
             </div>
             <form class="card-form" action="" method="POST">
-
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
-
                 <button type="submit" name="submit">Enviar</button>
             </form>
             <div class="card-footer">
@@ -34,7 +32,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

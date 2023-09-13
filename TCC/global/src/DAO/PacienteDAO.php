@@ -18,11 +18,10 @@ class PacienteDAO
 
     public function inserirPacientes($paciente)
     {
-        $sql = "INSERT INTO pacientes(id,name_paciente,idade,sexo,CPF,id_medico,id_usuario)
-            VALUES (:id,:name_paciente,:idade,:sexo,:CPF,:id_medico,:id_usuario)";
+        $sql = "INSERT INTO pacientes(id,idade,sexo,CPF,id_medico,id_usuario)
+            VALUES (:id,:idade,:sexo,:CPF,:id_medico,:id_usuario)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $paciente['id']);
-        $stmt->bindParam(':name_paciente', $paciente['name_paciente']);
         $stmt->bindParam(':idade', $paciente['idade']);
         $stmt->bindParam(':sexo', $paciente['sexo']);
         $stmt->bindParam(':CPF', $paciente['CPF']);

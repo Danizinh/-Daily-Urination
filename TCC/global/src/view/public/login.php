@@ -20,14 +20,14 @@
                 <h1>Sign In</h1>
                 <div>Faça login para usar a plataforma</div>
             </div>
-            <form class="card-form" action="" method="POST">
+            <form class="card-form" action="../../controllers/efetuar_login.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
+                    <input name="name_usuario" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" placeholder="**********" id="passwordForm" autocomplete="off" required>
+                    <input type="password" name="senha_crypt" placeholder="**********" id="passwordForm" autocomplete="off" required>
                 </div>
                 <div class="form-item-other">
                     <a href="../public/forgot-password.php">Esqueci a minha senha!</a>
