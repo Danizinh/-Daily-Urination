@@ -10,17 +10,17 @@ class UsuarioDAO
 
     public function listarUsuario()
     {
-        $sql = "SELECT * FROM usuario";
+        $sql = "SELECT * FROM usuarios";
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     public function inserirUsuario($usuario)
     {
         $sql = "INSERT INTO usuarios(id,name,email,senha_crypt)
-        VALUE(:id,:name_usuario,:phone,:id_login)";
+        VALUE(:id,:name,:phone,:id_login)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $usuario['id']);
-        $stmt->bindParam(':name_usuario', $usuario['name_usuario']);
+        $stmt->bindParam(':name', $usuario['name']);
         $stmt->bindParam(':email', $usuario['email']);
         $stmt->bindParam(':senha_crypt', $usuario['senha_crypt']);
         if ($stmt->execute()) {
@@ -29,24 +29,24 @@ class UsuarioDAO
     }
     public function atualizarUsuario($usuario)
     {
-        $sql = "UPDATE usuario SET id = :id name_usuario = :name_usuario, email= :email WHERE id = id";
+        $sql = "UPDATE usuarios SET id = :id name = :name, email= :email WHERE id = id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $usuario['id']);
-        $stmt->bindParam(':name_usuario', $usuario['name_usuario']);
+        $stmt->bindParam(':name', $usuario['name']);
         $stmt->bindParam(':email', $usuario['email']);
         $stmt->execute();
     }
 
     public function excluirUsuario($id)
     {
-        $sql = "DELETE FROM usuario WHERE id=:id";
+        $sql = "DELETE FROM usuarios WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
     public function efetuarLogin($email, $senha_crypt)
     {
-        $sql = "SELECT * FROM usuario WHERE email =:email and senha_crypt =:senha_crypt";
+        $sql = "SELECT * FROM usuarios WHERE email =:email and senha_crypt =:senha_crypt";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':email', $email);
         $stmt->bindValue(':senha_crypt', $senha_crypt);
@@ -56,7 +56,7 @@ class UsuarioDAO
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
                 return new Usuario(
                     $user['id'],
-                    $user['name_usuario'],
+                    $user['name'],
                     $user['email'],
                     $user['senha_crypt'],
                 );

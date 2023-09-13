@@ -16,7 +16,7 @@ class MedicoDAO
     public function inserirMedico($medico)
     {
         $sql = "INSERT INTO medico(id,CRM,id_usuario)
-        VALUES (:id,:name_medico,:CRM,:id_usuario)";
+        VALUES (:id,:CRM,:id_usuario)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $medico['id']);
         $stmt->bindParam(':CRM', $medico['CRM']);
@@ -28,7 +28,7 @@ class MedicoDAO
     }
     public function atualizarMedico($medico)
     {
-        $sql = "UPDATE medico SET  CRM = :CRM,id_usuario =:id_usuario WHERE id = :id";
+        $sql = "UPDATE medico SET CRM = :CRM,id_usuario =:id_usuario WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $medico['id']);
         $stmt->bindParam(':CRM', $medico['CRM']);
