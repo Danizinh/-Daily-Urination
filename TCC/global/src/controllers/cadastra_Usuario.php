@@ -2,7 +2,6 @@
 session_start();
 require "../models/Usuario.php";
 require "../DAO/UsuarioDAO.php";
-require_once("../models/Usuario.php");
 require "../../connection/conn.php";
 
 if (isset($_POST['submit']) && ((!empty($_POST['name']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))))) {
@@ -10,6 +9,7 @@ if (isset($_POST['submit']) && ((!empty($_POST['name']) && (!empty($_POST['email
         $pdo = new Database();
         $name = $_POST['name'];
         $email = $_POST['email'];
+        $senha_crypt = md5($_POST['senha_crypt']);
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $result = $usuarioDAO->efetuarRegistro($name, $email, $senha_crypt);
         if ($result) {

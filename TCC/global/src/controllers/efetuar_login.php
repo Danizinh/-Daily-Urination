@@ -4,7 +4,7 @@ require("../models/Usuario.php");
 require("../DAO/UsuarioDAO.php");
 require("../../connection/conn.php");
 
-if (isset($_POST['submit']) && (!empty(($_POST['email'] && !empty($_POST['$senha_crypt']))))) {
+if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new Database();
         $email = $_POST['email'];
@@ -12,10 +12,10 @@ if (isset($_POST['submit']) && (!empty(($_POST['email'] && !empty($_POST['$senha
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $user = $usuarioDAO->efetuarLogin($email, $senha_crypt);
         if ($user != "Usuário nao encontrado") {
-            $_SESSION['id'] = $user->$id;
-            $_SESSION['email'] = $user->$email;
-            $_SESSION['senha_crypt'] = $user->$senha_crypt;
-            header("Location:../view/public/system.php");
+            $_SESSION['id'] = $user->getId();
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['senha_crypt'] = $user->getSenha();
+            header("Location: ../view/public/system.php");
         } else {
             unset($_SESSION['$email']);
             unset($_SESSION['$senha_crypt']);
@@ -24,10 +24,10 @@ if (isset($_POST['submit']) && (!empty(($_POST['email'] && !empty($_POST['$senha
     } else {
         unset($_SESSION['$email']);
         unset($_SESSION['$senha_crypt']);
-        header("Location: ../view/public/login.php?erro=1");
+        header("Location: ../view/public/login.php?erro=2");
     }
 } else {
-    header("Location: ../view/public/login.php?erro=1");
+    header("Location: ../view/public/login.php?erro=3");
 }
 die();
 // declara uma varivel que recebe o retorno da funcao efetuar login

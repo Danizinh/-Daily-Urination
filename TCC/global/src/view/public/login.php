@@ -23,7 +23,7 @@
             <form class="card-form" action="../../controllers/efetuar_login.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input name="name_usuario" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
+                    <input name="email" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>

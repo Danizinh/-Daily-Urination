@@ -86,25 +86,25 @@ class UsuarioDAO
             }
         }
     }
-    public function updateUsuario($name, $last_name, $email, $phone, $profession, $address, $city, $country, $zip, $neighborhood, $bio)
-    {
-        $sql = "UPDATE profile SET name = :name, last_name= :last_name, email =:email, phone= :phone, profession = :profession, address =:address,city = :city,zip = :zip,neighborhood =:neighborhood";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue('name', $name);
-        $stmt->bindValue('last_name', $last_name);
-        $stmt->bindValue('email', $email);
-        $stmt->bindValue('phone', $phone);
-        $stmt->bindValue('profession', $profession);
-        $stmt->bindValue('address', $address);
-        $stmt->bindValue('city', $city);
-        $stmt->bindValue('zip', $zip);
-        $stmt->bindValue('country', $country);
-        $stmt->bindValue('neighborhood', $neighborhood);
-        $stmt->bindValue('bio', $bio);
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    // public function updateUsuario($name, $last_name, $email, $phone, $profession, $address, $city, $country, $zip, $neighborhood, $bio)
+    // {
+    //     $sql = "UPDATE usuario SET name = :name, last_name= :last_name, email =:email, phone= :phone, profession = :profession, address =:address,city = :city,zip = :zip,neighborhood =:neighborhood";
+    //     $stmt = $this->pdo->prepare($sql);
+    //     $stmt->bindValue('name', $name);
+    //     $stmt->bindValue('last_name', $last_name);
+    //     $stmt->bindValue('email', $email);
+    //     $stmt->bindValue('phone', $phone);
+    //     $stmt->bindValue('profession', $profession);
+    //     $stmt->bindValue('address', $address);
+    //     $stmt->bindValue('city', $city);
+    //     $stmt->bindValue('zip', $zip);
+    //     $stmt->bindValue('country', $country);
+    //     $stmt->bindValue('neighborhood', $neighborhood);
+    //     $stmt->bindValue('bio', $bio);
+    //     if ($stmt->execute()) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 }
