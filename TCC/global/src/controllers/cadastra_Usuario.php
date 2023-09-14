@@ -2,6 +2,7 @@
 session_start();
 require "../models/Usuario.php";
 require "../DAO/UsuarioDAO.php";
+require_once("../models/Usuario.php");
 require "../../connection/conn.php";
 
 if (isset($_POST['submit']) && ((!empty($_POST['name']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))))) {

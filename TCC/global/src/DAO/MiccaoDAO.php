@@ -18,14 +18,14 @@ class MiccaoDAO
         $sql = "INSERT INTO miccao(id,normal,urgencia,desconfortavel,horario,data,volumeUrinado,id_paciente)
         VALUES(:id,:normal,:urgencia,:desconfortavel,:horario,:data,:volumeUrinado,id_paciente)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":id", $miccao['id']);
-        $stmt->bindParam(":normal", $miccao['normal']);
-        $stmt->bindParam(":urgencia", $miccao['urgencia']);
-        $stmt->bindParam(":desconfortavel", $miccao['desconfortavel']);
-        $stmt->bindParam(":horario", $miccao['horario']);
-        $stmt->bindParam(":data", $miccao['data']);
-        $stmt->bindParam(":volumeUrinado", $miccao['volumeUrinado']);
-        $stmt->bindParam(":id_paciente", $miccao['id_paciente']);
+        $stmt->bindValue(":id", $miccao['id']);
+        $stmt->bindValue(":normal", $miccao['normal']);
+        $stmt->bindValue(":urgencia", $miccao['urgencia']);
+        $stmt->bindValue(":desconfortavel", $miccao['desconfortavel']);
+        $stmt->bindValue(":horario", $miccao['horario']);
+        $stmt->bindValue(":data", $miccao['data']);
+        $stmt->bindValue(":volumeUrinado", $miccao['volumeUrinado']);
+        $stmt->bindValue(":id_paciente", $miccao['id_paciente']);
         if ($stmt->execute()) {
             return "200 OK";
         }
@@ -35,21 +35,21 @@ class MiccaoDAO
     {
         $sql = "UPDATE miccao SET normal = :normal, urgencia =:urgencia,desconfortavel =:desconfortavel,horario = :horario, data = :data, volumeUrinado= :volumeUrinado, id_paciente= :id_paciente WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":id", $miccao['id']);
-        $stmt->bindParam(":normal", $miccao['normal']);
-        $stmt->bindParam(":urgencia", $miccao['urgencia']);
-        $stmt->bindParam(":desconfortavel", $miccao['desconfortavel']);
-        $stmt->bindParam(":horario", $miccao['horario']);
-        $stmt->bindParam(":data", $miccao['data']);
-        $stmt->bindParam(":volumeUrinado", $miccao['volumeUrinado']);
-        $stmt->bindParam(":id_paciente", $miccao['id_paciente']);
+        $stmt->bindValue(":id", $miccao['id']);
+        $stmt->bindValue(":normal", $miccao['normal']);
+        $stmt->bindValue(":urgencia", $miccao['urgencia']);
+        $stmt->bindValue(":desconfortavel", $miccao['desconfortavel']);
+        $stmt->bindValue(":horario", $miccao['horario']);
+        $stmt->bindValue(":data", $miccao['data']);
+        $stmt->bindValue(":volumeUrinado", $miccao['volumeUrinado']);
+        $stmt->bindValue(":id_paciente", $miccao['id_paciente']);
     }
 
     public function excluirMiccao($miccao)
     {
         $sql = "DELETE miccao WHERE= id=:id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":id", $miccao['id']);
+        $stmt->bindValue(":id", $miccao['id']);
         $stmt->execute();
     }
 }

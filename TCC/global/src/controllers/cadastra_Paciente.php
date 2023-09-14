@@ -1,6 +1,6 @@
 <?php
 
-require "../models/models.php";
+require "../models/Usuario.php";
 require "../DAO/PacienteDAO.php";
 require "../../connection/conn.php";
 
