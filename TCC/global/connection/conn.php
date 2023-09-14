@@ -12,7 +12,7 @@ class Database
     {
         $this->localhost = "localhost";
         $this->host = "root";
-        $this->pass = "";
+        $this->pass = "mysql321";
         $this->dbname = "dados";
 
         try {

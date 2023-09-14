@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <script src="../public/assets/js/validation.js"></script>
+    <script src="../public/assets/js/validation.js" defer></script>
     <link rel="stylesheet" href="../src/styles/style.css">
     <title>Faça login</title>
 </head>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="confimation" placeholder="**********" id="confimation" autocomplete="off" required>
+                    <input type="password" name="confirmation" placeholder="**********" id="confirmation" autocomplete="off" required>
                 </div>
                 <button type="submit" name="submit">Sign up</button>
                 <?php

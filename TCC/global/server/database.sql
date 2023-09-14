@@ -43,3 +43,5 @@ CREATE TABLE
     );
 
 SELECT * FROM usuarios;
+
+DROP DATABASE dados;
