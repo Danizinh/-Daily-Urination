@@ -22,6 +22,7 @@ class UsuarioDAO
         $stmt->bindValue(':id', $usuario['id']);
         $stmt->bindValue(':name', $usuario['name']);
         $stmt->bindValue(':email', $usuario['email']);
+        $stmt->bindValue(':categorização', $usuario['categorização']);
         $stmt->bindValue(':senha_crypt', $usuario['senha_crypt']);
         if ($stmt->execute()) {
             return "200 OK";
@@ -34,6 +35,7 @@ class UsuarioDAO
         $stmt->bindValue(':id', $usuario['id']);
         $stmt->bindValue(':name', $usuario['name']);
         $stmt->bindValue(':email', $usuario['email']);
+        $stmt->bindValue(':categorização', $usuario['categorização']);
         $stmt->execute();
     }
 
@@ -58,6 +60,9 @@ class UsuarioDAO
                     $user['id'],
                     $user['name'],
                     $user['email'],
+                    $user['episodios'],
+                    $user['categorização'],
+                    $user['liquidos'],
                     $user['senha_crypt'],
                 );
             } else {
@@ -86,25 +91,19 @@ class UsuarioDAO
             }
         }
     }
-    // public function updateUsuario($name, $last_name, $email, $phone, $profession, $address, $city, $country, $zip, $neighborhood, $bio)
-    // {
-    //     $sql = "UPDATE usuario SET name = :name, last_name= :last_name, email =:email, phone= :phone, profession = :profession, address =:address,city = :city,zip = :zip,neighborhood =:neighborhood";
-    //     $stmt = $this->pdo->prepare($sql);
-    //     $stmt->bindValue('name', $name);
-    //     $stmt->bindValue('last_name', $last_name);
-    //     $stmt->bindValue('email', $email);
-    //     $stmt->bindValue('phone', $phone);
-    //     $stmt->bindValue('profession', $profession);
-    //     $stmt->bindValue('address', $address);
-    //     $stmt->bindValue('city', $city);
-    //     $stmt->bindValue('zip', $zip);
-    //     $stmt->bindValue('country', $country);
-    //     $stmt->bindValue('neighborhood', $neighborhood);
-    //     $stmt->bindValue('bio', $bio);
-    //     if ($stmt->execute()) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    public function updateUsuario($name, $email, $categorização, $episodios, $liquidos)
+    {
+        $sql = "UPDATE usuario SET name = :name email =:email episodios =:episodios categorização :categorização liquidos= :liquidos";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue('name', $name);
+        $stmt->bindValue('email', $email);
+        $stmt->bindValue('episodios', $episodios);
+        $stmt->bindValue('categorização', $categorização);
+        $stmt->bindValue('liquidos', $liquidos);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

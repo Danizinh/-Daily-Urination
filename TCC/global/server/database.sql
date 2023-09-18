@@ -7,6 +7,8 @@ CREATE TABLE
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(30) NOT NULL,
         email VARCHAR(50) UNIQUE,
+        categorização VARCHAR(50),
+        liquidos VARCHAR(50),
         senha_crypt VARCHAR(255)
     );
 
