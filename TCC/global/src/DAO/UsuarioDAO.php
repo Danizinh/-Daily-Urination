@@ -16,26 +16,24 @@ class UsuarioDAO
     }
     public function inserirUsuarios($usuario)
     {
-        $sql = "INSERT INTO usuarios(id,name,email,phone,senha_crypt)
-        VALUE(:id,:name,:email,:phone,:senha_crypt)";
+        $sql = "INSERT INTO usuarios(id,name,email,senha_crypt)
+        VALUE(:id,:name,:email,:senha_crypt)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $usuario['id']);
         $stmt->bindValue(':name', $usuario['name']);
         $stmt->bindValue(':email', $usuario['email']);
-        $stmt->bindValue(':phone', $usuario['phone']);
         $stmt->bindValue(':senha_crypt', $usuario['senha_crypt']);
         if ($stmt->execute()) {
             return "200 OK";
         }
     }
-    public function atualizarUsuarios($id, $name, $email, $phone)
+    public function atualizarUsuarios($id, $name, $email)
     {
-        $sql = "UPDATE usuarios SET name = :name, email = :email, phone = :phone WHERE id = :id";
+        $sql = "UPDATE usuarios SET name = :name, email = :email WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
         try {
             $stmt->execute();
             return "200 OK";
@@ -65,7 +63,6 @@ class UsuarioDAO
                     $user['id'],
                     $user['name'],
                     $user['email'],
-                    $user['phone'],
                     $user['senha_crypt'],
                 );
             } else {

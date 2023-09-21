@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS miccao (
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
 );
 
-ALTER TABLE usuarios ADD phone VARCHAR(14);
 SELECT * FROM usuarios;
 
 

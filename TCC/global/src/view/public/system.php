@@ -82,7 +82,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
         <span class="tooltip">Saved</span>
       </li>
       <li>
-        <a href="#">
+        <a href="../public/settings.php">
           <i class='bx bx-cog'></i>
           <span class="links_name">Setting</span>
         </a>
@@ -93,7 +93,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
           <img src="profile.jpg" alt="profileImg">
         </div>
         <div class="d-flex">
-          <a href="../api/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out' id="log_out"></i></a>
+          <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out' id="log_out"></i></a>
         </div>
       </li>
     </ul>

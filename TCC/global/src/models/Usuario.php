@@ -4,15 +4,13 @@ class Usuario
     private $id;
     private $name;
     private $email;
-    private $phone;
     private $senha_crypt;
 
-    function __construct($id, $name, $email, $phone, $senha_crypt)
+    function __construct($id, $name, $email, $senha_crypt)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-        $this->phone = $phone;
         $this->senha_crypt = $senha_crypt;
     }
 
@@ -39,14 +37,6 @@ class Usuario
     public function setSenha($newSenha)
     {
         $this->senha_crypt = $newSenha;
-    }
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-    public function setPhone($newPhone)
-    {
-        $this->phone = $newPhone;
     }
     public function getEmail()
     {

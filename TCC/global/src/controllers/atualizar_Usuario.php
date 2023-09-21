@@ -10,14 +10,12 @@ if (isset($_POST['submit'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $phone = $_POST['phone'];
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
-        $result = $usuarioDAO->atualizarUsuarios($id, $name, $email, $phone);
+        $result = $usuarioDAO->atualizarUsuarios($id, $name, $email);
         if ($result) {
             $_SESSION['id'] = $id;
             $_SESSION['name'] = $name;
             $_SESSION['email'] = $email;
-            $_SESSION['phone'] = $phone;
         }
         header("Location:../view/public/profile.php");
     }

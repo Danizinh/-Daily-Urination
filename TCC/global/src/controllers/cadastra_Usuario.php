@@ -4,7 +4,7 @@ require "../models/Usuario.php";
 require "../DAO/UsuarioDAO.php";
 require "../../connection/conn.php";
 
-if (isset($_POST['submit']) && ((!empty($_POST['name']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))))) {
+if (isset($_POST['submit']) && (!empty($_POST['name']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt']))))) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new Database();
         $name = $_POST['name'];
