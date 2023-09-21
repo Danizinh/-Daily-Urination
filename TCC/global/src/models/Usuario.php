@@ -4,19 +4,15 @@ class Usuario
     private $id;
     private $name;
     private $email;
-    private $categorização;
-    private $episodios;
-    private $liquidos;
+    private $phone;
     private $senha_crypt;
 
-    function __construct($id, $name, $email, $categorização, $liquidos, $episodios, $senha_crypt)
+    function __construct($id, $name, $email, $phone, $senha_crypt)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-        $this->categorização = $categorização;
-        $this->episodios = $episodios;
-        $this->liquidos = $liquidos;
+        $this->phone = $phone;
         $this->senha_crypt = $senha_crypt;
     }
 
@@ -44,7 +40,14 @@ class Usuario
     {
         $this->senha_crypt = $newSenha;
     }
-
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    public function setPhone($newPhone)
+    {
+        $this->phone = $newPhone;
+    }
     public function getEmail()
     {
         return $this->email;
@@ -52,30 +55,6 @@ class Usuario
     public function setEmail($newEmail)
     {
         $this->email = $newEmail;
-    }
-    public function getCategorização()
-    {
-        return $this->categorização;
-    }
-    public function setCategorização($newCategorização)
-    {
-        $this->categorização = $newCategorização;
-    }
-    public function getEpisodios()
-    {
-        return $this->episodios;
-    }
-    public function setEpisodios($newEpisodios)
-    {
-        $this->episodios = $newEpisodios;
-    }
-    public function getLiquidos()
-    {
-        return $this->liquidos;
-    }
-    public function setLiquidos($newLiquidos)
-    {
-        $this->liquidos = $newLiquidos;
     }
 }
 // $joao = new Usuario("marcio", "11993940869", "marciocaldasvieira@outlook.com", "1234");

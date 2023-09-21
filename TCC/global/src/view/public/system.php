@@ -15,8 +15,8 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
   <meta charset="UTF-8">
   <title>System of login</title>
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../public/assets/css/style.css">
+  <link rel="stylesheet" href="../public/assets/css/bootstrap.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
         <span class="tooltip">Dashboard</span>
       </li>
       <li>
-        <a href="../php/profile.php">
+        <a href="../public/profile.php">
           <i class='bx bx-user'></i>
           <span class="links_name">User</span>
         </a>
@@ -101,7 +101,6 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
   <section class="home-section">
     <div class="text">Welcome Back,
       <?= $_SESSION['name'] ?>,
-      <?= $_SESSION['email'] ?> !
     </div>
 
     <div class="logo_Date">
@@ -114,6 +113,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
     </div>
     </div>
   </section>
+  <script src="../public/assets/js/script.js"></script>
 </body>
 
 </html>

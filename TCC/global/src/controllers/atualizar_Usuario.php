@@ -1,28 +1,25 @@
 <?php
-
 session_start();
 require("../models/Usuario.php");
-require("../../connection/conn.php");
 require("../DAO/UsuarioDAO.php");
+require("../../connection/conn.php");
 
 if (isset($_POST['submit'])) {
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        new Database();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $pdo = new Database();
         $id = $_POST['id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $liquidos = $_POST['liquidos'];
-        $categorização = $_POST['categorização'];
+        $phone = $_POST['phone'];
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
-        $result = $usuarioDAO->updateUsuario($id, $name, $email, $liquidos, $categorização);
+        $result = $usuarioDAO->atualizarUsuarios($id, $name, $email, $phone);
         if ($result) {
             $_SESSION['id'] = $id;
             $_SESSION['name'] = $name;
             $_SESSION['email'] = $email;
-            $_SESSION['liquidos'] = $liquidos;
-            $_SESSION['categorização'] = $categorização;
+            $_SESSION['phone'] = $phone;
         }
-        header("Location:../view/pulic/profile.php");
+        header("Location:../view/public/profile.php");
     }
 }
 exit();

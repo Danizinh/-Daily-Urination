@@ -24,7 +24,7 @@
             <form class="card-form" action="../../controllers/cadastra_Usuario.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="text" name="name" placeholder="Gabriela" id="emailForm" autocomplete="off" required>
+                    <input type="text" name="full_name" placeholder="Gabriela" id="emailForm" autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>

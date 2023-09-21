@@ -17,13 +17,13 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
             $_SESSION['senha_crypt'] = $user->getSenha();
             header("Location: ../view/public/system.php");
         } else {
-            unset($_SESSION['$email']);
-            unset($_SESSION['$senha_crypt']);
+            unset($_SESSION['email']);
+            unset($_SESSION['senha_crypt']);
             header("Location: ../view/public/login.php?erro=1");
         }
     } else {
-        unset($_SESSION['$email']);
-        unset($_SESSION['$senha_crypt']);
+        unset($_SESSION['email']);
+        unset($_SESSION['senha_crypt']);
         header("Location: ../view/public/login.php?erro=2");
     }
 } else {

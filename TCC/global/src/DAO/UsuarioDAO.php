@@ -8,35 +8,40 @@ class UsuarioDAO
         $this->pdo = $pdo;
     }
 
-    public function listarUsuario()
+    public function listarUsuarios()
     {
         $sql = "SELECT * FROM usuarios";
-        $result = $this->pdo->query($sql);
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function inserirUsuario($usuario)
+    public function inserirUsuarios($usuario)
     {
-        $sql = "INSERT INTO usuarios(id,name,email,senha_crypt)
-        VALUE(:id,:name,:phone,:id_login)";
+        $sql = "INSERT INTO usuarios(id,name,email,phone,senha_crypt)
+        VALUE(:id,:name,:email,:phone,:senha_crypt)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $usuario['id']);
         $stmt->bindValue(':name', $usuario['name']);
         $stmt->bindValue(':email', $usuario['email']);
-        $stmt->bindValue(':categorização', $usuario['categorização']);
+        $stmt->bindValue(':phone', $usuario['phone']);
         $stmt->bindValue(':senha_crypt', $usuario['senha_crypt']);
         if ($stmt->execute()) {
             return "200 OK";
         }
     }
-    public function atualizarUsuario($usuario)
+    public function atualizarUsuarios($id, $name, $email, $phone)
     {
-        $sql = "UPDATE usuarios SET id = :id name = :name, email= :email WHERE id = id";
+        $sql = "UPDATE usuarios SET name = :name, email = :email, phone = :phone WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':id', $usuario['id']);
-        $stmt->bindValue(':name', $usuario['name']);
-        $stmt->bindValue(':email', $usuario['email']);
-        $stmt->bindValue(':categorização', $usuario['categorização']);
-        $stmt->execute();
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+        try {
+            $stmt->execute();
+            return "200 OK";
+        } catch (PDOException $e) {
+            return "Erro ao atualizar o usuario" . $e->getMessage();
+        }
     }
 
     public function excluirUsuario($id)
@@ -60,9 +65,7 @@ class UsuarioDAO
                     $user['id'],
                     $user['name'],
                     $user['email'],
-                    $user['episodios'],
-                    $user['categorização'],
-                    $user['liquidos'],
+                    $user['phone'],
                     $user['senha_crypt'],
                 );
             } else {
@@ -72,7 +75,7 @@ class UsuarioDAO
     }
     public function efetuarRegistro($name, $email, $senha_crypt)
     {
-        $sql = ("SELECT * FROM usuarios WHERE email = :email");
+        $sql = "SELECT * FROM usuarios WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':email', $email);
         if ($stmt->execute()) {
@@ -85,25 +88,10 @@ class UsuarioDAO
                 $stmt->bindValue(':senha_crypt', $senha_crypt);
                 if ($stmt->execute()) {
                     return true;
+                } else {
+                    return false;
                 }
-            } else {
-                return false;
             }
-        }
-    }
-    public function updateUsuario($name, $email, $categorização, $episodios, $liquidos)
-    {
-        $sql = "UPDATE usuario SET name = :name email =:email episodios =:episodios categorização :categorização liquidos= :liquidos";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue('name', $name);
-        $stmt->bindValue('email', $email);
-        $stmt->bindValue('episodios', $episodios);
-        $stmt->bindValue('categorização', $categorização);
-        $stmt->bindValue('liquidos', $liquidos);
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
         }
     }
 }
