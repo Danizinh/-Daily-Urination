@@ -8,10 +8,12 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new Database();
         $email = $_POST['email'];
+        $name = $_POST['name'];
         $senha_crypt = md5($_POST['senha_crypt']);
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $user = $usuarioDAO->efetuarLogin($email, $senha_crypt);
         if ($user != "Usuário nao encontrado") {
+            $_SESSION['name'] = $user->getName();
             $_SESSION['id'] = $user->getId();
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getSenha();

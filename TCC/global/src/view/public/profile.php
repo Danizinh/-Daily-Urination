@@ -87,7 +87,7 @@ session_start();
                     <img src="profile.jpg" alt="profileImg">
                     <div class="name_job">
                         <div class="logoName">
-                            <?= $_SESSION['full_name'] ?>
+                            <?= $_SESSION['name'] ?>
                         </div>
                         <div class="job">Web designer</div>
                     </div>
@@ -118,20 +118,18 @@ session_start();
                             </div>
                             <div class="field">
                                 <label for="text">Phone</label>
-                                <input type="text" name="phone" id="phone" placeholder="" value="<?php if (isset($_SESSION["phone"])) {
-                                                                                                        echo $_SESSION["phone"] . '"';
-                                                                                                    } else {
-                                                                                                        echo '" placeholder=""';
-                                                                                                    } ?>">
+                                <input type="text" name="phone" id="phone" placeholder=""><?php if (isset($_SESSION["phone"])) {
+                                                                                                echo $_SESSION["phone"];
+                                                                                            } ?>
                             </div>
 
-                            <div class="field">
+                            <!-- <div class="field">
                                 <label for="text">Bio</label>
                                 <textarea name="bio" id="bio" cols="50" rows="4"><?php if (isset($_SESSION["bio"])) {
                                                                                         echo $_SESSION["bio"];
                                                                                     } ?></textarea>
                                 <p><button class="button button4" type="submit" name="submit" id="submit">All save</button></p>
-                            </div>
+                            </div> -->
 
 
 
