@@ -82,7 +82,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
         <span class="tooltip">Saved</span>
       </li>
       <li>
-        <a href="../public/settings.php">
+        <a href="../public/setting.php">
           <i class='bx bx-cog'></i>
           <span class="links_name">Setting</span>
         </a>

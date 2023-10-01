@@ -1,4 +1,3 @@
-
 CREATE DATABASE IF NOT EXISTS dados;
 
 USE dados;
@@ -42,7 +41,7 @@ CREATE TABLE IF NOT EXISTS miccao (
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
 );
 
-SELECT * FROM usuarios;
+SELECT * FROM miccao;
 
 
 DROP DATABASE dados;

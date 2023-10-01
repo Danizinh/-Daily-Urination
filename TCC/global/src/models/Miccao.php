@@ -9,7 +9,7 @@ class Miccao extends Paciente
     private $data;
     private $volume_Urinado;
 
-    function __construct($normal, $urgencia, $desconfortavel, $horário, $data, $volume_Urinado)
+    function __construct($id, $normal, $urgencia, $desconfortavel, $horário, $data, $volume_Urinado)
     {
         $this->normal = $normal;
         $this->urgencia = $urgencia;
@@ -21,16 +21,14 @@ class Miccao extends Paciente
     public static function __construct3($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado, $id, $idade, $sexo, $idMedico, $CPF, $senha_crypt)
     {
 
-        $instance = new self($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado);
+        $instance = new self($id, $normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado);
 
-        $instance->$id = $id;
         $instance->$sexo = $sexo;
         $instance->$idade = $idade;
         $instance->$idMedico = $idMedico;
         $instance->$CPF = $CPF;
         $instance->$senha_crypt = $senha_crypt;
     }
-
 
     public function getNormal()
     {

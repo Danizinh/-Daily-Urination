@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,7 +123,6 @@ session_start();
                                                                                                 echo $_SESSION["phone"];
                                                                                             } ?>
                             </div>
-
                             <!-- <div class="field">
                                 <label for="text">Bio</label>
                                 <textarea name="bio" id="bio" cols="50" rows="4"><?php if (isset($_SESSION["bio"])) {
