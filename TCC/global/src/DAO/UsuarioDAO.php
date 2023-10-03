@@ -29,14 +29,14 @@ class UsuarioDAO
     }
     public function atualizarUsuarios($id, $name, $email)
     {
-        $sql = "UPDATE usuarios SET name = :name, email = :email WHERE id = :id";
+        $sql = "UPDATE usuarios SET name = :name, email = :email WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         try {
             $stmt->execute();
-            return "200 OK";
+            return true;
         } catch (PDOException $e) {
             return "Erro ao atualizar o usuario" . $e->getMessage();
         }

@@ -24,8 +24,6 @@ CREATE TABLE IF NOT EXISTS pacientes (
     CPF VARCHAR(11) NOT NULL,
     id_medico INT NOT NULL,
     id_usuario INT NOT NULL,
-    categorizacao VARCHAR(50),
-    liquidos VARCHAR(50),
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
@@ -41,7 +39,7 @@ CREATE TABLE IF NOT EXISTS miccao (
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
 );
 
-SELECT * FROM miccao;
+SELECT * FROM usuarios;
 
 
 DROP DATABASE dados;

@@ -107,7 +107,9 @@ session_start();
                     <h1 class="h-1">Your details</h1>
                     <div class="input_all">
                         <form action="../../controllers/atualizar_Usuario.php" method="POST" id="form">
-
+                            <div class="field">
+                                <input type="text" name="id" id="id" required placeholder="" value="<?= $_SESSION['id'] ?>" style="display:none">
+                            </div>
                             <div class="field">
                                 <label for="text">Name</label>
                                 <input type="text" name="name" id="name" required placeholder="" value="<?= $_SESSION['name'] ?>">
@@ -129,11 +131,11 @@ session_start();
                                                                                         echo $_SESSION["bio"];
                                                                                     } ?></textarea> -->
                             <p><button class="button button4" type="submit" name="submit" id="submit">All save</button></p>
+
+
+
+                        </form>
                     </div>
-
-
-
-                    </form>
                 </div>
             </div>
         </div>

@@ -101,6 +101,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
   <section class="home-section">
     <div class="text">Welcome Back,
       <?= $_SESSION['name'] ?>,
+      <?= $_SESSION['email'] ?>,
     </div>
 
     <div class="logo_Date">
