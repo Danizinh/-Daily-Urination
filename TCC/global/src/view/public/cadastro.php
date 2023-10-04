@@ -30,6 +30,7 @@
                     <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="text" name="email" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
+
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="password" name="senha_crypt" placeholder="**********" id="senha_crypt" autocomplete="off" required>

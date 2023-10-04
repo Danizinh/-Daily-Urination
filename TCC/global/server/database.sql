@@ -19,8 +19,13 @@ CREATE TABLE IF NOT EXISTS medico (
 
 CREATE TABLE IF NOT EXISTS pacientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    idade INT NOT NULL,
-    sexo VARCHAR(1),
+    phone VARCHAR(15),
+    endereco VARCHAR (225),
+    birthday DATE NOT NULL,
+    pais VARCHAR(255),
+    estado VARCHAR(255),
+    cidade VARCHAR(255),
+    genero VARCHAR(1),
     CPF VARCHAR(11) NOT NULL,
     id_medico INT NOT NULL,
     id_usuario INT NOT NULL,
@@ -43,3 +48,10 @@ SELECT * FROM usuarios;
 
 
 DROP DATABASE dados;
+
+   private $normal;
+    private $urgencia;
+    private $desconfortavel;
+    private $horário;
+    private $data;
+    private $volume_Urinado;

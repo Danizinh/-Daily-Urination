@@ -9,6 +9,12 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
         $pdo = new Database();
         $email = $_POST['email'];
         $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $endereco = $_POST['endereco'];
+        $birthday = $_POST['birthday'];
+        $pais = $_POST['pais'];
+        $cidade = $_POST['cidade'];
+        $genero = $_POST['genero'];
         $senha_crypt = md5($_POST['senha_crypt']);
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $user = $usuarioDAO->efetuarLogin($email, $senha_crypt);
@@ -17,6 +23,13 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
             $_SESSION['id'] = $user->getId();
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getSenha();
+            $_SESSION['phone'] = $result->getPhone();
+            $_SESSION['endereco'] = $result->getEndereco();
+            $_SESSION['pais'] = $result->getPais();
+            $_SESSION['estado'] = $result->getEstado();
+            $_SESSION['cidade'] = $result->getCidade();
+            $_SESSION['genero'] = $result->getEndereco();
+
             header("Location: ../view/public/system.php");
         } else {
             unset($_SESSION['email']);

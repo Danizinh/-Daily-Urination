@@ -10,12 +10,26 @@ if (isset($_POST['submit'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $birthday = $_POST['birthday'];
+        $endereco = $_POST['endereco'];
+        $pais = $_POST['pais'];
+        $estado = $_POST['estado'];
+        $cidade = $_POST['cidade'];
+        $genero = $_POST['genero'];
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
-        $result = $usuarioDAO->atualizarUsuarios($id, $name, $email);
+        $result = $usuarioDAO->atualizarUsuarios($id, $name, $email, $phone, $birthday, $endereco, $pais, $estado, $cidade, $genero);
         if ($result) {
             $_SESSION['id'] = $id;
             $_SESSION['name'] = $name;
             $_SESSION['email'] = $email;
+            $_SESSION['phone'] = $phone;
+            $_SESSION['birthday'] = $birthday;
+            $_SESSION['endereco'] = $endereco;
+            $_SESSION['pais'] = $pais;
+            $_SESSION['estado'] = $estado;
+            $_SESSION['cidade'] = $cidade;
+            $_SESSION['genero'] = $genero;
         }
         header("Location:../view/public/profile.php");
     }

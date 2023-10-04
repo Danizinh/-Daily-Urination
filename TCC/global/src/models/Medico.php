@@ -8,11 +8,13 @@ class Medico extends Usuario
         $this->cmr->$cmr;
     }
 
-    public static function __construct2($cmr, $senha_crypt, $email)
+    public static function __construct2($cmr, $id, $name, $senha_crypt, $email)
     {
         $instance = new self($cmr);
-        $instance->$senha_crypt = $senha_crypt;
+        $instance->$id = $id;
+        $instance->$name = $name;
         $instance->$email = $email;
+        $instance->$senha_crypt = $senha_crypt;
     }
 
     public function getcmr()

@@ -30,14 +30,6 @@ class Usuario
     {
         $this->name = $newNome;
     }
-    public function getSenha()
-    {
-        return $this->senha_crypt;
-    }
-    public function setSenha($newSenha)
-    {
-        $this->senha_crypt = $newSenha;
-    }
     public function getEmail()
     {
         return $this->email;
@@ -45,6 +37,14 @@ class Usuario
     public function setEmail($newEmail)
     {
         $this->email = $newEmail;
+    }
+    public function getSenha()
+    {
+        return $this->senha_crypt;
+    }
+    public function setSenha($newSenha)
+    {
+        $this->senha_crypt = $newSenha;
     }
 }
 // $joao = new Usuario("marcio", "11993940869", "marciocaldasvieira@outlook.com", "1234");

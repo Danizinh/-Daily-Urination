@@ -2,22 +2,32 @@
 require("../models/Usuario.php");
 class Paciente extends Usuario
 {
-    private $idade;
-    private $sexo;
+    private $birthday;
+    private $phone;
+    private $endereco;
+    private $estado;
+    private $pais;
+    private $cidade;
+    private $genero;
     private $CPF;
     private $idMedico;
 
-    function __construct($idMedico, $idade, $sexo, $CPF)
+    function __construct($birthday, $phone, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
     {
 
-        $this->$idade = $idade;
-        $this->$sexo = $sexo;
+        $this->$birthday = $birthday;
+        $this->$phone = $phone;
+        $this->$endereco = $endereco;
+        $this->$estado = $estado;
+        $this->$pais = $pais;
+        $this->$cidade = $cidade;
+        $this->$genero = $genero;
         $this->$CPF = $CPF;
         $this->$idMedico = $idMedico;
     }
-    public static  function __construct1($name, $email, $senha_crypt, $idade, $sexo, $CPF, $idMedico)
+    public static  function __construct1($name, $email, $senha_crypt, $birthday, $phone, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
     {
-        $instance = new self($idMedico, $idade, $sexo, $CPF);
+        $instance = new self($endereco, $birthday, $phone, $estado, $pais, $cidade, $genero, $CPF, $idMedico);
 
         $instance->$name = $name;
         $instance->$email = $email;
@@ -25,23 +35,68 @@ class Paciente extends Usuario
     }
 
 
-    public function getIdade()
+    public function getBirthday()
     {
-        return $this->idade;
+        return $this->birthday;
+    }
+    public function setBirthday($newBirthday)
+    {
+        $this->birthday = $newBirthday;
+    }
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    public function setPhone($newPhone)
+    {
+        $this->phone = $newPhone;
     }
 
-    public function setIdade($newIdade)
+    public function getEnderco()
     {
-        $this->idade = $newIdade;
+        return $this->endereco;
     }
-    public function getSexo()
+    public function setEndereco($newEndereco)
     {
-        return $this->sexo;
+        $this->endereco = $newEndereco;
     }
-    public function setSexo($newSexo)
+
+    public function getEstado()
     {
-        $this->sexo = $newSexo;
+        return $this->estado;
     }
+    public function setEstado($newEstado)
+    {
+        $this->estado = $newEstado;
+    }
+
+    public function getPais()
+    {
+        return $this->pais;
+    }
+    public function setPais($newPais)
+    {
+        $this->pais = $newPais;
+    }
+
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+    public function setCidade($newCidade)
+    {
+        $this->cidade = $newCidade;
+    }
+
+    public function getGenero()
+    {
+        return $this->genero;
+    }
+    public function setGenero($newGenero)
+    {
+        $this->genero = $newGenero;
+    }
+
     public function getCPF()
     {
         return $this->CPF;
@@ -50,12 +105,13 @@ class Paciente extends Usuario
     {
         $this->CPF = $newCPF;
     }
+
     public function getidMedico()
     {
         return $this->idMedico;
     }
-    public function setidMedico($new_id_Medico)
+    public function setidMedico($newidMedico)
     {
-        $this->CPF = $new_id_Medico;
+        $this->idMedico = $newidMedico;
     }
 }

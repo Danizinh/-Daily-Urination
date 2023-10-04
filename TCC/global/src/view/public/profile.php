@@ -119,21 +119,32 @@ session_start();
                                 <input type="text" name="email" id="email" placeholder="" value="<?= $_SESSION['email'] ?>">
                             </div>
                             <div class="field">
-                                <label for="text">Phone</label>
-                                <input type="text" name="phone" id="phone" placeholder=""><?php if (isset($_SESSION["phone"])) {
-                                                                                                echo $_SESSION["phone"];
-                                                                                            } ?>
+                                <label for="text">Endereço</label>
+                                <input type="text" name="endereco" id="endereco" placeholder="" value="<?php if (isset($_SESSION["endereco"])) {
+                                                                                                            echo $_SESSION["endereco"];
+                                                                                                        } ?>">
                             </div>
 
-                            <!-- <div class="field">
-                                <label for="text">Bio</label>
-                                <textarea name="bio" id="bio" cols="50" rows="4"><?php if (isset($_SESSION["bio"])) {
-                                                                                        echo $_SESSION["bio"];
-                                                                                    } ?></textarea> -->
+                            <div class="field">
+                                <label for="text">País</label>
+                                <input type="text" name="pais" id="pais" placeholder="" value="<?php if (isset($_SESSION["pais"])) {
+                                                                                                    echo $_SESSION["pais"];
+                                                                                                } ?>">
+                            </div>
+                            <div class="field">
+                                <label for="text">Estado</label>
+                                <input type="text" name="estado" id="estado" placeholder="" value="<?php if (isset($_SESSION["estado"])) {
+                                                                                                        echo $_SESSION["estado"];
+                                                                                                    } ?>">
+                            </div>
+                            <div class="field">
+                                <label for="text">Cidade</label>
+                                <input type="text" name="cidade" id="cidade" placeholder="" value="<?php if (isset($_SESSION["cidade"])) {
+                                                                                                        echo $_SESSION["cidade"];
+                                                                                                    } ?>">
+                            </div>
+
                             <p><button class="button button4" type="submit" name="submit" id="submit">All save</button></p>
-
-
-
                         </form>
                     </div>
                 </div>
