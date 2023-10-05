@@ -2,8 +2,9 @@
 require("../models/Usuario.php");
 class Paciente extends Usuario
 {
-    private $birthday;
-    private $phone;
+    private $id;
+    private $aniversario;
+    private $tel;
     private $endereco;
     private $estado;
     private $pais;
@@ -12,11 +13,12 @@ class Paciente extends Usuario
     private $CPF;
     private $idMedico;
 
-    function __construct($birthday, $phone, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
+    function __construct($id, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
     {
 
-        $this->$birthday = $birthday;
-        $this->$phone = $phone;
+        $this->$id = $id;
+        $this->$aniversario = $aniversario;
+        $this->$tel = $tel;
         $this->$endereco = $endereco;
         $this->$estado = $estado;
         $this->$pais = $pais;
@@ -25,9 +27,9 @@ class Paciente extends Usuario
         $this->$CPF = $CPF;
         $this->$idMedico = $idMedico;
     }
-    public static  function __construct1($name, $email, $senha_crypt, $birthday, $phone, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
+    public static  function __construct1($id, $name, $email, $senha_crypt, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
     {
-        $instance = new self($endereco, $birthday, $phone, $estado, $pais, $cidade, $genero, $CPF, $idMedico);
+        $instance = new self($id, $endereco, $aniversario, $tel, $estado, $pais, $cidade, $genero, $CPF, $idMedico);
 
         $instance->$name = $name;
         $instance->$email = $email;
@@ -35,21 +37,29 @@ class Paciente extends Usuario
     }
 
 
-    public function getBirthday()
+    public function getId()
     {
-        return $this->birthday;
+        return $this->id;
     }
-    public function setBirthday($newBirthday)
+    public function setId($newId)
     {
-        $this->birthday = $newBirthday;
+        $this->aniversario = $newId;
     }
-    public function getPhone()
+    public function getAniversario()
     {
-        return $this->phone;
+        return $this->aniversario;
     }
-    public function setPhone($newPhone)
+    public function setBirthday($newAniversario)
     {
-        $this->phone = $newPhone;
+        $this->aniversario = $newAniversario;
+    }
+    public function getTel()
+    {
+        return $this->tel;
+    }
+    public function setTel($newTel)
+    {
+        $this->tel = $newTel;
     }
 
     public function getEnderco()

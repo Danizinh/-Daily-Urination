@@ -21,9 +21,11 @@ class MedicoDAO
         $stmt->bindValue(':id', $medico['id']);
         $stmt->bindValue(':CRM', $medico['CRM']);
         $stmt->bindValue(':id_usuario', $medico['id_usuario']);
-
-        if ($stmt->execute()) {
-            return "200 OK";
+        try {
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return "Erro ao inserir Medico" . $e->getMessage();
         }
     }
     public function atualizarMedico($medico)
@@ -33,13 +35,22 @@ class MedicoDAO
         $stmt->bindValue(':id', $medico['id']);
         $stmt->bindValue(':CRM', $medico['CRM']);
         $stmt->bindValue(':id_usuario', $medico['id_usuario']);
-        $stmt->execute();
+        try {
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return "Erro ao Atualizar medico" . $e->getMessage();
+        }
     }
     public function excluirMedico($id)
     {
         $sql = "DELETE FROM medico WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

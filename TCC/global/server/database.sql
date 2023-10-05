@@ -19,15 +19,15 @@ CREATE TABLE IF NOT EXISTS medico (
 
 CREATE TABLE IF NOT EXISTS pacientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    phone VARCHAR(15),
+    tel VARCHAR(15),
     endereco VARCHAR (225),
-    birthday DATE NOT NULL,
+    aniversario DATE,
     pais VARCHAR(255),
     estado VARCHAR(255),
     cidade VARCHAR(255),
     genero VARCHAR(1),
-    CPF VARCHAR(11) NOT NULL,
-    id_medico INT NOT NULL,
+    CPF VARCHAR(11),
+    id_medico INT,
     id_usuario INT NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
@@ -44,8 +44,9 @@ CREATE TABLE IF NOT EXISTS miccao (
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
 );
 
-SELECT * FROM pacientes;
+SELECT * FROM usuarios;
 
+DELETE FROM USUARIOS;
 
 SELECT * FROM pacientes;
 

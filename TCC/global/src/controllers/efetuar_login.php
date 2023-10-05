@@ -12,19 +12,20 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
         $senha_crypt = md5($_POST['senha_crypt']);
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $user = $usuarioDAO->efetuarLogin($email, $senha_crypt);
-        $pacienteDAO = new PacienteDAO($pdo->getConnection());
-        $paciente = $pacienteDAO->buscarPaciente($user->getId());
         if ($user != "Usuário nao encontrado") {
+            $pacienteDAO = new PacienteDAO($pdo->getConnection());
+            $paciente = $pacienteDAO->buscarPaciente($user->getId());
             $_SESSION['name'] = $user->getName();
             $_SESSION['id'] = $user->getId();
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getSenha();
             if ($paciente != "no data") {
-                $_SESSION['phone'] = $paciente->getPhone();
+                $_SESSION['tell'] = $paciente->getTel();
                 $_SESSION['endereco'] = $paciente->getEnderco();
                 $_SESSION['pais'] = $paciente->getPais();
-                $_SESSION['estado'] = $paciente->getEstado();
                 $_SESSION['cidade'] = $paciente->getCidade();
+                $_SESSION['estado'] = $paciente->getEstado();
+                $_SESSION['genero'] = $paciente->getGenero();
             }
             header("Location: ../view/public/system.php");
         } else {

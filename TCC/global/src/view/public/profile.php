@@ -120,9 +120,9 @@ session_start();
                             </div>
                             <div class="field">
                                 <label for="text">Phone</label>
-                                <input type="text" name="phone" id="phone" placeholder="" value="<?php if (isset($_SESSION["phone"])) {
-                                                                                                        echo $_SESSION["phone"];
-                                                                                                    } ?>">
+                                <input type="text" name="tel" id="tel" placeholder="" value="<?php if (isset($_SESSION["tel"])) {
+                                                                                                    echo $_SESSION["tel"];
+                                                                                                } ?>">
                             </div>
                             <div class="field">
                                 <label for="text">Endereço</label>
@@ -148,6 +148,31 @@ session_start();
                                                                                                         echo $_SESSION["cidade"];
                                                                                                     } ?>">
                             </div>
+                            <div class="field">
+                                <label for="text">CPF</label>
+                                <input type="text" name="CPF" id="CPF" placeholder="" value="<?php if (isset($_SESSION["CPF"])) {
+                                                                                                    echo $_SESSION["CPF"];
+                                                                                                } ?>">
+                            </div>
+                            <div class="field">
+                                <label for="text">idMedico</label>
+                                <input type="text" name="idMedico" id="idMedico" placeholder="" value="<?php if (isset($_SESSION["idMedico"])) {
+                                                                                                            echo $_SESSION["idMedico"];
+                                                                                                        } ?>">
+                            </div>
+                            <div class="field">
+                                <label for="text">Genero</label>
+                                <input type="text" name="genero" id="genero" placeholder="" value="<?php if (isset($_SESSION["genero"])) {
+                                                                                                        echo $_SESSION["genero"];
+                                                                                                    } ?>">
+                            </div>
+                            <div class="field">
+                                <label for="text">Genero</label>
+                                <input type="text" name="aniversario" id="aniversario" placeholder="" value="<?php if (isset($_SESSION["aniversario"])) {
+                                                                                                                    echo $_SESSION["aniversario"];
+                                                                                                                } ?>">
+                            </div>
+
 
                             <p><button class="button button4" type="submit" name="submit" id="submit">All save</button></p>
                         </form>
