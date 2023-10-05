@@ -119,12 +119,17 @@ session_start();
                                 <input type="text" name="email" id="email" placeholder="" value="<?= $_SESSION['email'] ?>">
                             </div>
                             <div class="field">
+                                <label for="text">Phone</label>
+                                <input type="text" name="phone" id="phone" placeholder="" value="<?php if (isset($_SESSION["phone"])) {
+                                                                                                        echo $_SESSION["phone"];
+                                                                                                    } ?>">
+                            </div>
+                            <div class="field">
                                 <label for="text">Endereço</label>
                                 <input type="text" name="endereco" id="endereco" placeholder="" value="<?php if (isset($_SESSION["endereco"])) {
                                                                                                             echo $_SESSION["endereco"];
                                                                                                         } ?>">
                             </div>
-
                             <div class="field">
                                 <label for="text">País</label>
                                 <input type="text" name="pais" id="pais" placeholder="" value="<?php if (isset($_SESSION["pais"])) {

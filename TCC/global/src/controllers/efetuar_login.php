@@ -1,35 +1,31 @@
 <?php
 session_start();
-require("../models/Usuario.php");
-require("../DAO/UsuarioDAO.php");
+require "../models/Paciente.php";
+require "../DAO/UsuarioDAO.php";
+require "../DAO/PacienteDAO.php";
 require("../../connection/conn.php");
 
 if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new Database();
         $email = $_POST['email'];
-        $name = $_POST['name'];
-        $phone = $_POST['phone'];
-        $endereco = $_POST['endereco'];
-        $birthday = $_POST['birthday'];
-        $pais = $_POST['pais'];
-        $cidade = $_POST['cidade'];
-        $genero = $_POST['genero'];
         $senha_crypt = md5($_POST['senha_crypt']);
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $user = $usuarioDAO->efetuarLogin($email, $senha_crypt);
+        $pacienteDAO = new PacienteDAO($pdo->getConnection());
+        $paciente = $pacienteDAO->buscarPaciente($user->getId());
         if ($user != "Usuário nao encontrado") {
             $_SESSION['name'] = $user->getName();
             $_SESSION['id'] = $user->getId();
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getSenha();
-            $_SESSION['phone'] = $result->getPhone();
-            $_SESSION['endereco'] = $result->getEndereco();
-            $_SESSION['pais'] = $result->getPais();
-            $_SESSION['estado'] = $result->getEstado();
-            $_SESSION['cidade'] = $result->getCidade();
-            $_SESSION['genero'] = $result->getEndereco();
-
+            if ($paciente != "no data") {
+                $_SESSION['phone'] = $paciente->getPhone();
+                $_SESSION['endereco'] = $paciente->getEnderco();
+                $_SESSION['pais'] = $paciente->getPais();
+                $_SESSION['estado'] = $paciente->getEstado();
+                $_SESSION['cidade'] = $paciente->getCidade();
+            }
             header("Location: ../view/public/system.php");
         } else {
             unset($_SESSION['email']);

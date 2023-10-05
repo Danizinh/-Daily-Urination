@@ -44,14 +44,9 @@ CREATE TABLE IF NOT EXISTS miccao (
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id)
 );
 
-SELECT * FROM usuarios;
+SELECT * FROM pacientes;
 
+
+SELECT * FROM pacientes;
 
 DROP DATABASE dados;
-
-   private $normal;
-    private $urgencia;
-    private $desconfortavel;
-    private $horário;
-    private $data;
-    private $volume_Urinado;
