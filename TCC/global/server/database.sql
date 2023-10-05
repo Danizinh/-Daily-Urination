@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS miccao (
 
 SELECT * FROM usuarios;
 
-DELETE FROM USUARIOS;
+DELETE FROM usuarios;
 
 SELECT * FROM pacientes;
 

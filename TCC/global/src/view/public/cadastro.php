@@ -38,6 +38,11 @@
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="password" name="confirmation" placeholder="**********" id="confirmation" autocomplete="off" required>
+
+                    <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
+                    <input type="text" id="campo1" disabled><br>
+                    <script src="../public/assets/js/crm.js"></script>
+
                 </div>
                 <button type="submit" name="submit">Sign up</button>
                 <?php

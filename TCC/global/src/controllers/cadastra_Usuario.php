@@ -12,8 +12,8 @@ if (isset($_POST['submit']) && (!empty($_POST['name']) && (!empty($_POST['email'
         $senha_crypt = md5($_POST['senha_crypt']);
         $usuarioDAO = new UsuarioDAO($pdo->getConnection());
         $resultUsuario = $usuarioDAO->efetuarRegistro($name, $email, $senha_crypt);
-        $paciente =  cadastrar_paciente($resultPaciente, $pdo->getConnection());
-        if ($resulUsuario) {
+        $paciente =  cadastrar_paciente($resultUsuario, $pdo->getConnection());
+        if ($resultUsuario != false) {
             header("Location:../view/public/login.php");
         } else {
             header("Location:../view/public/cadastro.php?erro=4");
