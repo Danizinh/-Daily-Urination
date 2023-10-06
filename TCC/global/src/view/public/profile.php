@@ -150,9 +150,9 @@ session_start();
                             </div>
                             <div class="field">
                                 <label for="text">CPF</label>
-                                <input type="text" name="CPF" id="CPF" placeholder="" value="<?php if (isset($_SESSION["CPF"])) {
-                                                                                                    echo $_SESSION["CPF"];
-                                                                                                } ?>">
+                                <input type="text" name="CPF" id="CPF" placeholder="" maxlength="11" value="<?php if (isset($_SESSION["CPF"])) {
+                                                                                                                echo $_SESSION["CPF"];
+                                                                                                            } ?>">
                             </div>
                             <div class="field">
                                 <label for="text">idMedico</label>
@@ -167,8 +167,8 @@ session_start();
                                                                                                     } ?>">
                             </div>
                             <div class="field">
-                                <label for="text">Genero</label>
-                                <input type="text" name="aniversario" id="aniversario" placeholder="" value="<?php if (isset($_SESSION["aniversario"])) {
+                                <label for="text">aniversario</label>
+                                <input type="date" name="aniversario" id="aniversario" placeholder="" value="<?php if (isset($_SESSION["aniversario"])) {
                                                                                                                     echo $_SESSION["aniversario"];
                                                                                                                 } ?>">
                             </div>

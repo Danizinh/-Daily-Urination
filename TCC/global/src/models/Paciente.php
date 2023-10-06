@@ -2,7 +2,6 @@
 require("../models/Usuario.php");
 class Paciente extends Usuario
 {
-    private $id;
     private $aniversario;
     private $tel;
     private $endereco;
@@ -12,24 +11,25 @@ class Paciente extends Usuario
     private $genero;
     private $CPF;
     private $idMedico;
+    private $id_usuario;
 
-    function __construct($id, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
+    function __construct($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario)
     {
 
-        $this->$id = $id;
-        $this->$aniversario = $aniversario;
-        $this->$tel = $tel;
-        $this->$endereco = $endereco;
-        $this->$estado = $estado;
-        $this->$pais = $pais;
-        $this->$cidade = $cidade;
-        $this->$genero = $genero;
-        $this->$CPF = $CPF;
-        $this->$idMedico = $idMedico;
+        $this->aniversario = $aniversario;
+        $this->tel = $tel;
+        $this->endereco = $endereco;
+        $this->estado = $estado;
+        $this->pais = $pais;
+        $this->cidade = $cidade;
+        $this->genero = $genero;
+        $this->CPF = $CPF;
+        $this->idMedico = $idMedico;
+        $this->id_usuario = $id_usuario;
     }
-    public static  function __construct1($id, $name, $email, $senha_crypt, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico)
+    public static  function __construct1($name, $email, $senha_crypt, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario)
     {
-        $instance = new self($id, $endereco, $aniversario, $tel, $estado, $pais, $cidade, $genero, $CPF, $idMedico);
+        $instance = new self($endereco, $aniversario, $tel, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario);
 
         $instance->$name = $name;
         $instance->$email = $email;
@@ -37,13 +37,13 @@ class Paciente extends Usuario
     }
 
 
-    public function getId()
+    public function getid_usuario()
     {
-        return $this->id;
+        return $this->id_usuario;
     }
-    public function setId($newId)
+    public function setId($newid_usuario)
     {
-        $this->aniversario = $newId;
+        $this->id_usuario = $newid_usuario;
     }
     public function getAniversario()
     {

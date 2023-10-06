@@ -15,36 +15,39 @@ if (isset($_POST['submit'])) {
             $email = $_POST['email'];
 
             // Pacientes
-            $tel = $_POST['tel'];
             $aniversario = $_POST['aniversario'];
+            $tel = $_POST['tel'];
             $endereco = $_POST['endereco'];
             $estado = $_POST['estado'];
             $pais = $_POST['pais'];
             $cidade = $_POST['cidade'];
-            $CPF = $_POST['CPF'];
-            $idMedico = $_POST['$idMedico'];
             $genero = $_POST['genero'];
+            $CPF = $_POST['CPF'];
+            $idMedico = $_POST['idMedico'];
             // Usuarios
             $usuarioDAO = new UsuarioDAO($pdo->getConnection());
             $resultUsuario = $usuarioDAO->atualizarUsuarios($id, $name, $email);
 
             // Pacientes
             $pacienteDAO = new PacienteDAO($pdo->getConnection());
-            $resultPaciente = $pacienteDAO->atualizarPacientes($tel, $aniversario, $endereco, $pais, $estado, $cidade, $genero, $CPF, $idMedico, $id);
+            $resultPaciente = $pacienteDAO->atualizarPacientes($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id);
             echo $resultPaciente;
             if ($resultUsuario &&  $resultPaciente) {
+                // Usuario
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $name;
                 $_SESSION['email'] = $email;
-                $_SESSION['tel'] = $tel;
+                // Paciente
                 $_SESSION['aniversario'] = $aniversario;
+                $_SESSION['tel'] = $tel;
                 $_SESSION['endereco'] = $endereco;
                 $_SESSION['estado'] = $estado;
-                $_SESSION['cidade'] = $cidade;
                 $_SESSION['pais'] = $pais;
+                $_SESSION['cidade'] = $cidade;
+                $_SESSION['genero'] = $genero;
                 $_SESSION['CPF'] = $CPF;
                 $_SESSION['idMedico'] = $idMedico;
-                $_SESSION['genero'] = $genero;
+
                 header("Location:../view/public/profile.php");
                 exit();
             } else {

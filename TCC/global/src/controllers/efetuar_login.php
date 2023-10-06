@@ -20,14 +20,17 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getSenha();
             if ($paciente != "no data") {
-                $_SESSION['tell'] = $paciente->getTel();
+                $_SESSION['aniversario'] = $paciente->getAniversario();
+                $_SESSION['tel'] = $paciente->getTel();
                 $_SESSION['endereco'] = $paciente->getEnderco();
+                $_SESSION['estado'] = $paciente->getEstado();
                 $_SESSION['pais'] = $paciente->getPais();
                 $_SESSION['cidade'] = $paciente->getCidade();
-                $_SESSION['estado'] = $paciente->getEstado();
                 $_SESSION['genero'] = $paciente->getGenero();
+                $_SESSION['CPF'] = $paciente->getCPF();
+                $_SESSION['idMedico'] = $paciente->getidMedico();
+                header("Location: ../view/public/system.php");
             }
-            header("Location: ../view/public/system.php");
         } else {
             unset($_SESSION['email']);
             unset($_SESSION['senha_crypt']);
