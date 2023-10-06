@@ -29,7 +29,7 @@ class Paciente extends Usuario
     }
     public static  function __construct1($name, $email, $senha_crypt, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario)
     {
-        $instance = new self($endereco, $aniversario, $tel, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario);
+        $instance = new self($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario);
 
         $instance->$name = $name;
         $instance->$email = $email;
