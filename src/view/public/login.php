@@ -23,11 +23,13 @@
             <form class="card-form" action="../../controllers/efetuar_login.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input name="email" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
+                    <input name="email" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off"
+                        required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="senha_crypt" placeholder="**********" id="passwordForm" autocomplete="off" required>
+                    <input type="password" name="senha_crypt" placeholder="**********" id="passwordForm"
+                        autocomplete="off" required>
                 </div>
                 <div class="form-item-other">
                     <a href="../public/forgot-password.php">Esqueci a minha senha!</a>
@@ -35,7 +37,7 @@
                 <button type="submit" name="submit">Sign In</button>
             </form>
             <div class="card-footer">
-                Não tem uma conta?<a href="../public/cadastro.php">Criar uma conta gratuita.</a>
+                Não tem uma conta?<a href="./index.php">Criar uma conta gratuita.</a>
             </div>
             <?php
             if (isset($_GET["erro"])) {

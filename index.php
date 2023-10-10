@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <script src="../public/assets/js/validation.js" defer></script>
-    <link rel="stylesheet" href="../src/styles/style.css">
+    <script src="./src/view/public/assets/js/validation.js" defer></script>
+    <link rel="stylesheet" href="./src/view/src/styles/style.css">
     <title>Faça login</title>
 </head>
 
@@ -21,27 +21,30 @@
             <div class="card-header">
                 <h1>Cadastro</h1>
             </div>
-            <form class="card-form" action="../../controllers/cadastra_Usuario.php" method="POST">
+            <form class="card-form" action="./src/controllers/cadastra_Usuario.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="text" name="name" placeholder="Gabriela" id="emailForm" autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="text" name="email" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
+                    <input type="text" name="email" placeholder="email@email.com" id="emailForm" autocomplete="off"
+                        required>
                 </div>
 
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="senha_crypt" placeholder="**********" id="senha_crypt" autocomplete="off" required>
+                    <input type="password" name="senha_crypt" placeholder="**********" id="senha_crypt"
+                        autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="confirmation" placeholder="**********" id="confirmation" autocomplete="off" required>
+                    <input type="password" name="confirmation" placeholder="**********" id="confirmation"
+                        autocomplete="off" required>
 
                     <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
                     <input type="text" id="campo1" disabled><br>
-                    <script src="../public/assets/js/crm.js"></script>
+                    <script src="./src/view/public/assets/js/crm.js"></script>
 
                 </div>
                 <button type="submit" name="submit">Sign up</button>
@@ -55,7 +58,7 @@
                 ?>
             </form>
             <div class="card-footer">
-                Não tem uma conta?<a href="../public/login.php"> Faça seu login.</a>
+                Não tem uma conta?<a href="./src/view/public/login.php"> Faça seu login.</a>
             </div>
         </div>
     </div>

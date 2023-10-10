@@ -6,7 +6,7 @@ require("../DAO/PacienteDAO.php");
 require("../../connection/conn.php");
 
 if (isset($_POST['submit'])) {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $pdo = new Database();
             // Usuarios
@@ -31,8 +31,7 @@ if (isset($_POST['submit'])) {
             // Pacientes
             $pacienteDAO = new PacienteDAO($pdo->getConnection());
             $resultPaciente = $pacienteDAO->atualizarPacientes($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id);
-            echo $resultPaciente;
-            if ($resultUsuario &&  $resultPaciente) {
+            if ($resultUsuario && $resultPaciente) {
                 // Usuario
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $name;
