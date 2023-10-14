@@ -33,7 +33,7 @@
                         autocomplete="off" required>
                 </div>
                 <div class="form-item-other">
-                    <a href="../../controllers/request-reset.php">Esqueci a minha senha!</a>
+                    <a href="../../view/public/request-reset.php">Esqueci a minha senha!</a>
                 </div>
                 <button type="submit" name="submit">Sign In</button>
             </form>
