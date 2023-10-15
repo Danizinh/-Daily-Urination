@@ -49,6 +49,8 @@ if (isset($_POST["email"])) {
             }
             exit();
         }
+    } else {
+        header("Location: ../view/public/request-reset.php");
     }
 }
 ?>

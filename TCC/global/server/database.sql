@@ -54,6 +54,6 @@ SELECT * FROM reset;
 
 DELETE FROM usuarios;
 
-SELECT * FROM usuarios;
+SELECT * FROM pacientes;
 
-DROP TABLE reset;
+DROP DATABASE dados;

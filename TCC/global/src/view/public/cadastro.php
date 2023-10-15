@@ -44,7 +44,7 @@
 
                     <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
                     <input type="text" id="campo1" disabled><br>
-                    <script src="./src/view/public/assets/js/crm.js"></script>
+                    <script src="../public/assets/js/crm.js" defer></script>
 
                 </div>
                 <button type="submit" name="submit">Sign up</button>

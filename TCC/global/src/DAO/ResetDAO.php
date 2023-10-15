@@ -24,8 +24,8 @@ class ResetDAO
     {
         $sql = "INSERT INTO reset (code, email) VALUES (:code, :email)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":code", $code, PDO::PARAM_STR);
-        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindValue(":code", $code, PDO::PARAM_STR);
+        $stmt->bindValue(":email", $email, PDO::PARAM_STR);
         try {
             $stmt->execute();
             return true;
