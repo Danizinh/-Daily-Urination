@@ -16,6 +16,7 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
             $pacienteDAO = new PacienteDAO($pdo->getConnection());
             $paciente = $pacienteDAO->buscarPaciente($user->getId());
             $_SESSION['name'] = $user->getName();
+            $_SESSION['sobrenome'] = $user->getsobrenome();
             $_SESSION['id'] = $user->getId();
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getPassword();

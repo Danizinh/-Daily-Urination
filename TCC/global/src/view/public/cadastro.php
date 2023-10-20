@@ -28,6 +28,10 @@
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="text" name="sobrenome" placeholder="Silva" id="sobrenome" autocomplete="off" required>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="text" name="email" placeholder="email@email.com" id="emailForm" autocomplete="off"
                         required>
                 </div>
@@ -42,9 +46,6 @@
                     <input type="password" name="confirmation" placeholder="**********" id="confirmation"
                         autocomplete="off" required>
 
-                    <!-- <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="date" name="aniversario" placeholder="00-00-0000" id="aniversario" autocomplete="off"
-                        required> -->
 
                     <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
                     <input type="text" id="campo1" disabled><br>

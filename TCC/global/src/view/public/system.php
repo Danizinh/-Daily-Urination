@@ -16,6 +16,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
   <title>System of login</title>
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="../public/assets/css/style.css">
+  <link rel="stylesheet" href="../public/assets/css/profile.css">
   <link rel="stylesheet" href="../public/assets/css/bootstrap.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,47 +43,13 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
         <span class="tooltip">Dashboard</span>
       </li>
       <li>
-        <a href="../public/profile.php">
-          <i class='bx bx-user'></i>
-          <span class="links_name">User</span>
-        </a>
-        <span class="tooltip">User</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-chat'></i>
-          <span class="links_name">Messages</span>
-        </a>
-        <span class="tooltip">Messages</span>
-      </li>
-      <li>
         <a href="#">
           <i class='bx bx-pie-chart-alt-2'></i>
           <span class="links_name">Analytics</span>
         </a>
         <span class="tooltip">Analytics</span>
       </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-folder'></i>
-          <span class="links_name">File Manager</span>
-        </a>
-        <span class="tooltip">Files</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cart-alt'></i>
-          <span class="links_name">Order</span>
-        </a>
-        <span class="tooltip">Order</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-heart'></i>
-          <span class="links_name">Saved</span>
-        </a>
-        <span class="tooltip">Saved</span>
-      </li>
+
       <li>
         <a href="../public/setting.php">
           <i class='bx bx-cog'></i>
@@ -102,9 +69,9 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
     </ul>
   </div>
   <section class="home-section">
+
     <div class="text">Welcome Back,
-      <?= $_SESSION['name'] ?>,
-      <?= $_SESSION['email'] ?>,
+      <?= $_SESSION['name'] ?>
     </div>
 
     <div class="logo_Date">
@@ -115,6 +82,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </div>
     </div>
+
     </div>
   </section>
   <script src="../public/assets/js/script.js"></script>

@@ -5,7 +5,8 @@ USE dados;
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
+    name VARCHAR(30),
+    sobrenome VARCHAR(40),
     email VARCHAR(50) UNIQUE,
     senha_crypt VARCHAR(255)
 );

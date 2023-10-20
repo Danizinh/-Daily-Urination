@@ -17,11 +17,12 @@ class UsuarioDAO
 
     public function inserirUsuarios($usuario)
     {
-        $sql = "INSERT INTO usuarios(id,name,email,endereco,senha_crypt)
-        VALUE(:id,:name,:email,:endereco,:senha_crypt)";
+        $sql = "INSERT INTO usuarios(id,name,sobrenome,email,endereco,senha_crypt)
+        VALUE(:id,:name,:sobrenome,:email,:endereco,:senha_crypt)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $usuario['id']);
         $stmt->bindValue(':name', $usuario['name']);
+        $stmt->bindValue(':sobrenome', $usuario['sobrenome']);
         $stmt->bindValue(':email', $usuario['email']);
         $stmt->bindValue(':senha_crypt', $usuario['senha_crypt']);
         try {
@@ -31,12 +32,13 @@ class UsuarioDAO
             return "Erro ao inserir Usuario" . $e->getMessage();
         }
     }
-    public function atualizarUsuarios($id, $name, $email)
+    public function atualizarUsuarios($id, $name, $sobrenome, $email)
     {
-        $sql = "UPDATE usuarios SET name = :name, email = :email WHERE id=:id";
+        $sql = "UPDATE usuarios SET name = :name,sobrenome=:sobrenome, email = :email WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':sobrenome', $sobrenome, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         try {
             $stmt->execute();
@@ -70,6 +72,7 @@ class UsuarioDAO
                 return new Usuario(
                     $user['id'],
                     $user['name'],
+                    $user['sobrenome'],
                     $user['email'],
                     $user['senha_crypt'],
                 );
@@ -78,17 +81,18 @@ class UsuarioDAO
             }
         }
     }
-    public function efetuarRegistro($name, $email, $senha_crypt)
+    public function efetuarRegistro($name, $sobrenome, $email, $senha_crypt)
     {
         $sql = "SELECT * FROM usuarios WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':email', $email);
         if ($stmt->execute()) {
             if ($stmt->rowCount() <= 0) {
-                $sql = "INSERT INTO usuarios (name,email,senha_crypt)
-                VALUES(:name,:email,:senha_crypt)";
+                $sql = "INSERT INTO usuarios (name,sobrenome,email,senha_crypt)
+                VALUES(:name,:email,:sobrenome,:senha_crypt)";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindValue(':name', $name);
+                $stmt->bindValue(':sobrenome', $sobrenome);
                 $stmt->bindValue(':email', $email);
                 $stmt->bindValue(':senha_crypt', $senha_crypt);
                 if ($stmt->execute()) {

@@ -3,14 +3,16 @@ class Usuario
 {
     private $id;
     private $name;
+    private $sobrenome;
     private $email;
     private $senha_crypt;
 
 
-    function __construct($id, $name, $email, $senha_crypt)
+    function __construct($id, $name, $sobrenome, $email, $senha_crypt)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->sobrenome = $sobrenome;
         $this->email = $email;
         $this->senha_crypt = $senha_crypt;
     }
@@ -30,6 +32,14 @@ class Usuario
     public function setName($newNome)
     {
         $this->name = $newNome;
+    }
+    public function getsobrenome()
+    {
+        return $this->sobrenome;
+    }
+    public function setsobrenome($newsobrenome)
+    {
+        $this->sobrenome = $newsobrenome;
     }
     public function getEmail()
     {

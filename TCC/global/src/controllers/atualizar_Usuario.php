@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
             // Usuarios
             $id = $_POST['id'];
             $name = $_POST['name'];
+            $sobrenome = $_POST['sobrenome'];
             $email = $_POST['email'];
             $niverVazio = false;
             // Pacientes
@@ -34,7 +35,7 @@ if (isset($_POST['submit'])) {
             $idMedico = $_POST['idMedico'];
             // Usuarios
             $usuarioDAO = new UsuarioDAO($pdo->getConnection());
-            $resultUsuario = $usuarioDAO->atualizarUsuarios($id, $name, $email);
+            $resultUsuario = $usuarioDAO->atualizarUsuarios($id, $name, $sobrenome, $email);
 
             // Pacientes
             $pacienteDAO = new PacienteDAO($pdo->getConnection());
@@ -57,6 +58,7 @@ if (isset($_POST['submit'])) {
                 // Usuario
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $name;
+                $_SESSION['sobrenome'] = $sobrenome;
                 $_SESSION['email'] = $email;
                 // Paciente
                 if ($niverVazio) {
@@ -75,7 +77,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['CPF'] = $CPF;
                 $_SESSION['idMedico'] = $idMedico;
 
-                header("Location:../view/public/profile.php");
+                header("Location:../view/public/setting.php");
                 exit();
             } else {
                 echo "Erro ao atualizar os dados";

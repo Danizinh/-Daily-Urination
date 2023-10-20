@@ -37,46 +37,11 @@ session_start();
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="../public/profile.php">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">Profile</span>
-                </a>
-                <span class="tooltip">Profile</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
-                </a>
-                <span class="tooltip">Messages</span>
-            </li>
-            <li>
                 <a href="#">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="links_name">Analytics</span>
                 </a>
                 <span class="tooltip">Analytics</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-folder'></i>
-                    <span class="links_name">File Manager</span>
-                </a>
-                <span class="tooltip">Files</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cart-alt'></i>
-                    <span class="links_name">Order</span>
-                </a>
-                <span class="tooltip">Order</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-heart'></i>
-                    <span class="links_name">Saved</span>
-                </a>
-                <span class="tooltip">Saved</span>
             </li>
             <li>
                 <a href="../public/setting.php">
@@ -119,6 +84,13 @@ session_start();
                                 <label for="text">Name</label>
                                 <input type="text" name="name" id="name" required placeholder=""
                                     value="<?= $_SESSION['name'] ?>">
+
+                            </div>
+                            <div class="field">
+                                <label for="text">Sobrenome</label>
+                                <input type="text" name="sobrenome" id="sobrenome" required placeholder=""
+                                    value="<?= $_SESSION['sobrenome'] ?>">
+
                             </div>
                             <div class="field">
                                 <label for="text">E-mail</label>
@@ -153,6 +125,12 @@ session_start();
                                 } ?>">
                             </div>
 
+                            <div class="field">
+                                <label for="text">idMedico</label>
+                                <input type="text" name="idMedico" id="idMedico" placeholder="" value="<?php if (isset($_SESSION["idMedico"])) {
+                                    echo $_SESSION["idMedico"];
+                                } ?>">
+                            </div>
                             <div class="field">
                                 <label for="text">idMedico</label>
                                 <input type="text" name="idMedico" id="idMedico" placeholder="" value="<?php if (isset($_SESSION["idMedico"])) {
