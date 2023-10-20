@@ -42,6 +42,10 @@
                     <input type="password" name="confirmation" placeholder="**********" id="confirmation"
                         autocomplete="off" required>
 
+                    <!-- <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="date" name="aniversario" placeholder="00-00-0000" id="aniversario" autocomplete="off"
+                        required> -->
+
                     <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
                     <input type="text" id="campo1" disabled><br>
                     <script src="../public/assets/js/crm.js" defer></script>

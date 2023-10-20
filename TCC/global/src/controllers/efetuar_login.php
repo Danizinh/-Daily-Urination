@@ -20,12 +20,18 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['senha_crypt'] = $user->getPassword();
             if ($paciente != "no data") {
-                $_SESSION['aniversario'] = $paciente->getAniversario();
+                if ($paciente->getAniversario() == '1900-01-01') {
+                    $_SESSION['aniversario'] = null;
+                } else {
+                    $_SESSION['aniversario'] = $paciente->getAniversario();
+                }
                 $_SESSION['tel'] = $paciente->getTel();
-                $_SESSION['endereco'] = $paciente->getEnderco();
+                $_SESSION['CEP'] = $paciente->getCEP();
+                $_SESSION['endereco'] = $paciente->getEndereco();
+                $_SESSION['bairro'] = $paciente->getBairro();
                 $_SESSION['estado'] = $paciente->getEstado();
-                $_SESSION['pais'] = $paciente->getPais();
                 $_SESSION['cidade'] = $paciente->getCidade();
+                $_SESSION['pais'] = $paciente->getPais();
                 $_SESSION['genero'] = $paciente->getGenero();
                 $_SESSION['CPF'] = $paciente->getCPF();
                 $_SESSION['idMedico'] = $paciente->getidMedico();

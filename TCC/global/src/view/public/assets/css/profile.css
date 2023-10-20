@@ -16,7 +16,7 @@
     width: 70vh !important;
     height: 74vh;
     padding: 2rem;
-    /* box-shadow: 5px 5px 15px #000; */
+    box-shadow: 5px 5px 15px #000;
     font-weight: bold;
     margin-right: 36px !important;
 }
@@ -137,7 +137,6 @@ img {
 
 textarea {
     width: 192%;
-    height: 305px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;

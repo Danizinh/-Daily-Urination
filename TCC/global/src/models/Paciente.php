@@ -4,32 +4,51 @@ class Paciente extends Usuario
 {
     private $aniversario;
     private $tel;
+    private $CEP;
     private $endereco;
-    private $estado;
-    private $pais;
+    private $bairro;
     private $cidade;
+    private $pais;
+    private $estado;
     private $genero;
     private $CPF;
     private $idMedico;
     private $id_usuario;
 
-    function __construct($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario)
+    function __construct($aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario)
     {
 
         $this->aniversario = $aniversario;
         $this->tel = $tel;
+        $this->CEP = $CEP;
         $this->endereco = $endereco;
-        $this->estado = $estado;
-        $this->pais = $pais;
+        $this->bairro = $bairro;
         $this->cidade = $cidade;
+        $this->pais = $pais;
+        $this->estado = $estado;
         $this->genero = $genero;
         $this->CPF = $CPF;
         $this->idMedico = $idMedico;
         $this->id_usuario = $id_usuario;
     }
-    public static  function __construct1($name, $email, $senha_crypt, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario)
-    {
-        $instance = new self($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario);
+    public static function __construct1(
+        $name,
+        $email,
+        $senha_crypt,
+        $aniversario,
+        $tel,
+        $CEP,
+        $endereco,
+        $bairro,
+        $cidade,
+        $pais,
+        $estado,
+        $genero,
+        $CPF,
+        $idMedico,
+        $id_usuario
+    ) {
+        $instance = new self($aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario);
 
         $instance->$name = $name;
         $instance->$email = $email;
@@ -61,14 +80,30 @@ class Paciente extends Usuario
     {
         $this->tel = $newTel;
     }
+    public function getCEP()
+    {
+        return $this->CEP;
+    }
+    public function setCEP($newCEP)
+    {
+        $this->CEP = $newCEP;
+    }
 
-    public function getEnderco()
+    public function getEndereco()
     {
         return $this->endereco;
     }
     public function setEndereco($newEndereco)
     {
         $this->endereco = $newEndereco;
+    }
+    public function getBairro()
+    {
+        return $this->bairro;
+    }
+    public function setBairro($newBairro)
+    {
+        $this->bairro = $newBairro;
     }
 
     public function getEstado()
@@ -80,15 +115,6 @@ class Paciente extends Usuario
         $this->estado = $newEstado;
     }
 
-    public function getPais()
-    {
-        return $this->pais;
-    }
-    public function setPais($newPais)
-    {
-        $this->pais = $newPais;
-    }
-
     public function getCidade()
     {
         return $this->cidade;
@@ -96,6 +122,14 @@ class Paciente extends Usuario
     public function setCidade($newCidade)
     {
         $this->cidade = $newCidade;
+    }
+    public function getPais()
+    {
+        return $this->pais;
+    }
+    public function setPais($newPais)
+    {
+        $this->pais = $newPais;
     }
 
     public function getGenero()

@@ -13,14 +13,22 @@ if (isset($_POST['submit'])) {
             $id = $_POST['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
-
+            $niverVazio = false;
             // Pacientes
-            $aniversario = $_POST['aniversario'];
+            if ($_POST['aniversario'] != null) {
+                $aniversario = $_POST['aniversario'];
+            } else {
+                $aniversario = '1900-01-01';
+                $niverVazio = true;
+
+            }
             $tel = $_POST['tel'];
+            $CEP = $_POST['CEP'];
             $endereco = $_POST['endereco'];
+            $bairro = $_POST['bairro'];
             $estado = $_POST['estado'];
-            $pais = $_POST['pais'];
             $cidade = $_POST['cidade'];
+            $pais = $_POST['pais'];
             $genero = $_POST['genero'];
             $CPF = $_POST['CPF'];
             $idMedico = $_POST['idMedico'];
@@ -30,19 +38,39 @@ if (isset($_POST['submit'])) {
 
             // Pacientes
             $pacienteDAO = new PacienteDAO($pdo->getConnection());
-            $resultPaciente = $pacienteDAO->atualizarPacientes($aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id);
+            $resultPaciente = $pacienteDAO->atualizarPacientes(
+                $aniversario,
+                $tel,
+                $CEP,
+                $endereco,
+                $bairro,
+                $estado,
+                $cidade,
+                $pais,
+                $genero,
+                $CPF,
+                $idMedico,
+                $id
+            );
+            echo $resultPaciente;
             if ($resultUsuario && $resultPaciente) {
                 // Usuario
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $name;
                 $_SESSION['email'] = $email;
                 // Paciente
-                $_SESSION['aniversario'] = $aniversario;
+                if ($niverVazio) {
+                    $_SESSION['aniversario'] = null;
+                } else {
+                    $_SESSION['aniversario'] = $aniversario;
+                }
                 $_SESSION['tel'] = $tel;
+                $_SESSION['CEP'] = $CEP;
                 $_SESSION['endereco'] = $endereco;
+                $_SESSION['bairro'] = $bairro;
                 $_SESSION['estado'] = $estado;
-                $_SESSION['pais'] = $pais;
                 $_SESSION['cidade'] = $cidade;
+                $_SESSION['pais'] = $pais;
                 $_SESSION['genero'] = $genero;
                 $_SESSION['CPF'] = $CPF;
                 $_SESSION['idMedico'] = $idMedico;

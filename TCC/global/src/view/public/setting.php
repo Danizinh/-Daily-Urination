@@ -14,8 +14,8 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../view/public/assets/css/profile.css">
     <link rel="stylesheet" href="../../view/public/assets/css/style.css">
+    <link rel="stylesheet" href="../../view/public/assets/css/profile.css">
 
     <meta name="description"
         content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
@@ -105,8 +105,8 @@ session_start();
     <section class="home-section">
         <div class="text">Informação pessoal</div>
         <div class="text_">Atualize sua foto e dados pessoais aqui</div>
-        <div class="home">
-            <div class="general">
+        <div class="general">
+            <div class="home">
                 <div class="container">
                     <h1 class="h-1">Informações</h1>
                     <div class="input_all">
@@ -202,10 +202,18 @@ session_start();
                                     echo $_SESSION["pais"];
                                 } ?>">
                             </div>
+                            <h1 class="h-1">Sobre</h1>
+                            <div class="field">
+                                <label for="text">Sobre</label>
+                                <textarea id="sobre" name="sobre" rows="4" cols="50" value="<?php if (isset($_SESSION["sobre"])) {
+                                    echo $_SESSION["sobre"];
+                                } ?>">
+                                </textarea>
 
-                            <p><button class="button button4" type="submit" name="submit" id="submit">All
-                                    save</button>
-                            </p>
+                                <p><button class="button button4" type="submit" name="submit" id="submit">All
+                                        save</button>
+                                </p>
+                            </div>
                         </form>
                     </div>
                 </div>

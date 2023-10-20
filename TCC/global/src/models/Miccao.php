@@ -18,17 +18,38 @@ class Miccao extends Paciente
         $this->data = $data;
         $this->volume_Urinado = $volume_Urinado;
     }
-    public static function __construct3($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado, $aniversario, $tel, $endereco, $estado, $pais, $cidade, $genero, $CPF, $idMedico, $id_usuario)
-    {
+    public static function __construct3(
+        $normal,
+        $urgencia,
+        $desconfortavel,
+        $horario,
+        $data,
+        $volume_Urinado,
+        $aniversario,
+        $tel,
+        $CEP,
+        $endereco,
+        $bairro,
+        $cidade,
+        $pais,
+        $estado,
+        $genero,
+        $CPF,
+        $idMedico,
+        $id_usuario
+    ) {
 
         $instance = new self($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado);
 
         $instance->$aniversario = $aniversario;
         $instance->$tel = $tel;
+        $instance->$CEP = $CEP;
         $instance->$endereco = $endereco;
-        $instance->$estado = $estado;
-        $instance->$pais = $pais;
+        $instance->$bairro = $bairro;
         $instance->$cidade = $cidade;
+        $instance->$cidade = $cidade;
+        $instance->$pais = $pais;
+        $instance->$estado = $estado;
         $instance->$genero = $genero;
         $instance->$CPF = $CPF;
         $instance->$idMedico = $idMedico;

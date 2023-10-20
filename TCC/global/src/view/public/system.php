@@ -35,7 +35,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
     </div>
     <ul class="nav-list">
       <li>
-        <a href="../api/system.php">
+        <a href="../public/system.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>

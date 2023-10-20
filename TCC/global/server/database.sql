@@ -12,25 +12,26 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS medico (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    CMR VARCHAR(15),
-    id_usuario INT NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+    CMR VARCHAR(15)
 );
 
 CREATE TABLE IF NOT EXISTS pacientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    tel VARCHAR(15),
-    endereco VARCHAR (225),
     aniversario DATE,
-    pais VARCHAR(255),
+    tel VARCHAR(15),
+    CEP VARCHAR(9),
+    endereco VARCHAR (225),
+    bairro VARCHAR(225),
     estado VARCHAR(255),
     cidade VARCHAR(255),
+    pais VARCHAR(255),
     genero VARCHAR(1),
     CPF VARCHAR(11),
     id_medico INT,
     id_usuario INT NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
+
 
 CREATE TABLE IF NOT EXISTS miccao (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -50,10 +51,13 @@ CREATE TABLE reset (
     email VARCHAR(255) NOT NULL
 );
 
-SELECT * FROM reset;
+SELECT * FROM usuarios;
 
 DELETE FROM usuarios;
 
 SELECT * FROM pacientes;
 
 DROP DATABASE dados;
+
+delete from pacientes;
+delete from usuarios;
