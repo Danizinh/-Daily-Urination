@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS medico (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    CMR VARCHAR(15)
+    nameMedico VARCHAR(225),
+    crm VARCHAR(15)
 );
 
 CREATE TABLE IF NOT EXISTS pacientes (
@@ -53,12 +54,20 @@ CREATE TABLE reset (
 );
 
 SELECT * FROM usuarios;
-
-DELETE FROM usuarios;
-
 SELECT * FROM pacientes;
+SELECT * FROM medico;
+INSERT INTO medico(nameMedico,crm)VALUES("Camila Bonacordi","175203-SP");
+INSERT INTO medico(nameMedico,crm)VALUES("Fernanda Falção","133239-SP");
+INSERT INTO medico(nameMedico,crm)VALUES("Maykon Pereira ","168485-SP");
+INSERT INTO medico(nameMedico,crm)VALUES("Edgar Oliveira","141529-SP");
+INSERT INTO medico(nameMedico,crm)VALUES("Celso Ferreira","44190-SP");
+INSERT INTO medico(nameMedico,crm)VALUES("Lucas Tadeu Moura","125324-SP");
+INSERT INTO medico(nameMedico,crm)VALUES("Joana Amaral Chanan","35621-SP");
+
+
 
 DROP DATABASE dados;
+DELETE FROM usuarios;
 
 delete from pacientes;
 delete from usuarios;

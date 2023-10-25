@@ -1,5 +1,9 @@
 <?php
 session_start();
+require "../../controllers/listar_Medico.php";
+require "../../models/Medico.php";
+require "../../DAO/MedicoDAO.php";
+require "../../../connection/conn.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,10 +142,17 @@ session_start();
                                 } ?>">
                             </div>
                             <div class="field">
-                                <label for="text">idMedico</label>
-                                <input type="text" name="idMedico" id="idMedico" placeholder="" value="<?php if (isset($_SESSION["idMedico"])) {
-                                    echo $_SESSION["idMedico"];
-                                } ?>">
+                                <select name="nameMedico" id="nameMedico">
+                                    <?php
+                                    $medicos = lista_Medico();
+                                    foreach ($medicos as $medico): ?>
+                                        <option value="<?= $medico->getId() ?>">
+                                            <?= $medico->getcrm() ?> -
+                                            <?= $medico->nameMedico() ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+
                             </div>
                             <h1 class="h-1">Endereço</h1>
                             <div class="field">

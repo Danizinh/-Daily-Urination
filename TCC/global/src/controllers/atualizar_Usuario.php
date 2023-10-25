@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require("../models/Usuario.php");
 require("../DAO/UsuarioDAO.php");
 require("../DAO/PacienteDAO.php");
@@ -33,6 +34,7 @@ if (isset($_POST['submit'])) {
             $genero = $_POST['genero'];
             $CPF = $_POST['CPF'];
             $idMedico = $_POST['idMedico'];
+            $nameMedico = $_POST['nameMedico'];
             // Usuarios
             $usuarioDAO = new UsuarioDAO($pdo->getConnection());
             $resultUsuario = $usuarioDAO->atualizarUsuarios($id, $name, $sobrenome, $email);

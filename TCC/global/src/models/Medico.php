@@ -1,28 +1,55 @@
+c
 <?php
-require("../models/Usuario.php");
+require("Usuario.php");
 class Medico extends Usuario
 {
-    private $cmr;
-    public function __construct($cmr)
+    private $id;
+    private $nameMedico;
+    private $crm;
+    public function __construct($id, $nameMedico, $crm)
     {
-        $this->cmr->$cmr;
+        $this->id = $id;
+        $this->nameMedico = $nameMedico;
+        $this->crm = $crm;
     }
 
-    public static function __construct2($cmr, $id, $name, $senha_crypt, $email)
-    {
-        $instance = new self($cmr);
+    public static function __construct2(
+        $id,
+        $nameMedico,
+        $crm,
+        $name,
+        $senha_crypt,
+        $email
+    ) {
+        $instance = new self($id, $nameMedico, $crm);
         $instance->$id = $id;
         $instance->$name = $name;
         $instance->$email = $email;
         $instance->$senha_crypt = $senha_crypt;
     }
 
-    public function getcmr()
+    public function getId()
     {
-        return $this->cmr;
+        return $this->id;
     }
-    public function setcrm($new_cmr)
+    public function setId($newId)
     {
-        $this->cmr = $new_cmr;
+        $this->id = $newId;
+    }
+    public function nameMedico()
+    {
+        return $this->nameMedico;
+    }
+    public function setName($newnameMedico)
+    {
+        $this->nameMedico = $newnameMedico;
+    }
+    public function getcrm()
+    {
+        return $this->crm;
+    }
+    public function setcrm($newCrm)
+    {
+        $this->crm = $newCrm;
     }
 }

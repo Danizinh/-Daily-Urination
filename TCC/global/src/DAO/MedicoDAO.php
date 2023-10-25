@@ -13,14 +13,33 @@ class MedicoDAO
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function inserirMedico($medico)
+    public function buscarMedico($id)
     {
-        $sql = "INSERT INTO medico(id,CRM,id_usuario)
-        VALUES (:id,:CRM,:id_usuario)";
+        $sql = "SELECT * FROM medico WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':id', $medico['id']);
-        $stmt->bindValue(':CRM', $medico['CRM']);
-        $stmt->bindValue(':id_usuario', $medico['id_usuario']);
+        $stmt->bindValue(':id', $id);
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
+                $medico = $stmt->fetch(PDO::FETCH_ASSOC);
+                return new Medico(
+                    $medico['id'],
+                    $medico['nameMedico'],
+                    $medico['cmr'],
+                );
+            } else {
+                return "Not";
+            }
+        }
+    }
+
+    public function inserirMedico($id, $nameMedico, $crm)
+    {
+        $sql = "INSERT INTO medico(id,nameMedico,crm)
+        VALUES (:id,:nameMedico,:crm,)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $id['id']);
+        $stmt->bindValue(':nameMedico', $nameMedico['nameMedico']);
+        $stmt->bindValue(':crm', $crm['crm']);
         try {
             $stmt->execute();
             return true;
@@ -30,11 +49,11 @@ class MedicoDAO
     }
     public function atualizarMedico($medico)
     {
-        $sql = "UPDATE medico SET CRM = :CRM,id_usuario =:id_usuario WHERE id = :id";
+        $sql = "UPDATE medico SET nameMedico =:nameMedico,crm = :crm = WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $medico['id']);
-        $stmt->bindValue(':CRM', $medico['CRM']);
-        $stmt->bindValue(':id_usuario', $medico['id_usuario']);
+        $stmt->bindValue(':nameMedico', $medico['nameMedico']);
+        $stmt->bindValue(':crm', $medico['crm']);
         try {
             $stmt->execute();
             return true;
