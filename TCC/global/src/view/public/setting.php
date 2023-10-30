@@ -191,18 +191,11 @@ require "../../../connection/conn.php";
                                     echo $_SESSION["pais"];
                                 } ?>">
                             </div>
-                            <h1 class="h-1">Sobre</h1>
-                            <div class="field">
-                                <label for="text">Sobre</label>
-                                <textarea id="sobre" name="sobre" rows="4" cols="50" value="<?php if (isset($_SESSION["sobre"])) {
-                                    echo $_SESSION["sobre"];
-                                } ?>">
-                                </textarea>
 
-                                <p><button class="button button4" type="submit" name="submit" id="submit">All
-                                        save</button>
-                                </p>
-                            </div>
+
+                            <p><button class="button button4" type="submit" name="submit" id="submit">All
+                                    save</button>
+                            </p>
                         </form>
                     </div>
                 </div>
