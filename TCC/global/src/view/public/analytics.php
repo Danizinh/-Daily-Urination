@@ -85,16 +85,17 @@ session_start();
 
 
                             <div class="field">
-                                <label for="text">Urgencia</label>
+                                <label for="urgencia">Escolha um Urgencia:</label>
                                 <select name="urgencia" id="urgencia">
-                                    <option value="1">Normal</option>
-                                    <option value="2">Urgente</option>
-                                    <option value="3">Perdas</option>
+                                    <option value="Urgente">Urgente</option>
+                                    <option value="Perdas">Perdas</option>
+                                    <option value="Normal">Normal</option>
                                 </select>
+
                             </div>
                             <div class="field">
                                 <label for="text">Volume Urinado</label>
-                                <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="" value="<?php if(isset($_SESSION['volumeUrinado']))
+                                <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100 ML" value="<?php if(isset($_SESSION['volumeUrinado']))
                                 echo $_SESSION['volumeUrinado']?>">
                             </div>
                             <p><button class="button button4" type="submit" name="submit" id="submit">All

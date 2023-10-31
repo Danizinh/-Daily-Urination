@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <script src="./src/view/public/assets/js/validation.js" defer></script>
+    <script src="../../view/public/assets/js/validation.js" defer></script>
     <script src="../../../src/view/public/assets/js/crm.js" defer></script>
     <link rel="stylesheet" href="../src/styles/style.css">
     <title>Faça login</title>
@@ -51,10 +51,10 @@
                     <script src="../public/assets/js/crm.js" defer></script>
 
                 </div>
-                <input type="text" id="campo1" name="campo1" disabled placeholder="CRM"><br>
+                <input type="text" id="campo1" name="campo1" disabled placeholder="CRM">
                 <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded">Você é medico ?</span>
-                    <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    você é medico ? <input type="checkbox" id="habilitarCampos"> <br style="display:none">
                 </div>
                 <button type="submit" name="submit">Sign up</button>
                 <?php

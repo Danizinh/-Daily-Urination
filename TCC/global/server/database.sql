@@ -108,6 +108,4 @@ VALUES (
 
 DROP DATABASE dados;
 
-delete from medico;
-
-delete from usuarios;
+DELETE FROM miccao;
