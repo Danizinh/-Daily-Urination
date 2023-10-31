@@ -1,5 +1,5 @@
 <?php
-require("../models/Usuario.php");
+require_once("../models/Usuario.php");
 class Paciente extends Usuario
 {
     private $id;

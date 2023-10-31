@@ -1,11 +1,12 @@
 <?php
 session_start();
-require "../DAO/MedicoDAO.php";
-require "../models/Medico.php";
-require "../DAO/UsuarioDAO.php";
-require "../models/Paciente.php";
-require "../DAO/PacienteDAO.php";
-require("../../connection/conn.php");
+require_once "../DAO/MedicoDAO.php";
+require_once "../models/Medico.php";
+require_once "../DAO/UsuarioDAO.php";
+require_once "../models/Usuario.php";
+require_once "../models/Paciente.php";
+require_once "../DAO/PacienteDAO.php";
+require_once "../../connection/conn.php";
 
 if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,10 +17,13 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
         $user = $usuarioDAO->efetuarLogin($email, $senha_crypt);
         if ($user != "Usuário nao encontrado") {
             $medicoDAO = new MedicoDAO($pdo->getConnection());
-            $medico = $medicoDAO->validacaoMedico($medico->$crm);
+            $medico = $medicoDAO->validacaoMedico($user->getId());
             if($medico){
+                $_SESSION['id'] = $medico->getIdUsuario();
                 $_SESSION['crm'] = $medico->getcrm();
-                header("../view/public/platform.php");
+                $_SESSION['nameMedico'] = $medico->getnameMedico();
+                $_SESSION['idUsuario'] = $medico->getIdUsuario();
+                header("Location: ../view/public/platform.php");
               
             } else {
                 $pacienteDAO = new PacienteDAO($pdo->getConnection());
@@ -48,6 +52,7 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
         } else {
             unset($_SESSION['email']);
             unset($_SESSION['senha_crypt']);
+
             header("Location: ../view/public/login.php?erro=2");
         }
     } else {

@@ -94,7 +94,8 @@ session_start();
                             </div>
                             <div class="field">
                                 <label for="text">Volume Urinado</label>
-                                <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="" value="">
+                                <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="" value="<?php if(isset($_SESSION['volumeUrinado']))
+                                echo $_SESSION['volumeUrinado']?>">
                             </div>
                             <p><button class="button button4" type="submit" name="submit" id="submit">All
                                     save</button>

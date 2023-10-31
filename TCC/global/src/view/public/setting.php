@@ -1,9 +1,10 @@
 <?php
 session_start();
-require "../../controllers/listar_Medico.php";
-require "../../models/Medico.php";
-require "../../DAO/MedicoDAO.php";
-require "../../../connection/conn.php";
+require_once(__DIR__ . "/../../controllers/listar_Medico.php");
+require_once(__DIR__ . "/../../models/Medico.php");
+require_once("../../models/Usuario.php");
+require_once(__DIR__ . "/../../DAO/MedicoDAO.php");
+require_once(__DIR__ . "/../../../connection/conn.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +82,7 @@ require "../../../connection/conn.php";
                     <div class="input_all">
                         <form action="../../controllers/atualizar_Usuario.php" method="POST" id="form">
                             <div class="field">
-                                <input type="text" name="id" id="id" required placeholder=""
+                                <input type="text" name="id" id="id" require_onced placeholder=""
                                     value="<?= $_SESSION['id'] ?>" style="display:none">
                             </div>
                             <div class="field">
@@ -146,10 +147,10 @@ require "../../../connection/conn.php";
                                     <?php
                                     $medicos = lista_Medico();
                                     foreach ($medicos as $medico): ?>
-                                        <option value="<?= $medico->getId() ?>">
-                                            <?= $medico->getcrm() ?> -
-                                            <?= $medico->nameMedico() ?>
-                                        </option>
+                                    <option value="<?= $medico->getId() ?>">
+                                        <?= $medico->getcrm() ?> -
+                                        <?= $medico->nameMedico() ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
 

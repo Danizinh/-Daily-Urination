@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultUsuario) {
             if (isset($_POST['campo1'])) {
                 $crm =  $_POST['campo1'];
-                $resultMedico = $medicoDAO->inserirMedico($name,$crm);
+                $resultMedico = $medicoDAO->inserirMedico($name,$crm,$resultUsuario);
                 if ($resultMedico) {
                     header("Location:../view/public/login.php");
                 } else {

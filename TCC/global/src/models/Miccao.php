@@ -1,5 +1,5 @@
 <?php
-require("../models/Paciente.php");
+require_once("../models/Paciente.php");
 class Miccao extends Paciente
 {
     private $urgencia;

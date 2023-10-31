@@ -13,19 +13,20 @@ class MedicoDAO
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    public function inserirMedico($nameMedico, $crm)
+   
+    public function inserirMedico($nameMedico, $crm,$idUsuario)
     {
-        $sql = "INSERT INTO medico(nameMedico,crm)
-        VALUES (:nameMedico,:crm)";
+        $sql = "INSERT INTO medico(nameMedico,crm,idUsuario)
+        VALUES (:nameMedico,:crm,:idUsuario)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':nameMedico', $nameMedico);
         $stmt->bindValue(':crm', $crm);
-        try {
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            return "Erro ao inserir Medico" . $e->getMessage();
+        $stmt->bindValue(':idUsuario', $idUsuario);
+        if($stmt->execute()){
+            $stmt = $this->pdo->query("SELECT LAST_INSERT_ID()");
+            return $stmt->fetchColumn();
+        }else{
+            return false;
         }
     }
     public function atualizarMedico($medico)
@@ -53,18 +54,19 @@ class MedicoDAO
             return false;
         }
     }
-    public function validacaoMedico($crm)
+    public function validacaoMedico($idUsuario)
     {
-        $sql = "SELECT  FROM medico WHERE crm=:crm";
+        $sql = "SELECT * FROM medico WHERE idUsuario =:idUsuario";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':crm', $crm);
+        $stmt->bindValue(':idUsuario', $idUsuario);
         if ($stmt->execute()) {
           if($stmt->rowCount() > 0){
             $medico = $stmt->fetch(PDO::FETCH_ASSOC);
-            return new medico(
+            return new Medico(
                 $medico["id"],
                 $medico["nameMedico"],
-                $medico["cmr"],
+                $medico["crm"],
+                $medico["idUsuario"]
             );
           }else{
             return false;

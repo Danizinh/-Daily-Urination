@@ -15,7 +15,9 @@ CREATE TABLE
     IF NOT EXISTS medico (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nameMedico VARCHAR(225),
-        crm VARCHAR(15)
+        crm VARCHAR(15),
+        idUsuario INT,
+        FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
     );
 
 CREATE TABLE
@@ -75,8 +77,8 @@ VALUES (
         "133239-SP"
     );
 
-INSERT
-    INTOmedico(nameMedico, crm)
+INSERT INTO
+    medico(nameMedico, crm)
 VALUES (
         "Maykon Pereira ",
         "168485-SP"
@@ -106,8 +108,6 @@ VALUES (
 
 DROP DATABASE dados;
 
-DELETE FROM usuarios;
-
-delete from pacientes;
+delete from medico;
 
 delete from usuarios;
