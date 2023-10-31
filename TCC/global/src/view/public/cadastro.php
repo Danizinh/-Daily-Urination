@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <script src="./src/view/public/assets/js/validation.js" defer></script>
+    <script src="../../../src/view/public/assets/js/crm.js" defer></script>
     <link rel="stylesheet" href="../src/styles/style.css">
     <title>Faça login</title>
 </head>
@@ -47,17 +48,20 @@
                         autocomplete="off" required>
 
 
-                    <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
-                    <input type="text" id="campo1" disabled><br>
                     <script src="../public/assets/js/crm.js" defer></script>
 
+                </div>
+                <input type="text" id="campo1" name="campo1" disabled placeholder="CRM"><br>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded">Você é medico ?</span>
+                    <input type="checkbox" id="habilitarCampos"><br><br style="display:none">
                 </div>
                 <button type="submit" name="submit">Sign up</button>
                 <?php
                 if (isset($_GET["erro"])) {
                     if ($_GET["erro"] == 4) {
                         echo '<p class="paragraph" style="color: red !important; display: flex;
-                            justify-content: center;">Email já cadastrado ! Tente novamante!</p>';
+                        justify-content: center;">Email já cadastrado ! Tente novamante!</p>';
                     }
                 }
                 ?>

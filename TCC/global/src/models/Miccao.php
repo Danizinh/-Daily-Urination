@@ -2,21 +2,18 @@
 require("../models/Paciente.php");
 class Miccao extends Paciente
 {
-    private $normal;
     private $urgencia;
-    private $desconfortavel;
-    private $horário;
-    private $data;
+    private $horario;
     private $volume_Urinado;
+    private $idPaciente;
 
-    function __construct($normal, $urgencia, $desconfortavel, $horário, $data, $volume_Urinado)
+    function __construct($urgencia,  $horario, $volume_Urinado, $idPaciente)
     {
-        $this->normal = $normal;
+        
         $this->urgencia = $urgencia;
-        $this->desconfortavel = $desconfortavel;
-        $this->horário = $horário;
-        $this->data = $data;
+        $this->horario = $horario;
         $this->volume_Urinado = $volume_Urinado;
+        $this->idPaciente = $idPaciente;
     }
     public static function __construct3(
         $normal,
@@ -25,6 +22,7 @@ class Miccao extends Paciente
         $horario,
         $data,
         $volume_Urinado,
+        $idPaciente,
         $aniversario,
         $tel,
         $CEP,
@@ -39,7 +37,7 @@ class Miccao extends Paciente
         $id_usuario
     ) {
 
-        $instance = new self($normal, $urgencia, $desconfortavel, $horario, $data, $volume_Urinado);
+        $instance = new self($urgencia, $horario, $volume_Urinado, $idPaciente);
 
         $instance->$aniversario = $aniversario;
         $instance->$tel = $tel;
@@ -56,14 +54,7 @@ class Miccao extends Paciente
         $instance->$id_usuario = $id_usuario;
     }
 
-    public function getNormal()
-    {
-        return $this->normal;
-    }
-    public function setNormal($newNormal)
-    {
-        $this->normal = $newNormal;
-    }
+  
     public function getUrgencia()
     {
         return $this->urgencia;
@@ -72,32 +63,16 @@ class Miccao extends Paciente
     {
         $this->urgencia = $newUrgencia;
     }
-    public function getDesconfortavel()
+        public function getHorario()
     {
-        return $this->desconfortavel;
-    }
-    public function setDesconfortavel($newDesconfortavel)
-    {
-        $this->desconfortavel = $newDesconfortavel;
-    }
-    public function getHorario()
-    {
-        return $this->horário;
+        return $this->horario;
     }
 
     public function setHorario($newHorario)
     {
-        $this->horário = $newHorario;
+        $this->horario = $newHorario;
     }
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    public function setData($newData)
-    {
-        $this->data = $newData;
-    }
+    
 
     public function getvolumeUrinado()
     {
@@ -106,5 +81,14 @@ class Miccao extends Paciente
     public function setvolumeUrinado($newvolumeUrinado)
     {
         $this->volume_Urinado = $newvolumeUrinado;
+    }
+
+    public function getidPaciente()
+    {
+        return $this->idPaciente;
+    }
+    public function setidPaciente($newidPaciente)
+    {
+        $this->idPaciente = $newidPaciente;
     }
 }

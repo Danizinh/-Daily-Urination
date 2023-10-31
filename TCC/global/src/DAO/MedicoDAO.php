@@ -13,33 +13,14 @@ class MedicoDAO
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function buscarMedico($id)
-    {
-        $sql = "SELECT * FROM medico WHERE id=:id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
-        if ($stmt->execute()) {
-            if ($stmt->rowCount() > 0) {
-                $medico = $stmt->fetch(PDO::FETCH_ASSOC);
-                return new Medico(
-                    $medico['id'],
-                    $medico['nameMedico'],
-                    $medico['cmr'],
-                );
-            } else {
-                return "Not";
-            }
-        }
-    }
 
-    public function inserirMedico($id, $nameMedico, $crm)
+    public function inserirMedico($nameMedico, $crm)
     {
-        $sql = "INSERT INTO medico(id,nameMedico,crm)
-        VALUES (:id,:nameMedico,:crm,)";
+        $sql = "INSERT INTO medico(nameMedico,crm)
+        VALUES (:nameMedico,:crm)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':id', $id['id']);
-        $stmt->bindValue(':nameMedico', $nameMedico['nameMedico']);
-        $stmt->bindValue(':crm', $crm['crm']);
+        $stmt->bindValue(':nameMedico', $nameMedico);
+        $stmt->bindValue(':crm', $crm);
         try {
             $stmt->execute();
             return true;
@@ -72,4 +53,23 @@ class MedicoDAO
             return false;
         }
     }
+    public function validacaoMedico($crm)
+    {
+        $sql = "SELECT  FROM medico WHERE crm=:crm";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':crm', $crm);
+        if ($stmt->execute()) {
+          if($stmt->rowCount() > 0){
+            $medico = $stmt->fetch(PDO::FETCH_ASSOC);
+            return new medico(
+                $medico["id"],
+                $medico["nameMedico"],
+                $medico["cmr"],
+            );
+          }else{
+            return false;
+          }
+        }
+    }
+    
 }

@@ -23,12 +23,13 @@ class PacienteDAO
             if ($stmt->rowCount() > 0) {
                 $paciente = $stmt->fetch(PDO::FETCH_ASSOC);
                 return new Paciente(
+                    $paciente['id'],
                     $paciente['aniversario'],
                     $paciente['tel'],
                     $paciente['CEP'],
                     $paciente['endereco'],
                     $paciente['bairro'],
-                    $paciente['estado'],
+                    $paciente['estado'], 
                     $paciente['cidade'],
                     $paciente['pais'],
                     $paciente['genero'],

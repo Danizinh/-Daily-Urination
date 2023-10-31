@@ -2,6 +2,7 @@
 require("../models/Usuario.php");
 class Paciente extends Usuario
 {
+    private $id;
     private $aniversario;
     private $tel;
     private $CEP;
@@ -15,9 +16,9 @@ class Paciente extends Usuario
     private $idMedico;
     private $id_usuario;
 
-    function __construct($aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario)
+    function __construct($id,$aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario)
     {
-
+        $this->id = $id;
         $this->aniversario = $aniversario;
         $this->tel = $tel;
         $this->CEP = $CEP;
@@ -32,6 +33,7 @@ class Paciente extends Usuario
         $this->id_usuario = $id_usuario;
     }
     public static function __construct1(
+        $id,
         $name,
         $email,
         $senha_crypt,
@@ -48,13 +50,20 @@ class Paciente extends Usuario
         $idMedico,
         $id_usuario
     ) {
-        $instance = new self($aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario);
+        $instance = new self($id,$aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario);
 
         $instance->$name = $name;
         $instance->$email = $email;
         $instance->$senha_crypt = $senha_crypt;
     }
 
+    public function getIdPaciente(){
+        return $this->id;
+    }
+
+    public function setIdPaciente($id){
+        $this->id = $id;
+    }
 
     public function getid_usuario()
     {

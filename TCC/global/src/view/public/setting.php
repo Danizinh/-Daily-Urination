@@ -41,7 +41,7 @@ require "../../../connection/conn.php";
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="#">
+                <a href="../../view/public/analytics.php">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="links_name">Analytics</span>
                 </a>
