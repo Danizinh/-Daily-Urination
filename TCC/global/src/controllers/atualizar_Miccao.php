@@ -1,8 +1,8 @@
 <?php
 session_start();
-require("../DAO/MiccaoDAO.php");
-require("../models/Miccao.php");
-require("../../connection/conn.php");
+require_once("../DAO/MiccaoDAO.php");
+require_once("../models/Miccao.php");
+require_once("../../connection/conn.php");
 if (isset($_POST['submit'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
             $urgencia = $_POST['urgencia'];
             $volumeUrinado = $_POST['volumeUrinado'];
             $idPaciente = $_POST['idPaciente'];
-            $miccao = new Miccao($urgencia,$horario,$volumeUrinado,$idPaciente);
+            $miccao = new Miccao($urgencia, $horario, $volumeUrinado, $idPaciente);
             $miccaoDAO = new MiccaoDAO($pdo->getConnection());
             $result = $miccaoDAO->inserirMiccao($miccao);
             echo $result;
@@ -29,7 +29,4 @@ if (isset($_POST['submit'])) {
             echo "Erro" . $e->getMessage();
         }
     }
-
 }
-
-?>

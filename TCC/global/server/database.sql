@@ -28,9 +28,8 @@ CREATE TABLE
         CEP VARCHAR(9),
         endereco VARCHAR (225),
         bairro VARCHAR(225),
-        estado VARCHAR(255),
         cidade VARCHAR(255),
-        pais VARCHAR(255),
+        UF VARCHAR(3),
         genero VARCHAR(1),
         CPF VARCHAR(11),
         id_medico INT,
@@ -63,48 +62,77 @@ SELECT * FROM miccao;
 
 SELECT * FROM medico;
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES (
-        "Camila Bonacordi",
-        "175203-SP"
-    );
+-- INSERT INTO
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES (
-        "Fernanda Falção",
-        "133239-SP"
-    );
+--     medico(nameMedico, crm)
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES (
-        "Maykon Pereira ",
-        "168485-SP"
-    );
+-- VALUES (
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES ("Edgar Oliveira", "141529-SP");
+--         "Camila Bonacordi",
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES ("Celso Ferreira", "44190-SP");
+--         "175203-SP"
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES (
-        "Lucas Tadeu Moura",
-        "125324-SP"
-    );
+--     );
 
-INSERT INTO
-    medico(nameMedico, crm)
-VALUES (
-        "Joana Amaral Chanan",
-        "35621-SP"
-    );
+-- INSERT INTO
+
+--     medico(nameMedico, crm)
+
+-- VALUES (
+
+--         "Fernanda Falção",
+
+--         "133239-SP"
+
+--     );
+
+-- INSERT INTO
+
+--     medico(nameMedico, crm)
+
+-- VALUES (
+
+--         "Maykon Pereira ",
+
+--         "168485-SP"
+
+--     );
+
+-- INSERT INTO
+
+--     medico(nameMedico, crm)
+
+-- VALUES ("Edgar Oliveira", "141529-SP");
+
+-- INSERT INTO
+
+--     medico(nameMedico, crm)
+
+-- VALUES ("Celso Ferreira", "44190-SP");
+
+-- INSERT INTO
+
+--     medico(nameMedico, crm)
+
+-- VALUES (
+
+--         "Lucas Tadeu Moura",
+
+--         "125324-SP"
+
+--     );
+
+-- INSERT INTO
+
+--     medico(nameMedico, crm)
+
+-- VALUES (
+
+--         "Joana Amaral Chanan",
+
+--         "35621-SP"
+
+--     );
 
 DROP DATABASE dados;
 

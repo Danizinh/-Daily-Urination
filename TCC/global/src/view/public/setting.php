@@ -17,13 +17,11 @@ require_once(__DIR__ . "/../../../connection/conn.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../view/public/assets/css/style.css">
     <link rel="stylesheet" href="../../view/public/assets/css/profile.css">
 
-    <meta name="description"
-        content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
+    <meta name="description" content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
 </head>
 
 <body>
@@ -66,8 +64,7 @@ require_once(__DIR__ . "/../../../connection/conn.php");
                     </div>
                 </div>
                 <div class="d-flex">
-                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out'
-                            id="log_out"></i></a>
+                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out' id="log_out"></i></a>
                 </div>
             </li>
         </ul>
@@ -81,128 +78,180 @@ require_once(__DIR__ . "/../../../connection/conn.php");
                     <h1 class="h-1">Informações</h1>
                     <div class="input_all">
                         <form action="../../controllers/atualizar_Usuario.php" method="POST" id="form">
-                            <div class="field">
-                                <input type="text" name="id" id="id" require_onced placeholder=""
-                                    value="<?= $_SESSION['id'] ?>" style="display:none">
-                            </div>
-                            <div class="field">
-                                <label for="text">Name</label>
-                                <input type="text" name="name" id="name" required placeholder=""
-                                    value="<?= $_SESSION['name'] ?>">
+                            <div class="location-div">
 
-                            </div>
-                            <div class="field">
-                                <label for="text">Sobrenome</label>
-                                <input type="text" name="sobrenome" id="sobrenome" required placeholder=""
-                                    value="<?= $_SESSION['sobrenome'] ?>">
+                                <input type="text" name="id" id="id" require_onced placeholder="" value="<?= $_SESSION['id'] ?>" style="display:none">
 
-                            </div>
-                            <div class="field">
-                                <label for="text">E-mail</label>
-                                <input type="text" name="email" id="email" placeholder=""
-                                    value="<?= $_SESSION['email'] ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">Phone</label>
-                                <input type="text" name="tel" id="tel" placeholder="" value="<?php if (isset($_SESSION["tel"])) {
-                                    echo $_SESSION["tel"];
-                                } ?>">
-                            </div>
+                                <div class="field">
+                                    <label for="text">Name</label>
+                                    <input type="text" name="name" id="name" required placeholder="" value="<?= $_SESSION['name'] ?>">
 
-                            <div class="field">
-                                <label for="text">CPF</label>
-                                <input type="text" name="CPF" id="CPF" placeholder="" maxlength="11" value="<?php if (isset($_SESSION["CPF"])) {
-                                    echo $_SESSION["CPF"];
-                                } ?>">
-                            </div>
+                                </div>
+                                <div class="field">
+                                    <label for="text">Sobrenome</label>
+                                    <input type="text" name="sobrenome" id="sobrenome" required placeholder="" value="<?= $_SESSION['sobrenome'] ?>">
 
-                            <div class="field">
-                                <label for="text">Genero</label>
-                                <input type="text" name="genero" id="genero" placeholder="" value="<?php if (isset($_SESSION["genero"])) {
-                                    echo $_SESSION["genero"];
-                                } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">E-mail</label>
+                                    <input type="text" name="email" id="email" placeholder="" value="<?= $_SESSION['email'] ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">Phone</label>
+                                    <input type="text" name="tel" id="tel" placeholder="" value="<?php if (isset($_SESSION["tel"])) {
+                                                                                                        echo $_SESSION["tel"];
+                                                                                                    } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">CPF</label>
+                                    <input type="text" name="CPF" id="CPF" placeholder="" maxlength="11" value="<?php if (isset($_SESSION["CPF"])) {
+                                                                                                                    echo $_SESSION["CPF"];
+                                                                                                                } ?>">
+                                </div>
 
-                            </div>
-                            <div class="field">
-                                <label for="text">Aniversario</label>
-                                <input type="date" name="aniversario" id="aniversario" placeholder="" value="<?php if (isset($_SESSION["aniversario"])) {
-                                    echo $_SESSION["aniversario"];
-                                } ?>">
-                            </div>
+                                <div class="field">
+                                    <label for="text">Genero</label>
+                                    <select name="genero" id="genero">
+                                        <?php
+                                        if (isset($_SESSION["genero"])) {
+                                            if ($_SESSION["genero"] == "M") {
+                                        ?>
+                                                <option value="M" selected="selected">
+                                                    Masculino
+                                                </option>
+                                                <option value="F">
+                                                    Feminino
+                                                </option>
 
-                            <div class="field">
-                                <label for="text">idMedico</label>
-                                <input type="text" name="idMedico" id="idMedico" placeholder="" value="<?php if (isset($_SESSION["idMedico"])) {
-                                    echo $_SESSION["idMedico"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">idMedico</label>
-                                <input type="text" name="idMedico" id="idMedico" placeholder="" value="<?php if (isset($_SESSION["idMedico"])) {
-                                    echo $_SESSION["idMedico"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <select name="nameMedico" id="nameMedico">
-                                    <?php
-                                    $medicos = lista_Medico();
-                                    foreach ($medicos as $medico): ?>
-                                    <option value="<?= $medico->getId() ?>">
-                                        <?= $medico->getcrm() ?> -
-                                        <?= $medico->nameMedico() ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <option value="M">
+                                                    Masculino
+                                                </option>
+                                                <option value="F" selected="selected">
+                                                    Feminino
+                                                </option>
 
-                            </div>
-                            <h1 class="h-1">Endereço</h1>
-                            <div class="field">
-                                <label for="text">CEP</label>
-                                <input type="text" name="CEP" id="CEP" placeholder="" value="<?php if (isset($_SESSION["CEP"])) {
-                                    echo $_SESSION["CEP"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">Endereco</label>
-                                <input type="text" name="endereco" id="endereco" placeholder="" value="<?php if (isset($_SESSION["endereco"])) {
-                                    echo $_SESSION["endereco"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">Bairro</label>
-                                <input type="text" name="bairro" id="bairro" placeholder="" value="<?php if (isset($_SESSION["bairro"])) {
-                                    echo $_SESSION["bairro"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">Estado</label>
-                                <input type="text" name="estado" id="estado" placeholder="" value="<?php if (isset($_SESSION["estado"])) {
-                                    echo $_SESSION["estado"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">Cidade</label>
-                                <input type="text" name="cidade" id="cidade" placeholder="" value="<?php if (isset($_SESSION["cidade"])) {
-                                    echo $_SESSION["cidade"];
-                                } ?>">
-                            </div>
-                            <div class="field">
-                                <label for="text">Pais</label>
-                                <input type="text" name="pais" id="pais" placeholder="" value="<?php if (isset($_SESSION["pais"])) {
-                                    echo $_SESSION["pais"];
-                                } ?>">
-                            </div>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <option value="M">
+                                                Masculino
+                                            </option>
+                                            <option value="F">
+                                                Feminino
+                                            </option>
+                                        <?php
+                                        }
 
 
-                            <p><button class="button button4" type="submit" name="submit" id="submit">All
-                                    save</button>
-                            </p>
+                                        ?>
+                                    </select>
+
+                                </div>
+                                <div class="field">
+                                    <label for="text">Aniversario</label>
+                                    <input type="date" name="aniversario" id="aniversario" placeholder="" value="<?php if (isset($_SESSION["aniversario"])) {
+                                                                                                                        echo $_SESSION["aniversario"];
+                                                                                                                    } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">Medico</label>
+                                    <select name="idMedico" id="idMedico">
+                                        <?php
+                                        $medicos = lista_Medico();
+                                        foreach ($medicos as $medico) :
+                                            if ($_SESSION['idMedico'] == $medico->getId()) {
+                                        ?>
+                                                <option value="<?= $medico->getId() ?>" selected="selected">
+                                                    <?= $medico->getcrm() ?> -
+                                                    <?= $medico->getnameMedico() ?>
+                                                </option>
+                                            <?php
+                                            } else { ?>
+                                                <option value="<?= $medico->getId() ?>">
+                                                    <?= $medico->getcrm() ?> -
+                                                    <?= $medico->getnameMedico() ?>
+                                                </option>
+                                        <?php
+                                            }
+                                        endforeach; ?>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="div-personalData">
+
+                                <h1 class="h-1">Endereço</h1>
+                            </div>
+                            <div class="location-div">
+                                <div class="field">
+                                    <label for="text">CEP</label>
+                                    <input type="text" name="CEP" id="CEP" oninput="getCEP()" value="<?php if (isset($_SESSION["CEP"])) {
+                                                                                                            echo $_SESSION["CEP"];
+                                                                                                        } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">Endereco</label>
+                                    <input type="text" name="endereco" id="endereco" placeholder="" value="<?php if (isset($_SESSION["endereco"])) {
+                                                                                                                echo $_SESSION["endereco"];
+                                                                                                            } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">Bairro</label>
+                                    <input type="text" name="bairro" id="bairro" placeholder="" value="<?php if (isset($_SESSION["bairro"])) {
+                                                                                                            echo $_SESSION["bairro"];
+                                                                                                        } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">UF &nbsp</label>
+                                    <input type="text" name="UF" id="UF" placeholder="" value="<?php if (isset($_SESSION["UF"])) {
+                                                                                                    echo $_SESSION["UF"];
+                                                                                                } ?>">
+                                </div>
+                                <div class="field">
+                                    <label for="text">Cidade</label>
+                                    <input type="text" name="cidade" id="cidade" placeholder="" value="<?php if (isset($_SESSION["cidade"])) {
+                                                                                                            echo $_SESSION["cidade"];
+                                                                                                        } ?>">
+                                </div>
+                            </div>
+
+                            <div class="div-button">
+                                <button class="button button4" type="submit" name="submit" id="submit">All save</button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        function getCEP() {
+            var numCep = $("#CEP").val();
+            var url = "https://viacep.com.br/ws/" + numCep + "/json";
+
+            $.ajax({
+                url: url,
+                type: "get",
+                dataType: "json",
+
+                success: function(dados) {
+                    console.log(dados);
+                    $("#UF").val(dados.uf);
+                    $("#cidade").val(dados.localidade);
+                    $("#bairro").val(dados.bairro);
+                    $("#endereco").val(dados.logradouro);
+                }
+            })
+
+
+        }
+    </script>
+    <script type="text/javascript" src="../../view/public/assets/js/jquery-3.4.1.min.js" defer></script>
     <script src="../public/assets/js/script.js" defer></script>
 
 </body>

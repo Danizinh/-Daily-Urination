@@ -22,19 +22,16 @@ if (isset($_POST['submit'])) {
             } else {
                 $aniversario = '1900-01-01';
                 $niverVazio = true;
-
             }
             $tel = $_POST['tel'];
             $CEP = $_POST['CEP'];
             $endereco = $_POST['endereco'];
             $bairro = $_POST['bairro'];
-            $estado = $_POST['estado'];
             $cidade = $_POST['cidade'];
-            $pais = $_POST['pais'];
+            $UF = $_POST["UF"];
             $genero = $_POST['genero'];
             $CPF = $_POST['CPF'];
             $idMedico = $_POST['idMedico'];
-            $nameMedico = $_POST['nameMedico'];
             // Usuarios
             $usuarioDAO = new UsuarioDAO($pdo->getConnection());
             $resultUsuario = $usuarioDAO->atualizarUsuarios($id, $name, $sobrenome, $email);
@@ -47,13 +44,12 @@ if (isset($_POST['submit'])) {
                 $CEP,
                 $endereco,
                 $bairro,
-                $estado,
                 $cidade,
-                $pais,
+                $UF,
                 $genero,
                 $CPF,
                 $idMedico,
-                $id
+                $id,
             );
             echo $resultPaciente;
             if ($resultUsuario && $resultPaciente) {
@@ -72,9 +68,8 @@ if (isset($_POST['submit'])) {
                 $_SESSION['CEP'] = $CEP;
                 $_SESSION['endereco'] = $endereco;
                 $_SESSION['bairro'] = $bairro;
-                $_SESSION['estado'] = $estado;
                 $_SESSION['cidade'] = $cidade;
-                $_SESSION['pais'] = $pais;
+                $_SESSION['UF'] = $UF;
                 $_SESSION['genero'] = $genero;
                 $_SESSION['CPF'] = $CPF;
                 $_SESSION['idMedico'] = $idMedico;

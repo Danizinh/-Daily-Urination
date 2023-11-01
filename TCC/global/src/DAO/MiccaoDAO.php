@@ -1,4 +1,6 @@
 <?php
+require_once "../models/Miccao.php";
+
 class MiccaoDAO
 {
     private $pdo;
@@ -30,7 +32,7 @@ class MiccaoDAO
         }
     }
 
-    
+
     public function excluirMiccao($idPaciente)
     {
         $sql = "DELETE miccao WHERE= id=:id";

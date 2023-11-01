@@ -259,6 +259,25 @@
     margin: 18px
 }
 
+.div-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.location-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.div-personalData {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
 @media (max-width: 420px) {
     .sidebar li .tooltip {
         display: none;

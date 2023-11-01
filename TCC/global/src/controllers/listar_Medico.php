@@ -12,7 +12,7 @@ function lista_Medico()
         // echo $result[$i]["crm"];
         // echo $result[$i]["nameMedico"];
 
-        $medico = new Medico($result[$i]["id"], $result[$i]["nameMedico"], $result[$i]["crm"]);
+        $medico = new Medico($result[$i]["id"], $result[$i]["nameMedico"], $result[$i]["crm"],$result[$i]["idUsuario"]);
         array_push($arrayMedico, $medico);
     }
     return $arrayMedico;

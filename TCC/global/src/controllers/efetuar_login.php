@@ -18,13 +18,12 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
         if ($user != "Usuário nao encontrado") {
             $medicoDAO = new MedicoDAO($pdo->getConnection());
             $medico = $medicoDAO->validacaoMedico($user->getId());
-            if($medico){
+            if ($medico) {
                 $_SESSION['id'] = $medico->getIdUsuario();
                 $_SESSION['crm'] = $medico->getcrm();
                 $_SESSION['nameMedico'] = $medico->getnameMedico();
                 $_SESSION['idUsuario'] = $medico->getIdUsuario();
                 header("Location: ../view/public/platform.php");
-              
             } else {
                 $pacienteDAO = new PacienteDAO($pdo->getConnection());
                 $paciente = $pacienteDAO->buscarPaciente($user->getId());

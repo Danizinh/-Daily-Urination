@@ -81,19 +81,18 @@ class PacienteDAO
         }
     }
 
-    public function atualizarPacientes($aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $id_medico, $id_usuario)
+    public function atualizarPacientes($aniversario, $tel, $CEP, $endereco, $bairro,  $cidade,$UF, $genero, $CPF, $id_medico, $id_usuario)
     {
         $sql = "UPDATE pacientes SET aniversario = :aniversario, tel = :tel,CEP =:CEP,endereco = :endereco,bairro =:bairro,
-        estado=:estado,cidade =:cidade,pais =:pais, genero =:genero, CPF =:CPF,id_medico = :id_medico WHERE id_usuario =:id_usuario";
+        cidade =:cidade,UF = :UF, genero =:genero, CPF =:CPF,id_medico = :id_medico WHERE id_usuario =:id_usuario";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':aniversario', $aniversario, PDO::PARAM_STR);
         $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
         $stmt->bindValue(':CEP', $CEP, PDO::PARAM_STR);
         $stmt->bindValue(':endereco', $endereco, PDO::PARAM_STR);
         $stmt->bindValue(':bairro', $bairro, PDO::PARAM_STR);
-        $stmt->bindValue(':estado', $estado, PDO::PARAM_STR);
         $stmt->bindValue(':cidade', $cidade, PDO::PARAM_STR);
-        $stmt->bindValue(':pais', $pais, PDO::PARAM_STR);
+        $stmt->bindValue(':UF', $UF, PDO::PARAM_STR);
         $stmt->bindValue(':genero', $genero, PDO::PARAM_STR);
         $stmt->bindValue(':CPF', $CPF, PDO::PARAM_STR);
         $stmt->bindValue(':id_medico', $id_medico, PDO::PARAM_INT);
