@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
             $idMedico = $_POST['idMedico'];
             // Usuarios
             $usuarioDAO = new UsuarioDAO($pdo->getConnection());
-            $resultUsuario = $usuarioDAO->atualizarUsuarios($id, $name, $sobrenome, $email);
+            $resultUsuario = $usuarioDAO->atualizarUsuario($id, $name, $sobrenome, $email);
 
             // Pacientes
             $pacienteDAO = new PacienteDAO($pdo->getConnection());

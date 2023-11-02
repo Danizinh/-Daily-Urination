@@ -15,10 +15,10 @@ if (isset($_POST["email"])) {
     $email = $_POST["email"];
     $pdo = new Database();
     $ResetDAO = new ResetDAO($pdo->getConnection());
-    if ($result = $ResetDAO->getUserByEmail($email)) {
+    if ($result = $ResetDAO->obterEmail($email)) {
         if ($result) {
             $code = uniqid(true);
-            if ($ResetDAO->insertResetCode($code, $email)) {
+            if ($ResetDAO->inserirCode($code, $email)) {
                 $mail = new PHPMailer(true);
                 $mail->SMTPDebug = 2;
                 try {
@@ -53,4 +53,3 @@ if (isset($_POST["email"])) {
         header("Location: ../view/public/request-reset.php");
     }
 }
-?>

@@ -9,7 +9,7 @@ class ResetDAO
         $this->pdo = $pdo;
     }
 
-    public function getUserByEmail($email)
+    public function obterEmail($email)
     {
         $sql = "SELECT id FROM usuarios WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
@@ -17,10 +17,9 @@ class ResetDAO
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
-
     }
 
-    public function insertResetCode($code, $email)
+    public function inserirCode($code, $email)
     {
         $sql = "INSERT INTO reset (code, email) VALUES (:code, :email)";
         $stmt = $this->pdo->prepare($sql);
@@ -35,7 +34,7 @@ class ResetDAO
     }
 
 
-    public function getEmailByCode($code)
+    public function emailCode($code)
     {
         $sql = "SELECT email FROM reset WHERE code = :code";
         $stmt = $this->pdo->prepare($sql);
@@ -45,7 +44,7 @@ class ResetDAO
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function updateUserPassword($email, $senha_crypt)
+    public function atualizarSenha($email, $senha_crypt)
     {
         $sql = "UPDATE usuarios SET senha_crypt = :senha_crypt WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
@@ -54,7 +53,7 @@ class ResetDAO
         return $stmt->execute();
     }
 
-    public function deleteResetCode($code)
+    public function excluirCode($code)
     {
         $sql = "DELETE FROM reset WHERE code = :code";
         $stmt = $this->pdo->prepare($sql);
@@ -62,4 +61,3 @@ class ResetDAO
         return $stmt->execute();
     }
 }
-?>

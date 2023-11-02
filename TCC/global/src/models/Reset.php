@@ -30,13 +30,12 @@ class Reset
         $this->code = $newCode;
     }
 
-    public function getToken()
+    public function getEmail()
     {
         return $this->email;
     }
-    public function setToken($new_email)
+    public function setEmail($new_email)
     {
         $this->email = $new_email;
     }
-
 }

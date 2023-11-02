@@ -9,14 +9,12 @@ class Paciente extends Usuario
     private $endereco;
     private $bairro;
     private $cidade;
-    private $pais;
-    private $estado;
     private $genero;
     private $CPF;
     private $idMedico;
     private $id_usuario;
 
-    function __construct($id,$aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario)
+    function __construct($id, $aniversario, $tel, $CEP, $endereco, $bairro, $cidade, $genero, $CPF, $idMedico, $id_usuario)
     {
         $this->id = $id;
         $this->aniversario = $aniversario;
@@ -25,8 +23,6 @@ class Paciente extends Usuario
         $this->endereco = $endereco;
         $this->bairro = $bairro;
         $this->cidade = $cidade;
-        $this->pais = $pais;
-        $this->estado = $estado;
         $this->genero = $genero;
         $this->CPF = $CPF;
         $this->idMedico = $idMedico;
@@ -43,25 +39,25 @@ class Paciente extends Usuario
         $endereco,
         $bairro,
         $cidade,
-        $pais,
-        $estado,
         $genero,
         $CPF,
         $idMedico,
         $id_usuario
     ) {
-        $instance = new self($id,$aniversario, $tel, $CEP, $endereco, $bairro, $estado, $cidade, $pais, $genero, $CPF, $idMedico, $id_usuario);
+        $instance = new self($id, $aniversario, $tel, $CEP, $endereco, $bairro, $cidade, $genero, $CPF, $idMedico, $id_usuario);
 
         $instance->$name = $name;
         $instance->$email = $email;
         $instance->$senha_crypt = $senha_crypt;
     }
 
-    public function getIdPaciente(){
+    public function getIdPaciente()
+    {
         return $this->id;
     }
 
-    public function setIdPaciente($id){
+    public function setIdPaciente($id)
+    {
         $this->id = $id;
     }
 
@@ -115,14 +111,7 @@ class Paciente extends Usuario
         $this->bairro = $newBairro;
     }
 
-    public function getEstado()
-    {
-        return $this->estado;
-    }
-    public function setEstado($newEstado)
-    {
-        $this->estado = $newEstado;
-    }
+
 
     public function getCidade()
     {
@@ -131,14 +120,6 @@ class Paciente extends Usuario
     public function setCidade($newCidade)
     {
         $this->cidade = $newCidade;
-    }
-    public function getPais()
-    {
-        return $this->pais;
-    }
-    public function setPais($newPais)
-    {
-        $this->pais = $newPais;
     }
 
     public function getGenero()

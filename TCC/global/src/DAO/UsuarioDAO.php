@@ -32,7 +32,7 @@ class UsuarioDAO
             return "Erro ao inserir Usuario" . $e->getMessage();
         }
     }
-    public function atualizarUsuarios($id, $name, $sobrenome, $email)
+    public function atualizarUsuario($id, $name, $sobrenome, $email)
     {
         $sql = "UPDATE usuarios SET name = :name,sobrenome=:sobrenome, email = :email WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);

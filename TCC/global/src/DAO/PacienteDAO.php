@@ -29,9 +29,7 @@ class PacienteDAO
                     $paciente['CEP'],
                     $paciente['endereco'],
                     $paciente['bairro'],
-                    $paciente['estado'], 
                     $paciente['cidade'],
-                    $paciente['pais'],
                     $paciente['genero'],
                     $paciente['CPF'],
                     $paciente['id_medico'],
@@ -81,7 +79,7 @@ class PacienteDAO
         }
     }
 
-    public function atualizarPacientes($aniversario, $tel, $CEP, $endereco, $bairro,  $cidade,$UF, $genero, $CPF, $id_medico, $id_usuario)
+    public function atualizarPacientes($aniversario, $tel, $CEP, $endereco, $bairro,  $cidade, $UF, $genero, $CPF, $id_medico, $id_usuario)
     {
         $sql = "UPDATE pacientes SET aniversario = :aniversario, tel = :tel,CEP =:CEP,endereco = :endereco,bairro =:bairro,
         cidade =:cidade,UF = :UF, genero =:genero, CPF =:CPF,id_medico = :id_medico WHERE id_usuario =:id_usuario";

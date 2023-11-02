@@ -8,15 +8,15 @@ if (isset($_POST['code'])) {
     $code = $_POST['code'];
     $pdo = new Database();
     $ResetDAO = new ResetDAO($pdo->getConnection());
-    $result = $ResetDAO->getEmailByCode($code);
+    $result = $ResetDAO->emailCode($code);
 
     if ($result) {
         if (isset($_POST['senha_crypt'])) {
             $senha_crypt = $_POST['senha_crypt'];
             $senha_crypt = md5($senha_crypt);
             $email = $result['email'];
-            if ($ResetDAO->updateUserPassword($email, $senha_crypt)) {
-                if ($ResetDAO->deleteResetCode($code)) {
+            if ($ResetDAO->atualizarSenha($email, $senha_crypt)) {
+                if ($ResetDAO->excluirCode($code)) {
                     header('Location: ../view/public/login.php?erro=4');
                     exit();
                 } else {
@@ -33,4 +33,3 @@ if (isset($_POST['code'])) {
         exit();
     }
 }
-?>

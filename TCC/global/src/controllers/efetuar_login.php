@@ -39,9 +39,7 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
                     $_SESSION['CEP'] = $paciente->getCEP();
                     $_SESSION['endereco'] = $paciente->getEndereco();
                     $_SESSION['bairro'] = $paciente->getBairro();
-                    $_SESSION['estado'] = $paciente->getEstado();
                     $_SESSION['cidade'] = $paciente->getCidade();
-                    $_SESSION['pais'] = $paciente->getPais();
                     $_SESSION['genero'] = $paciente->getGenero();
                     $_SESSION['CPF'] = $paciente->getCPF();
                     $_SESSION['idMedico'] = $paciente->getidMedico();
