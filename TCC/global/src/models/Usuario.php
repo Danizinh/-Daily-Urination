@@ -1,16 +1,16 @@
 <?php
 class Usuario
 {
-    private $id;
-    private $name;
-    private $sobrenome;
-    private $email;
-    private $senha_crypt;
+    protected $idUsuario;
+    protected $name;
+    protected $sobrenome;
+    protected $email;
+    protected $senha_crypt;
 
 
     function __construct($id, $name, $sobrenome, $email, $senha_crypt)
     {
-        $this->id = $id;
+        $this->idUsuario = $id;
         $this->name = $name;
         $this->sobrenome = $sobrenome;
         $this->email = $email;
@@ -19,11 +19,11 @@ class Usuario
 
     public function getId()
     {
-        return $this->id;
+        return $this->idUsuario;
     }
     public function setId($newId)
     {
-        $this->id = $newId;
+        $this->idUsuario = $newId;
     }
     public function getName()
     {

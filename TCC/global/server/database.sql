@@ -40,8 +40,9 @@ CREATE TABLE
 CREATE TABLE
     IF NOT EXISTS miccao (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        urgencia VARCHAR(30) NOT NULL,
+        urgencia VARCHAR(30) DEFAULT ' ',
         horario DATETIME,
+        tipo int not null,
         volumeUrinado INT NOT NULL,
         idPaciente INT NOT NULL,
         FOREIGN KEY (idPaciente) REFERENCES pacientes(id)

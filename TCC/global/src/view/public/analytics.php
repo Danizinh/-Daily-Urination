@@ -68,46 +68,75 @@ session_start();
             </li>
         </ul>
     </div>
-    <section class="home-section">
-        <div class="text">Informação pessoal</div>
-        <div class="text_">Atualize sua foto e dados pessoais aqui</div>
-        <div class="general">
-            <div class="home">
-                <div class="container">
-                    <h1 class="h-1">Informações</h1>
-                    <div class="input_all">
-                        <form action="../../controllers/atualizar_Miccao.php" method="POST" id="form">
 
-                            <div class="field">
-                                <input type="text" name="idPaciente" id="idPaciente" placeholder=""
-                                    value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
+        <section class="home-section">
+            <div class="text">Informação pessoal</div>
+            <div class="text_">Atualize sua foto e dados pessoais aqui</div>
+            <div class="liquidos">
+                <div class="general">
+                    <div class="home">
+                        <div class="container">
+                            <h1 class="h-1">Informações Urinarias</h1>
+                            <div class="input_all">
+                                <form action="../../controllers/atualizar_Miccao.php" method="POST" id="form">
+
+
+                                        <input type="text" name="idPaciente" id="idPaciente" placeholder=""
+                                               value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
+
+                                    <input type="text" id="tipo" name="tipo" value="1" style="display:none;">
+
+                                    <div class="field">
+                                        <label for="urgencia">Escolha um Urgencia:</label>
+                                        <select name="urgencia" id="urgencia">
+                                            <option value="1">Normal</option>
+                                            <option value="2">Urgente</option>
+                                            <option value="3">Perdas</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="field">
+                                        <label for="text">Volume Urinado</label>
+                                        <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100"
+                                               value="" required>
+                                    </div>
+                                    <p><button class="button button4" type="submit" name="submit" id="submit">All
+                                            save</button>
+                                    </p>
+                                </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="general">
+                    <div class="home">
+                        <div class="container">
+                            <h1 class="h-1">Informações de ingestão de liquidos</h1>
+                            <div class="input_all">
+                                <form action="../../controllers/atualizar_Miccao.php" method="POST" id="form">
 
+                                    <input type="text" name="idPaciente" id="idPaciente" placeholder=""
+                                           value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
 
-                            <div class="field">
-                                <label for="urgencia">Escolha um Urgencia:</label>
-                                <select name="urgencia" id="urgencia">
-                                    <option value="1">Normal</option>
-                                    <option value="2">Urgente</option>
-                                    <option value="3">Perdas</option>
-                                </select>
+                                    <input type="text" id="tipo" name="tipo" value="2" style="display:none;">
 
+                                    <div class="field">
+                                        <label for="text">Volume ingerido</label>
+                                        <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100"
+                                               value="" required>
+                                    </div>
+                                    <p><button class="button button4" type="submit" name="submit" id="submit">All
+                                            save</button>
+                                    </p>
+                                </form>
                             </div>
-                            <div class="field">
-                                <label for="text">Volume Urinado</label>
-                                <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100"
-                                    value="<?php if (isset($_SESSION['volumeUrinado']))
-                                                                                                                        echo $_SESSION['volumeUrinado'] ?>" required>
-                            </div>
-                            <p><button class="button button4" type="submit" name="submit" id="submit">All
-                                    save</button>
-                            </p>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+
     <script src="../public/assets/js/script.js" defer></script>
 
 </body>

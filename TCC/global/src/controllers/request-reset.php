@@ -4,12 +4,12 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require('../models/Reset.php');
-require('../DAO/ResetDAO.php');
-require('../controllers/PHPMailer/src/Exception.php');
-require('../controllers/PHPMailer/src/PHPMailer.php');
-require('../controllers/PHPMailer/src/SMTP.php');
-require('../../connection/conn.php');
+require dirname(__DIR__, 3) . "/global/src/models/Reset.php";
+require dirname(__DIR__, 3) . "/global/src/DAO/ResetDAO.php";
+require dirname(__DIR__, 3) . "/global/src/controllers/PHPMailer/src/Exception.php";
+require dirname(__DIR__, 3) . "/global/src/controllers/PHPMailer/src/PHPMailer.php";
+require dirname(__DIR__, 3) . "/global/src/controllers/PHPMailer/src/SMTP.php";
+require dirname(__DIR__, 3) . "/global/connection/conn.php";
 
 if (isset($_POST["email"])) {
     $email = $_POST["email"];

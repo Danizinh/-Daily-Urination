@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once "../../connection/conn.php";
-require_once "../models/Usuario.php";
-require_once "../DAO/UsuarioDAO.php";
-require_once "../DAO/MedicoDAO.php";
-require_once "../controllers/cadastrar_Paciente.php";
+require_once dirname(__DIR__, 3) . "/global/connection/conn.php";
+require_once dirname(__DIR__, 3) . "/global/src/models/Usuario.php";
+require_once dirname(__DIR__, 3) . "/global/src/DAO/UsuarioDAO.php";
+require_once dirname(__DIR__, 3) . "/global/src/DAO/MedicoDAO.php";
+require_once dirname(__DIR__, 3) . "/global/src/controllers/cadastrar_Paciente.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit']) && !empty($_POST['name']) && !empty($_POST['sobrenome']) && !empty($_POST['email']) && !empty($_POST['senha_crypt'])) {
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultUsuario) {
             if (isset($_POST['campo1'])) {
                 $crm =  $_POST['campo1'];
-                $resultMedico = $medicoDAO->inserirMedico($name,$crm,$resultUsuario);
+                $resultMedico = $medicoDAO->inserirMedico(($name . " " . $sobrenome),$crm,$resultUsuario);
                 if ($resultMedico) {
                     header("Location:../view/public/login.php");
                 } else {

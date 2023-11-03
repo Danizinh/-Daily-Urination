@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require("../models/Usuario.php");
-require("../DAO/UsuarioDAO.php");
-require("../DAO/PacienteDAO.php");
-require("../../connection/conn.php");
+require dirname(__DIR__, 3) . "/global/src/models/Usuario.php";
+require dirname(__DIR__, 3) . "/global/src/DAO/UsuarioDAO.php";
+require dirname(__DIR__, 3) . "/global/src/DAO/PacienteDAO.php";
+require dirname(__DIR__, 3) . "/global/connection/conn.php";
 
 if (isset($_POST['submit'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

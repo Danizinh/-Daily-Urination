@@ -73,5 +73,24 @@ class MedicoDAO
           }
         }
     }
+
+    public function buscarPacientes($idMedico){
+        $sql = "SELECT * FROM paciente WHERE id_medico =:idMedico";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':idUsuario', $idUsuario);
+        if ($stmt->execute()) {
+          if($stmt->rowCount() > 0){
+            $medico = $stmt->fetch(PDO::FETCH_ASSOC);
+            return new Medico(
+                $medico["id"],
+                $medico["nameMedico"],
+                $medico["crm"],
+                $medico["idUsuario"]
+            );
+          }else{
+            return false;
+          }
+        }
+    }
     
 }

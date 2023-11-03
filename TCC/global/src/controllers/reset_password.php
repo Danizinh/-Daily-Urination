@@ -1,8 +1,8 @@
 <?php
 session_start();
-require('../../connection/conn.php');
-require('../models/Reset.php');
-require('../DAO/ResetDAO.php');
+require dirname(__DIR__, 3) . "/global/connection/conn.php";
+require dirname(__DIR__, 3) . "/global/src/models/Reset.php";
+require dirname(__DIR__, 3) . "/global/src/DAO/ResetDAO.php";
 
 if (isset($_POST['code'])) {
     $code = $_POST['code'];

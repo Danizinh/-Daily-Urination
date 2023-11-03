@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once "../DAO/MedicoDAO.php";
-require_once "../models/Medico.php";
-require_once "../DAO/UsuarioDAO.php";
-require_once "../models/Usuario.php";
-require_once "../models/Paciente.php";
-require_once "../DAO/PacienteDAO.php";
-require_once "../../connection/conn.php";
+require_once dirname(__DIR__, 3) . "/global/src/DAO/MedicoDAO.php";
+require_once dirname(__DIR__, 3) . "/global/src/models/Medico.php";
+require_once dirname(__DIR__, 3) . "/global/src/DAO/UsuarioDAO.php";
+require_once dirname(__DIR__, 3) . "/global/src/models/Usuario.php";
+require_once dirname(__DIR__, 3) . "/global/src/models/Paciente.php";
+require_once dirname(__DIR__, 3) . "/global/src/DAO/PacienteDAO.php";
+require_once dirname(__DIR__, 3) . "/global/connection/conn.php";
 
 if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha_crypt'])))) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,7 +19,7 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
             $medicoDAO = new MedicoDAO($pdo->getConnection());
             $medico = $medicoDAO->validacaoMedico($user->getId());
             if ($medico) {
-                $_SESSION['id'] = $medico->getIdUsuario();
+                $_SESSION['id'] = $medico->getId();
                 $_SESSION['crm'] = $medico->getcrm();
                 $_SESSION['nameMedico'] = $medico->getnameMedico();
                 $_SESSION['idUsuario'] = $medico->getIdUsuario();
@@ -42,6 +42,7 @@ if (isset($_POST['submit']) && (!empty($_POST['email']) && (!empty($_POST['senha
                     $_SESSION['cidade'] = $paciente->getCidade();
                     $_SESSION['genero'] = $paciente->getGenero();
                     $_SESSION['CPF'] = $paciente->getCPF();
+                    $_SESSION['UF'] = $paciente->getUF();
                     $_SESSION['idMedico'] = $paciente->getidMedico();
                     header("Location: ../view/public/system.php");
                 }

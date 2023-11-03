@@ -1,5 +1,5 @@
 <?php
-require_once "../models/Miccao.php";
+require_once dirname(__DIR__, 3) . "/global/src/models/Miccao.php";
 
 class MiccaoDAO
 {
@@ -17,13 +17,14 @@ class MiccaoDAO
     }
     public function inserirMiccao($miccao)
     {
-        $sql = "INSERT INTO miccao(urgencia,horario,volumeUrinado,idPaciente)
-        VALUES(:urgencia,:horario,:volumeUrinado,:idPaciente)";
+        $sql = "INSERT INTO miccao(urgencia,horario,volumeUrinado,idPaciente,tipo)
+        VALUES(:urgencia,:horario,:volumeUrinado,:idPaciente,:tipo)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(":urgencia", $miccao->getUrgencia());
         $stmt->bindValue(":horario", $miccao->getHorario());
         $stmt->bindValue(":volumeUrinado", $miccao->getvolumeUrinado());
         $stmt->bindValue(":idPaciente", $miccao->getidPaciente());
+        $stmt->bindValue(":tipo", $miccao->getTipo());
         try {
             $stmt->execute();
             return true;

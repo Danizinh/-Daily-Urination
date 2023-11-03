@@ -278,6 +278,16 @@
     width: 100%;
 }
 
+.div-dadosPaciente{
+    display: flex;
+    justify-content: space-around;
+}
+
+.liquidos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 420px) {
     .sidebar li .tooltip {
         display: none;

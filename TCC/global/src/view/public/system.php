@@ -70,7 +70,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
   </div>
   <section class="home-section">
 
-    <div class="text">Welcome Back,
+    <div class="text">Olá, bem vindo.
       <?= $_SESSION['name'] ?>
     </div>
 
@@ -79,7 +79,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
       echo date('F d, Y');
       ?>
       <div class="lorem">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Obrigado por usar meu sistema, para cadastrar qualquer atividade urinaria ou ingestão de liquidos basta clicar no segundo icone da barra de navegação.
       </div>
     </div>
 

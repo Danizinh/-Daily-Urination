@@ -5,7 +5,7 @@ class Medico extends Usuario
     private $id;
     private $nameMedico;
     private $crm;
-    private $idUsuario;
+    protected $idUsuario;
     public function __construct($id, $nameMedico, $crm,$idUsuario)
     {
         $this->id = $id;
@@ -24,10 +24,10 @@ class Medico extends Usuario
         $email
     ) {
         $instance = new self($id, $nameMedico, $crm,$idUsuario);
-        $instance->$id = $id;
-        $instance->$name = $name;
-        $instance->$email = $email;
-        $instance->$senha_crypt = $senha_crypt;
+        $instance->idUsuario = $idUsuario;
+        $instance->name = $name;
+        $instance->email = $email;
+        $instance->senha_crypt = $senha_crypt;
     }
 
     public function getId()

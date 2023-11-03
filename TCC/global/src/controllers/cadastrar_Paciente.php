@@ -1,5 +1,5 @@
 <?php
-require "../DAO/PacienteDAO.php";
+require dirname(__DIR__, 3) . "/global/src/DAO/PacienteDAO.php";
 
 
 function cadastrar_paciente($id_usuario, $conexao)

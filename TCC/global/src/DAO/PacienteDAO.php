@@ -32,6 +32,7 @@ class PacienteDAO
                     $paciente['cidade'],
                     $paciente['genero'],
                     $paciente['CPF'],
+                    $paciente['UF'],
                     $paciente['id_medico'],
                     $paciente['id_usuario'],
                 );
@@ -112,6 +113,19 @@ class PacienteDAO
             return true;
         } else {
             return "Excluido com sucesso";
+        }
+    }
+
+    public function buscarPacientes($idMedico){
+        $sql = "SELECT u.* , p.*  FROM pacientes as p INNER JOIN usuarios as u WHERE u.id = p.id_usuario and p.id_medico = :idMedico ORDER BY u.name";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':idMedico', $idMedico);
+        if ($stmt->execute()) {
+          if($stmt->rowCount() > 0){
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+          }else{
+            return false;
+          }
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-require_once("../models/Usuario.php");
+include_once dirname(__DIR__, 3) . "/global/src/models/Usuario.php";
 class Paciente extends Usuario
 {
     private $id;
@@ -11,10 +11,11 @@ class Paciente extends Usuario
     private $cidade;
     private $genero;
     private $CPF;
+    private $UF;
     private $idMedico;
     private $id_usuario;
 
-    function __construct($id, $aniversario, $tel, $CEP, $endereco, $bairro, $cidade, $genero, $CPF, $idMedico, $id_usuario)
+    function __construct($id, $aniversario, $tel, $CEP, $endereco, $bairro, $cidade, $genero, $CPF,$UF,$idMedico, $id_usuario)
     {
         $this->id = $id;
         $this->aniversario = $aniversario;
@@ -25,12 +26,15 @@ class Paciente extends Usuario
         $this->cidade = $cidade;
         $this->genero = $genero;
         $this->CPF = $CPF;
+        $this->UF = $UF;
         $this->idMedico = $idMedico;
         $this->id_usuario = $id_usuario;
     }
+
     public static function __construct1(
         $id,
         $name,
+        $sobrenome,
         $email,
         $senha_crypt,
         $aniversario,
@@ -41,14 +45,19 @@ class Paciente extends Usuario
         $cidade,
         $genero,
         $CPF,
+        $UF,
         $idMedico,
         $id_usuario
-    ) {
-        $instance = new self($id, $aniversario, $tel, $CEP, $endereco, $bairro, $cidade, $genero, $CPF, $idMedico, $id_usuario);
+    )
+    {
+        $instance = new self($id, $aniversario, $tel, $CEP, $endereco, $bairro, $cidade, $genero, $CPF, $UF, $idMedico, $id_usuario);
 
-        $instance->$name = $name;
-        $instance->$email = $email;
-        $instance->$senha_crypt = $senha_crypt;
+        $instance->name = $name;
+        $instance->sobrenome = $sobrenome;
+        $instance->email = $email;
+        $instance->senha_crypt = $senha_crypt;
+
+        return $instance;
     }
 
     public function getIdPaciente()
@@ -72,6 +81,12 @@ class Paciente extends Usuario
     public function getAniversario()
     {
         return $this->aniversario;
+    }
+
+    public function getIdade()
+    {
+        $ano = idate("Y");
+        return ($ano - $this->aniversario->format("Y"));
     }
     public function setBirthday($newAniversario)
     {
@@ -135,6 +150,17 @@ class Paciente extends Usuario
     {
         return $this->CPF;
     }
+
+    public function getUF()
+    {
+        return $this->UF;
+    }
+
+    public function setUF($UF): void
+    {
+        $this->UF = $UF;
+    }
+
     public function setCPF($newCPF)
     {
         $this->CPF = $newCPF;

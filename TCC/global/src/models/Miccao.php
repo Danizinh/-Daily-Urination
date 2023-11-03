@@ -1,19 +1,21 @@
 <?php
-require_once("../models/Paciente.php");
+require_once dirname(__DIR__, 3) . "/global/src/models/Paciente.php";
 class Miccao extends Paciente
 {
     private $urgencia;
     private $horario;
     private $volume_Urinado;
     private $idPaciente;
+    private $tipo;
 
-    function __construct($urgencia,  $horario, $volume_Urinado, $idPaciente)
+    function __construct($urgencia,  $horario, $volume_Urinado, $idPaciente,$tipo)
     {
         
         $this->urgencia = $urgencia;
         $this->horario = $horario;
         $this->volume_Urinado = $volume_Urinado;
         $this->idPaciente = $idPaciente;
+        $this->tipo = $tipo;
     }
     public static function __construct3(
         $normal,
@@ -23,6 +25,7 @@ class Miccao extends Paciente
         $data,
         $volume_Urinado,
         $idPaciente,
+        $tipo,
         $aniversario,
         $tel,
         $CEP,
@@ -37,7 +40,7 @@ class Miccao extends Paciente
         $id_usuario
     ) {
 
-        $instance = new self($urgencia, $horario, $volume_Urinado, $idPaciente);
+        $instance = new self($urgencia, $horario, $volume_Urinado, $idPaciente,$tipo);
 
         $instance->$aniversario = $aniversario;
         $instance->$tel = $tel;
@@ -52,6 +55,16 @@ class Miccao extends Paciente
         $instance->$CPF = $CPF;
         $instance->$idMedico = $idMedico;
         $instance->$id_usuario = $id_usuario;
+    }
+
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo($tipo): void
+    {
+        $this->tipo = $tipo;
     }
 
   
