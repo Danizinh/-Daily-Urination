@@ -13,8 +13,8 @@ class MedicoDAO
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-   
-    public function inserirMedico($nameMedico, $crm,$idUsuario)
+
+    public function inserirMedico($nameMedico, $crm, $idUsuario)
     {
         $sql = "INSERT INTO medico(nameMedico,crm,idUsuario)
         VALUES (:nameMedico,:crm,:idUsuario)";
@@ -22,10 +22,10 @@ class MedicoDAO
         $stmt->bindValue(':nameMedico', $nameMedico);
         $stmt->bindValue(':crm', $crm);
         $stmt->bindValue(':idUsuario', $idUsuario);
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             $stmt = $this->pdo->query("SELECT LAST_INSERT_ID()");
             return $stmt->fetchColumn();
-        }else{
+        } else {
             return false;
         }
     }
@@ -60,37 +60,37 @@ class MedicoDAO
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':idUsuario', $idUsuario);
         if ($stmt->execute()) {
-          if($stmt->rowCount() > 0){
-            $medico = $stmt->fetch(PDO::FETCH_ASSOC);
-            return new Medico(
-                $medico["id"],
-                $medico["nameMedico"],
-                $medico["crm"],
-                $medico["idUsuario"]
-            );
-          }else{
-            return false;
-          }
+            if ($stmt->rowCount() > 0) {
+                $medico = $stmt->fetch(PDO::FETCH_ASSOC);
+                return new Medico(
+                    $medico["id"],
+                    $medico["nameMedico"],
+                    $medico["crm"],
+                    $medico["idUsuario"]
+                );
+            } else {
+                return false;
+            }
         }
     }
 
-    public function buscarPacientes($idMedico){
+    public function buscarPacientes($idMedico)
+    {
         $sql = "SELECT * FROM paciente WHERE id_medico =:idMedico";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':idUsuario', $idUsuario);
+        $stmt->bindValue(':idMedico', $idMedico);
         if ($stmt->execute()) {
-          if($stmt->rowCount() > 0){
-            $medico = $stmt->fetch(PDO::FETCH_ASSOC);
-            return new Medico(
-                $medico["id"],
-                $medico["nameMedico"],
-                $medico["crm"],
-                $medico["idUsuario"]
-            );
-          }else{
-            return false;
-          }
+            if ($stmt->rowCount() > 0) {
+                $medico = $stmt->fetch(PDO::FETCH_ASSOC);
+                return new Medico(
+                    $medico["id"],
+                    $medico["nameMedico"],
+                    $medico["crm"],
+                    $medico["idUsuario"]
+                );
+            } else {
+                return false;
+            }
         }
     }
-    
 }
