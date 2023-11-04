@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <script src="../../view/public/assets/js/validation.js" defer></script>
     <script src="../../../src/view/public/assets/js/crm.js" defer></script>
     <link rel="stylesheet" href="../src/styles/style.css">
     <title>Faça login</title>
@@ -33,19 +32,15 @@
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="text" name="email" placeholder="email@email.com" id="emailForm" autocomplete="off"
-                        required>
-                </div>
-
-                <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="senha_crypt" placeholder="**********" id="senha_crypt"
-                        autocomplete="off" required>
+                    <input name="email" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="confirmation" placeholder="**********" id="confirmation"
-                        autocomplete="off" required>
+                    <input type="password" name="senha_crypt" placeholder="**********" id="senha_crypt" autocomplete="off" required>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="password" name="confirmation" placeholder="**********" id="confirmation" autocomplete="off" required>
 
 
                     <script src="../public/assets/js/crm.js" defer></script>
@@ -66,6 +61,7 @@
                 }
                 ?>
             </form>
+            <script src="../../view/public/assets/js/validation.js" defer></script>
             <div class="card-footer">
                 Não tem uma conta?<a href="../public/login.php"> Faça seu login.</a>
             </div>

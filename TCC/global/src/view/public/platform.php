@@ -6,6 +6,9 @@ require_once dirname(__DIR__, 3) . "/src/models/Usuario.php";
 require_once dirname(__DIR__, 3) . "/connection/conn.php";
 require_once dirname(__DIR__, 3) . "/src/DAO/PacienteDAO.php";
 
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -23,6 +26,9 @@ require_once dirname(__DIR__, 3) . "/src/DAO/PacienteDAO.php";
         rel="stylesheet">
     <link rel="stylesheet" href="../../view/public/assets/css/style.css">
     <link rel="stylesheet" href="../../view/public/assets/css/profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@^2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
 
     <meta name="description"
         content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
@@ -76,42 +82,20 @@ require_once dirname(__DIR__, 3) . "/src/DAO/PacienteDAO.php";
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <i class='bx bxl-c-plus-plus icon'></i>
-            <div class="logo_name">CodingLab</div>
+            <div class="logo_name">Dados dos pacientes</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
             <li>
-                <a href="#">
+                <a href="../../view/public/platform.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class=" links_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class=" links_name">Analytics</span>
-                </a>
-                <span class="tooltip">Analytics</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="links_name">Setting</span>
-                </a>
-                <span class="tooltip">Setting</span>
-            </li>
+
             <li class="profile">
-                <div class="profile-details">
-                    <img src="profile.jpg" alt="profileImg">
-                    <div class="name_job">
-                        <div class="logoName">
-                            <?= $_SESSION['name'] ?>
-                        </div>
-                        <div class="job">Web designer</div>
-                    </div>
-                </div>
+
                 <div class="d-flex">
                     <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out'
                             id="log_out"></i></a>
@@ -120,6 +104,19 @@ require_once dirname(__DIR__, 3) . "/src/DAO/PacienteDAO.php";
         </ul>
     </div>
     <section class="home-section">
+
+        <div class="text">Olá, bem vindo DR.
+            <?= $_SESSION['nameMedico'] ?>
+        </div>
+
+        <div class="logo_Date">
+            <?php
+            echo date('F d, Y');
+            ?>
+            <div class="lorem">
+                Obrigado por usar meu sistema, para analisar os dados dos seus pacientes
+            </div>
+        </div>
         <div class="text"></div>
         <div class="text_"></div>
         <div class="general">
@@ -146,9 +143,9 @@ require_once dirname(__DIR__, 3) . "/src/DAO/PacienteDAO.php";
 
                     </button>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <div>
+                            <canvas id="chart-<?= $paciente->getIdPaciente() ?>"></canvas>
+                        </div>
                     </div>
                     <?php endforeach; ?>
                     <script>
@@ -170,7 +167,73 @@ require_once dirname(__DIR__, 3) . "/src/DAO/PacienteDAO.php";
                 </div>
             </div>
         </div>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
     </section>
+    <script>
+    <?php foreach ($pacientes as $paciente) : ?>
+    fetch('../../controllers/listarMiccao.php?pacienteId=<?= $paciente->getIdPaciente() ?>')
+        .then(response => response.json())
+        .then(chartData => {
+            console.log(chartData.miccao);
+            console.log(chartData.ingestao);
+            // Não é necessário formatar as datas aqui, pois isso será feito pelo Chart.js
+            const ctx = document.getElementById('chart-<?= $paciente->getIdPaciente() ?>').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [
+
+                        {
+                            label: 'Ingestão de Líquidos',
+                            data: chartData.ingestao,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            fill: false
+                        },
+                        {
+                            label: 'Micção',
+                            data: chartData.miccao,
+                            borderColor: 'rgba(255, 205, 86, 1)',
+                            backgroundColor: 'rgba(255, 205, 86, 0.5)',
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                parser: 'yyyy-MM-dd HH:mm:ss',
+                                unit: 'hour',
+                                displayFormats: {
+                                    hour: 'dd-MM-yyyy HH:mm',
+
+                                },
+                            },
+                            title: {
+                                display: true,
+                                text: 'Data e Horário'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Volume (ml)'
+                            }
+                        }
+                    }
+
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao buscar os dados:', error);
+        });
+    <?php endforeach; ?>
+    </script>
     <script src="../public/assets/js/script.js" defer></script>
 
 </body>

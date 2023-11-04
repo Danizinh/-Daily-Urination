@@ -116,16 +116,49 @@ class PacienteDAO
         }
     }
 
-    public function buscarPacientes($idMedico){
+    public function buscarPacientes($idMedico)
+    {
         $sql = "SELECT u.* , p.*  FROM pacientes as p INNER JOIN usuarios as u WHERE u.id = p.id_usuario and p.id_medico = :idMedico ORDER BY u.name";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':idMedico', $idMedico);
         if ($stmt->execute()) {
-          if($stmt->rowCount() > 0){
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-          }else{
-            return false;
-          }
+            if ($stmt->rowCount() > 0) {
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                return false;
+            }
         }
+    }
+
+    public function getChartData($pacienteId)
+    {
+        $stmt = $this->pdo->prepare("SELECT horario, volumeUrinado, tipo FROM Miccao WHERE idPaciente = :pacienteId ORDER BY horario ASC");
+        $stmt->bindValue(':pacienteId', $pacienteId);
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                $chartData = [
+                    'miccao' => [],
+                    'ingestao' => []
+                ];
+
+                foreach ($result as $row) {
+                    $dataPoint = [
+                        'x' => (date('Y-m-d h:i:s', strtotime($row['horario']))),
+                        'y' => (int)$row['volumeUrinado']
+                    ];
+
+                    if ($row['tipo'] == 1) {
+                        $chartData['miccao'][] = $dataPoint;
+                    } elseif ($row['tipo'] == 2) {
+                        $chartData['ingestao'][] = $dataPoint;
+                    }
+                }
+
+                return $chartData;
+            }
+        }
+        return null;
     }
 }

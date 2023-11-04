@@ -5,6 +5,15 @@ require_once(__DIR__ . "/../../models/Medico.php");
 require_once("../../models/Usuario.php");
 require_once(__DIR__ . "/../../DAO/MedicoDAO.php");
 require_once(__DIR__ . "/../../../connection/conn.php");
+
+
+if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
+    $logado = $_SESSION['email'];
+} else {
+    unset($_SESSION['email']);
+    unset($_SESSION['senha_crypt']);
+    header('Location: ../../view/public/login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
