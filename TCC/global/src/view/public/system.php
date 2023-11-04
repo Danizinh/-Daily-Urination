@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
-  $logado = $_SESSION['email'];
+    $logado = $_SESSION['email'];
 } else {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha_crypt']);
-  header('Location: ../../view/public/login.php');
+    unset($_SESSION['email']);
+    unset($_SESSION['senha_crypt']);
+    header('Location: ../../view/public/login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -20,10 +20,8 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
     <link rel="stylesheet" href="../public/assets/css/bootstrap.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap"
-        rel="stylesheet">
-    <meta name="description"
-        content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <meta name="description" content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 
@@ -58,11 +56,9 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                 <span class="tooltip">Setting</span>
             </li>
             <li class="profile">
-                <div class="profile-details">
-                </div>
+
                 <div class="d-flex">
-                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out'
-                            id="log_out"></i></a>
+                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out' id="log_out"></i></a>
                 </div>
             </li>
         </ul>
@@ -75,8 +71,8 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
 
         <div class="logo_Date">
             <?php
-      echo date('F d, Y');
-      ?>
+            echo date('F d, Y');
+            ?>
             <div class="lorem">
                 Obrigado por usar meu sistema, para cadastrar qualquer atividade urinaria ou ingestão de liquidos basta
                 clicar no segundo icone da barra de navegação.

@@ -24,13 +24,11 @@
             <form class="card-form" action="../../controllers/efetuar_login.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input name="email" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off"
-                        required>
+                    <input name="email" type="text" placeholder="email@email.com" id="emailForm" autocomplete="off" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded"></span>
-                    <input type="password" name="senha_crypt" placeholder="**********" id="passwordForm"
-                        autocomplete="off" required>
+                    <input type="password" name="senha_crypt" placeholder="**********" id="passwordForm" autocomplete="off" required>
                 </div>
                 <div class="form-item-other">
                     <a href="../../view/public/request-reset.php">Esqueci a minha senha!</a>
@@ -46,7 +44,7 @@
                     echo '<p class="paragraph" style="color: red !important;">email ou senha incorretos, tente novamente!</p>';
                 }
                 if ($_GET["erro"] == 2) {
-                    echo '<p class="paragraph" style="color: red !important;">Troca de senha falhou, tente novamente!</p>';
+                    echo '<p class="paragraph" style="color: red !important;"Senha falhou, tente novamente!</p>';
                 }
                 if ($_GET["erro"] == 3) {
                     echo '<p class="paragraph" style="color: green !important;">Email enviado com sucesso!</p>';

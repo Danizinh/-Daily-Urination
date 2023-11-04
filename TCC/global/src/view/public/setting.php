@@ -26,11 +26,13 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../view/public/assets/css/style.css">
     <link rel="stylesheet" href="../../view/public/assets/css/profile.css">
 
-    <meta name="description" content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
+    <meta name="description"
+        content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
 </head>
 
 <body>
@@ -63,18 +65,13 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                 <span class="tooltip">Setting</span>
             </li>
             <li class="profile">
-                <div class="profile-details">
-                    <img src="profile.jpg" alt="profileImg">
-                    <div class="name_job">
-                        <div class="logoName">
-                            <?= $_SESSION['name'] ?>
-                        </div>
-                        <div class="job">Web designer</div>
-                    </div>
-                </div>
+
                 <div class="d-flex">
-                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out' id="log_out"></i></a>
+                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out'
+                            id="log_out"></i></a>
                 </div>
+            </li>
+
             </li>
         </ul>
     </div>
@@ -89,21 +86,25 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                         <form action="../../controllers/atualizar_Usuario.php" method="POST" id="form">
                             <div class="location-div">
 
-                                <input type="text" name="id" id="id" require_onced placeholder="" value="<?= $_SESSION['id'] ?>" style="display:none">
+                                <input type="text" name="id" id="id" require_onced placeholder=""
+                                    value="<?= $_SESSION['id'] ?>" style="display:none">
 
                                 <div class="field">
                                     <label for="text">Name</label>
-                                    <input type="text" name="name" id="name" required placeholder="" value="<?= $_SESSION['name'] ?>">
+                                    <input type="text" name="name" id="name" required placeholder=""
+                                        value="<?= $_SESSION['name'] ?>">
 
                                 </div>
                                 <div class="field">
                                     <label for="text">Sobrenome</label>
-                                    <input type="text" name="sobrenome" id="sobrenome" required placeholder="" value="<?= $_SESSION['sobrenome'] ?>">
+                                    <input type="text" name="sobrenome" id="sobrenome" required placeholder=""
+                                        value="<?= $_SESSION['sobrenome'] ?>">
 
                                 </div>
                                 <div class="field">
                                     <label for="text">E-mail</label>
-                                    <input type="text" name="email" id="email" placeholder="" value="<?= $_SESSION['email'] ?>">
+                                    <input type="text" name="email" id="email" placeholder=""
+                                        value="<?= $_SESSION['email'] ?>">
                                 </div>
                                 <div class="field">
                                     <label for="text">Phone</label>
@@ -125,33 +126,33 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                                         if (isset($_SESSION["genero"])) {
                                             if ($_SESSION["genero"] == "M") {
                                         ?>
-                                                <option value="M" selected="selected">
-                                                    Masculino
-                                                </option>
-                                                <option value="F">
-                                                    Feminino
-                                                </option>
+                                        <option value="M" selected="selected">
+                                            Masculino
+                                        </option>
+                                        <option value="F">
+                                            Feminino
+                                        </option>
 
-                                            <?php
+                                        <?php
                                             } else {
                                             ?>
-                                                <option value="M">
-                                                    Masculino
-                                                </option>
-                                                <option value="F" selected="selected">
-                                                    Feminino
-                                                </option>
+                                        <option value="M">
+                                            Masculino
+                                        </option>
+                                        <option value="F" selected="selected">
+                                            Feminino
+                                        </option>
 
-                                            <?php
+                                        <?php
                                             }
                                         } else {
                                             ?>
-                                            <option value="M">
-                                                Masculino
-                                            </option>
-                                            <option value="F">
-                                                Feminino
-                                            </option>
+                                        <option value="M">
+                                            Masculino
+                                        </option>
+                                        <option value="F">
+                                            Feminino
+                                        </option>
                                         <?php
                                         }
 
@@ -162,7 +163,8 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                                 </div>
                                 <div class="field">
                                     <label for="text">Aniversario</label>
-                                    <input type="date" name="aniversario" id="aniversario" placeholder="" value="<?php if (isset($_SESSION["aniversario"])) {
+                                    <input type="date" name="aniversario" id="aniversario" placeholder=""
+                                        value="<?php if (isset($_SESSION["aniversario"])) {
                                                                                                                         echo $_SESSION["aniversario"];
                                                                                                                     } ?>">
                                 </div>
@@ -174,16 +176,16 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                                         foreach ($medicos as $medico) :
                                             if ($_SESSION['idMedico'] == $medico->getId()) {
                                         ?>
-                                                <option value="<?= $medico->getId() ?>" selected="selected">
-                                                    <?= $medico->getcrm() ?> -
-                                                    <?= $medico->getnameMedico() ?>
-                                                </option>
-                                            <?php
+                                        <option value="<?= $medico->getId() ?>" selected="selected">
+                                            <?= $medico->getcrm() ?> -
+                                            <?= $medico->getnameMedico() ?>
+                                        </option>
+                                        <?php
                                             } else { ?>
-                                                <option value="<?= $medico->getId() ?>">
-                                                    <?= $medico->getcrm() ?> -
-                                                    <?= $medico->getnameMedico() ?>
-                                                </option>
+                                        <option value="<?= $medico->getId() ?>">
+                                            <?= $medico->getcrm() ?> -
+                                            <?= $medico->getnameMedico() ?>
+                                        </option>
                                         <?php
                                             }
                                         endforeach; ?>
@@ -239,26 +241,26 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
         </div>
     </section>
     <script>
-        function getCEP() {
-            var numCep = $("#CEP").val();
-            var url = "https://viacep.com.br/ws/" + numCep + "/json";
+    function getCEP() {
+        var numCep = $("#CEP").val();
+        var url = "https://viacep.com.br/ws/" + numCep + "/json";
 
-            $.ajax({
-                url: url,
-                type: "get",
-                dataType: "json",
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "json",
 
-                success: function(dados) {
-                    console.log(dados);
-                    $("#UF").val(dados.uf);
-                    $("#cidade").val(dados.localidade);
-                    $("#bairro").val(dados.bairro);
-                    $("#endereco").val(dados.logradouro);
-                }
-            })
+            success: function(dados) {
+                console.log(dados);
+                $("#UF").val(dados.uf);
+                $("#cidade").val(dados.localidade);
+                $("#bairro").val(dados.bairro);
+                $("#endereco").val(dados.logradouro);
+            }
+        })
 
 
-        }
+    }
     </script>
     <script type="text/javascript" src="../../view/public/assets/js/jquery-3.4.1.min.js" defer></script>
     <script src="../public/assets/js/script.js" defer></script>

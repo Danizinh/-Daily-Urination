@@ -21,12 +21,14 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../view/public/assets/css/style.css">
     <link rel="stylesheet" href="../../view/public/assets/css/profile.css">
     <link rel="stylesheet" href="../../view/public/assets/css/analytics.css">
 
-    <meta name="description" content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
+    <meta name="description"
+        content="Sejam bem vindos(a) venham conhecer nossa novas formas de desenvolvimentos e grande novas tecnologias">
 </head>
 
 <body>
@@ -58,10 +60,13 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                 </a>
                 <span class="tooltip">Setting</span>
             </li>
+            <li class="profile">
 
-            <div class="d-flex">
-                <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out' id="log_out"></i></a>
-            </div>
+
+                <div class="d-flex">
+                    <a href="../../controllers/exit.php" class="btn btn-danger me-5"><i class='bx bx-log-out'
+                            id="log_out"></i></a>
+                </div>
             </li>
         </ul>
     </div>
@@ -78,7 +83,8 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                             <form action="../../controllers/atualizar_Miccao.php" method="POST" id="form">
 
 
-                                <input type="text" name="idPaciente" id="idPaciente" placeholder="" value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
+                                <input type="text" name="idPaciente" id="idPaciente" placeholder=""
+                                    value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
 
                                 <input type="text" id="tipo" name="tipo" value="1" style="display:none;">
 
@@ -93,7 +99,8 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                                 </div>
                                 <div class="field">
                                     <label for="text">Volume Urinado</label>
-                                    <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100" value="" required>
+                                    <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100"
+                                        value="" required>
                                 </div>
                                 <p><button class="button button4" type="submit" name="submit" id="submit">All
                                         save</button>
@@ -110,13 +117,15 @@ if (isset($_SESSION['email']) and isset($_SESSION['senha_crypt'])) {
                         <div class="input_all">
                             <form action="../../controllers/atualizar_Miccao.php" method="POST" id="form">
 
-                                <input type="text" name="idPaciente" id="idPaciente" placeholder="" value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
+                                <input type="text" name="idPaciente" id="idPaciente" placeholder=""
+                                    value="<?= $_SESSION['idPaciente'] ?>" style="display:none;">
 
                                 <input type="text" id="tipo" name="tipo" value="2" style="display:none;">
 
                                 <div class="field">
                                     <label for="text">Volume ingerido</label>
-                                    <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100" value="" required>
+                                    <input type="text" name="volumeUrinado" id="volumeUrinado" placeholder="100"
+                                        value="" required>
                                     <p><button class="button button4" type="submit" name="submit" id="submit">All
                                             save</button>
                                     </p>
